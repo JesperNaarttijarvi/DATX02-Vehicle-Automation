@@ -12,6 +12,11 @@
 - Travis test runs: 
 
 # Document locations
+
+## Group contract
+
+[Contract](https://docs.google.com/document/d/1iRWjfHyE1HeINMaZkJWwPUwuH4xp_BoTg1VcI6d-qZA/edit?usp=sharing)
+
 ## Requirements and Analysis Document
 
 [RAD](https://docs.google.com/document/d/1R22-YMYw6wcnvqW69ybtfUwh5KwOOhLTOGASOnpR0GM/edit?usp=sharing)
