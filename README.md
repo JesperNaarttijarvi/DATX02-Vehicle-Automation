@@ -4,7 +4,7 @@
 
 ## Links
 - Course website: https://chalmers.instructure.com/courses/8840
-- Google drive: 
+- Google drive: https://drive.google.com/folderview?id=18-LHY9hiYLVXiSsBGcz5ZbtCDmfjux9w
 - Overleaf: https://www.overleaf.com/project/5e29a8ac8106ad0001fc4918
 - Trello: 
 - Slack: 
