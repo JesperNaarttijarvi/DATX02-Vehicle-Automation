@@ -3,14 +3,14 @@
 # Overview
 
 ## Links
-- Course website: https://chalmers.instructure.com/courses/8840
-- Google drive: https://drive.google.com/folderview?id=18-LHY9hiYLVXiSsBGcz5ZbtCDmfjux9w
-- Overleaf: https://www.overleaf.com/project/5e29a8ac8106ad0001fc4918
-- Trello: https://trello.com/invite/b/naWlkoqd/ca7697431e7760583e5f8d9df17b2c48/datx02-vehicle-automation
-- Git: https://github.com/JesperNaarttijarvi/DATX02-Vehicle-Automation/     (DUH)
+- [Course website](https://chalmers.instructure.com/courses/8840)
+- [Google drive](https://drive.google.com/folderview?id=18-LHY9hiYLVXiSsBGcz5ZbtCDmfjux9w)
+- [Overleaf](https://www.overleaf.com/project/5e29a8ac8106ad0001fc4918)
+- [Trello](https://trello.com/invite/b/naWlkoqd/ca7697431e7760583e5f8d9df17b2c48/datx02-vehicle-automation)
+- [Git (DUH)](https://github.com/JesperNaarttijarvi/DATX02-Vehicle-Automation/)
 - Slack: 
-[Projekt schedule](https://calendar.google.com/calendar?cid=aGlla2IzYXY5czFyOG81cm5vNWtvaGVoNThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)  
-[Unified schedule](https://cloud.timeedit.net/chalmers/web/public/ri16YXQ4600Z52Qv6X003566y6Y050165Y61Y5gQ1075X63Z85160Y572XX55379Y2766605046Y0363Q7.html) 
+- [Projekt schedule](https://calendar.google.com/calendar?cid=aGlla2IzYXY5czFyOG81cm5vNWtvaGVoNThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)  
+- [Unified schedule](https://cloud.timeedit.net/chalmers/web/public/ri16YXQ4600Z52Qv6X003566y6Y050165Y61Y5gQ1075X63Z85160Y572XX55379Y2766605046Y0363Q7.html) 
 
 # Document locations
 
