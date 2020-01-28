@@ -10,6 +10,8 @@
 - Git: https://github.com/JesperNaarttijarvi/DATX02-Vehicle-Automation/     (DUH)
 - Slack: 
 - Travis test runs: 
+- Projekt schedule:
+- Unified schedule: https://cloud.timeedit.net/chalmers/web/public/ri16YXQ4600Z52Qv6X003566y6Y050165Y61Y5gQ1075X63Z85160Y572XX55379Y2766605046Y0363Q7.html
 
 # Document locations
 
