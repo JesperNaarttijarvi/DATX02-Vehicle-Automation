@@ -8,7 +8,7 @@
 - [Overleaf](https://www.overleaf.com/project/5e29a8ac8106ad0001fc4918)
 - [Trello](https://trello.com/invite/b/naWlkoqd/ca7697431e7760583e5f8d9df17b2c48/datx02-vehicle-automation)
 - [Git (DUH)](https://github.com/JesperNaarttijarvi/DATX02-Vehicle-Automation/)
-- Slack: 
+- [Slack](https://app.slack.com/client/TT0SXUM24/CT2NULZN3) 
 - [Projekt schedule](https://calendar.google.com/calendar/embed?src=hiekb3av9s1r8o5rno5koheh58%40group.calendar.google.com&ctz=Europe%2FStockholm)  
 - [Unified schedule](https://cloud.timeedit.net/chalmers/web/public/ri16YXQ4600Z52Qv6X003566y6Y050165Y61Y5gQ1075X63Z85160Y572XX55379Y2766605046Y0363Q7.html) 
 
