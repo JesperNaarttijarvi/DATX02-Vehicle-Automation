@@ -16,7 +16,7 @@
 
 ## Group contract
 
-[Contract](https://docs.google.com/document/d/1iRWjfHyE1HeINMaZkJWwPUwuH4xp_BoTg1VcI6d-qZA/edit?usp=sharing)
+[Contract](https://dochub.com/jesper-naarttinarti/rl5xqvD/bilaga-1-gruppkontrakt-f%C3%B6r-kandidatarbete-docx)
 
 ## Requirements and Analysis Document
 
