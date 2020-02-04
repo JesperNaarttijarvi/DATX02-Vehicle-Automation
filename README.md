@@ -4,6 +4,7 @@
 
 ## Links
 - [Course website](https://chalmers.instructure.com/courses/8840)
+- [Time reports](https://docs.google.com/spreadsheets/d/1_WkaiJPf-2FAsoJ_Ij8q5ijSDnB2xvV9oNOaUa9tjXI/edit?usp=drive_web&ouid=105702131027264538406)
 - [Google drive](https://drive.google.com/folderview?id=18-LHY9hiYLVXiSsBGcz5ZbtCDmfjux9w)
 - [Overleaf](https://www.overleaf.com/project/5e29a8ac8106ad0001fc4918)
 - [Trello](https://trello.com/invite/b/naWlkoqd/ca7697431e7760583e5f8d9df17b2c48/datx02-vehicle-automation)
