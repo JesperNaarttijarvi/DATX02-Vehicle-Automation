@@ -16,8 +16,8 @@
 # Document locations
 
 ## Group contract
-
-[Contract](https://dochub.com/jesper-naarttinarti/rl5xqvD/bilaga-1-gruppkontrakt-f%C3%B6r-kandidatarbete-docx)
+[Contract](/documents/groupcontract.pdf)
+[Contract (WITH DIGITAL SIGNS)](https://dochub.com/jesper-naarttinarti/rl5xqvD/bilaga-1-gruppkontrakt-f%C3%B6r-kandidatarbete-docx)
 
 ## Requirements and Analysis Document
 
