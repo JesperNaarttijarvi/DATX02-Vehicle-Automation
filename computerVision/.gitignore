@@ -5,11 +5,7 @@
 *.png
 *.jpg
 *.pyc
-*.mp4
-*.MP4
-darknet/
 old/
-data/
 mnist/
 caffe/
 grasp/
