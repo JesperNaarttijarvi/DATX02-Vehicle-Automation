@@ -5,10 +5,10 @@
 *.png
 *.jpg
 *.pyc
-*.mp5
-*.MP4
-darknet/
-data/
+#*.mp4
+#*.MP4
+#darknet/
+#data/
 old/
 mnist/
 caffe/
