@@ -20,7 +20,7 @@ decaf/
 submission/
 cfg/
 .fuse*
-darknet
+#darknet
 
 # OS Generated #
 .DS_Store*
