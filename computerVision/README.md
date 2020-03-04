@@ -49,5 +49,8 @@ Now you can go into the darknet folder, change the makefile to your needs. By de
 
 
 #### Helping commands
-To find resolution, frames and ecoding. Run `ffmpeg -i <filename>`
-
+To find resolution, frames and ecoding. Run `ffmpeg -i <filename>` </b>
+To increase/decrease speed. Run `ffmpeg -i input.mp4 -filter:v "setpts=0.5*PTS" output.mp4` where setpts=0.5 means 2x speed. For 4x speed, use 0.25 and so on. </b>
+To change the bitrate of a video. Run `ffmpeg -i input.mp4 -b 1000000 output.mp4` where -b 1000000 is the desired bitrate in bytes/sec </b>
+To compress a video. Run `ffmpeg -i input.mp4 -vcodec libx265 -crf 24 output.mp4` where libx265 is the compress algorithm and 
+-crf 24 is how much it should compress it.
