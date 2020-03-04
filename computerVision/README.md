@@ -36,6 +36,6 @@ Now you can go into the darknet folder, change the makefile to your needs. By de
 #### To try and detect an **image** with yolov3-tiny
 ``./darknet detector test cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights data/dog.jpg``
 #### To try and detect an **video** with yolov3-tiny
-``./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights data/aiSmall.mp4``
+``./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights data/santaMonicaShort.mp4``
 
 ### **Congrats, you're done!**
