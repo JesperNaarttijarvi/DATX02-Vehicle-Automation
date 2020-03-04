@@ -69,11 +69,20 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D OPENCV_EXTRA_MODULES_PATH=~/opencv_build/opencv_contrib/modules \
     -D BUILD_EXAMPLES=ON ..
 
+echo 'Make openCV'
 make
 
+echo 'Starting installing openCV'
 sudo make install
 
+echo 'openCV 4.2.0 was installed. Downloading the last dependencies and updating symlink'
+sudo apt-get install libopencv-dev
 
+echo 'Adding cuda to symlink'
+echo '# Cuda link' >> ~/.bashrc
+echo 'export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}$' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
+source  ~/.bashrc
 
-echo 'OpenCV version: ' + python3 -c "import cv2; print(cv2.__version__)"
 echo 'If everything worked fine, reboot now.'
+
