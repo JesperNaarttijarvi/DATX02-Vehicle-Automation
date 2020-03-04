@@ -49,5 +49,5 @@ Now you can go into the darknet folder, change the makefile to your needs. By de
 
 
 #### Helping commands
-To find resolution, frames and ecoding. Run `ffmpeg -i filename`
+To find resolution, frames and ecoding. Run `ffmpeg -i <filename>`
 
