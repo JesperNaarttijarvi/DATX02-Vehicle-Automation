@@ -28,13 +28,14 @@ Once you get to openCV you can go and do other stuff. It takes FOREVER to instal
 ### After the installation script is completed
 Now you can go into the darknet folder, change the makefile to your needs. By default cuda, openCV and cudnn is enabled.
 
-1. ```cd DATX02-Vehicle-Automation/computerVision/darknet```<br/><br/>
-If you want to change the base settings
-- ```nano Makefile```<br/><br/>
-Make the darknet. If you got 0 errors, everything worked! 
-- ```make```<br/><br/>
-To try and detect an **image** with yolov3-tiny
-- ``./darknet detector test cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights data/dog.jpg``<br/><br/>
-To try and detect an **video** with yolov3-tiny
-- ``./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights data/aiSmall.mp4``<br/><br/>
-- **Congrats, you're done!**
+#### 1. ```cd DATX02-Vehicle-Automation/computerVision/darknet```<br/><br/>
+#### If you want to change the base settings
+```nano Makefile```<br/>
+#### Make the darknet. If you got 0 errors, everything worked! 
+```make```<br/>
+#### To try and detect an **image** with yolov3-tiny
+``./darknet detector test cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights data/dog.jpg``<br/><br/>
+#### To try and detect an **video** with yolov3-tiny
+``./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights data/aiSmall.mp4``<br/><br/>
+
+### **Congrats, you're done!**
