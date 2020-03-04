@@ -1,5 +1,6 @@
-.DS_Store
-.mp4
-.MP4
-.avi
-.AVI
+# OS Generated #
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+*.swp

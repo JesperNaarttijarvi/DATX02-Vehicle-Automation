@@ -5,7 +5,7 @@
 *.png
 *.jpg
 *.pyc
-*.mp4
+*.mp5
 *.MP4
 darknet/
 data/
