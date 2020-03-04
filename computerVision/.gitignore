@@ -5,10 +5,6 @@
 *.png
 *.jpg
 *.pyc
-#*.mp4
-#*.MP4
-#darknet/
-#data/
 old/
 mnist/
 caffe/
@@ -20,7 +16,6 @@ decaf/
 submission/
 cfg/
 .fuse*
-#darknet
 
 # OS Generated #
 .DS_Store*
