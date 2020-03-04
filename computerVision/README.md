@@ -47,3 +47,7 @@ Now you can go into the darknet folder, change the makefile to your needs. By de
 |YOLOV3| h264 | 1080p 30fps|1.5fps|22fps|x|x|
 |YOLOV3_tiny| h264 | 1080p 30fps|8fps|26fps|x|x|
 
+
+#### Helping commands
+To find resolution, frames and ecoding. Run `ffmpeg -i filename`
+
