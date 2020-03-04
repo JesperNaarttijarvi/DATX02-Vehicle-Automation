@@ -39,3 +39,11 @@ Now you can go into the darknet folder, change the makefile to your needs. By de
 ``./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights data/santaMonicaShort.mp4``
 
 ### **Congrats, you're done!**
+
+
+### Benchmarks
+|Weight, resolution, frames|Jetson TX2|Nvidia 2080ti|Nvidia 1060|Nvidia 980ti|
+|---|---|---|---|---|
+|YOLOV3 1080p 24fps|1.5fps|24fps|x|x|
+|YOLOV3_tiny 1080p 24fps|8fps|24fps|x|x|
+
