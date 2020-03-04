@@ -42,17 +42,16 @@ Now you can go into the darknet folder, change the makefile to your needs. By de
 
 
 ### Benchmarks
-| Weight | Encoding Bitrate | Res Frames | Jetson TX2| Nvidia 2080ti | Nvidia 1060 | Nvidia 980ti |
+| Weight | Encoding Bitrate | Res Frames | Jetson TX2| Nvidia 2080ti (CPU Bottleneck. 350% usage)| Nvidia 1060 | Nvidia 980ti |
 |---|---|---|---|---|---|---|
 |YOLOV3| h264  4329 kb/s | 1080p 30fps|1.5fps|22fps|x|x|
-|YOLOV3| h264  8658 kb/s | 1080p 60fps|1.5fps|x|x|x|
+|YOLOV3| h264  12589 kb/s | 1080p 60fps|1.5fps|22fps|x|x|
 |YOLOV3_tiny| h264  4329 kb/s | 1080p 30fps|8fps|26fps|x|x|
-|YOLOV3_tiny| h264 8658 kb/s | 1080p 60fps|8fps|x|x|x|
+|YOLOV3_tiny| h264 12589 kb/s | 1080p 60fps|8fps|26fps|x|x|
 
 
 #### Helping commands
-To find resolution, frames and ecoding. Run `ffmpeg -i <filename>` <br/>
-To increase/decrease speed. Run `ffmpeg -i input.mp4 -r 60 -filter:v "setpts=0.5*PTS" output.mp4` where -r 60 means we want 60fps, setpts=0.5 means 2x speed. For 4x speed, use 0.25 and so on. R and setpts should line up<br/>
-To change the bitrate of a video. Run `ffmpeg -i input.mp4 -b 1000000 output.mp4` where -b 1000000 is the desired bitrate in bytes/sec <br/>
-To compress a video. Run `ffmpeg -i input.mp4 -vcodec libx265 -crf 24 output.mp4` where libx265 is the compress algorithm and 
--crf 24 is how much it should compress it. <br/>
+To get **info**, ea resolution, frames and ecoding. Run `ffmpeg -i <filename>` <br/><br/>
+To increase/decrease **speed**. Run `ffmpeg -i input.mp4 -r 60 -filter:v "setpts=0.5*PTS" output.mp4` where -r 60 means we want 60fps, setpts=0.5 means 2x speed. For 4x speed, use 0.25 and so on. R and setpts should line up<br/><br/>
+To change the **bitrate** of a video. Run `ffmpeg -i input.mp4 -b 1000000 output.mp4` where -b 1000000 is the desired bitrate in bytes/sec <br/><br/>
+To **compress** a video. Run `ffmpeg -i input.mp4 -vcodec libx265 -crf 24 output.mp4` where libx265 is the compress algorithm and -crf 24 is how much it should compress it. <br/><br/>
