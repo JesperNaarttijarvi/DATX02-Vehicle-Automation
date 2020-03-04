@@ -11,7 +11,7 @@ Takes about 3-4 hours total. A good internetconnection is recommended.
 - ```Choose minimal install AND not desktop install in ubuntu boot```
 
 ### When Ubuntu is installed
-Install git and clone this repo. This repo also contains Darknet with tiny-weight and a short MP4 video. You will need to manually download yolov3 weights [WITH THIS LINK](https://pjreddie.com/media/files/yolov3.weights).
+Install git and clone this repo. This repo also contains Darknet with tiny-weight and a short MP4 video. You will need to manually download [yolov3 weights](https://pjreddie.com/media/files/yolov3.weights).
 
 The repo contains a install script that will install nvidia 430, cuda 10.0, cudnn 7.2, ffmpeg, cmake and openCV.
 When its installing CUDA (after nvidia, about 5mins in) you will need to be present and press Y.
