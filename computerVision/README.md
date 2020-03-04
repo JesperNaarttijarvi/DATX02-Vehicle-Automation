@@ -42,8 +42,8 @@ Now you can go into the darknet folder, change the makefile to your needs. By de
 
 
 ### Benchmarks
-|Weight, resolution, frames|Jetson TX2|Nvidia 2080ti|Nvidia 1060|Nvidia 980ti|
-|---|---|---|---|---|
-|YOLOV3 1080p 24fps|1.5fps|24fps|x|x|
-|YOLOV3_tiny 1080p 24fps|8fps|24fps|x|x|
+|Weight| Encoding | Res Frames|Jetson TX2|Nvidia 2080ti|Nvidia 1060|Nvidia 980ti|
+|---|---|---|---|---|---|---|
+|YOLOV3| h264 | 1080p 30fps|1.5fps|22fps|x|x|
+|YOLOV3_tiny| h264 | 1080p 30fps|8fps|26fps|x|x|
 
