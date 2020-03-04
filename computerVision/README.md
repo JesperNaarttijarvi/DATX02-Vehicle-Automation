@@ -1,7 +1,7 @@
 # Computer vision
 
 ## How to install everything you need to make it work in a fresh computer with a nvidia card.
-Takes about 3-4 hours total. A good internetconnection is recommended.
+Takes about 3-5 hours. A good internet connection is recommended.
 ### Install a fresh version of Ubuntu 18.04
 
 - [UBUNTU 18.04 ISO](http://releases.ubuntu.com/18.04.4/ubuntu-18.04.4-desktop-amd64.iso?_ga=2.123161739.1046437142.1583252540-1896361471.1583252540)
