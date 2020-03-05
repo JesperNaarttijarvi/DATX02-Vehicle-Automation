@@ -1,0 +1,2 @@
+custom_msgs:gulliview_server:path_planning:section_identifier:section_lock:truck_automatic_ctrl:truck_manual_ctrl:truck_map:truck_master:truck_visualization
+-DCATKIN_DEVEL_PREFIX=/home/kem/Desktop/ChalmersKandidat/Kandidat19/catkin_ws_clean/devel -DCMAKE_INSTALL_PREFIX=/home/kem/Desktop/ChalmersKandidat/Kandidat19/catkin_ws_clean/install -G Unix Makefiles

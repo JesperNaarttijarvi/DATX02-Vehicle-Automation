@@ -1,0 +1,8 @@
+prefix=/home/kem/Desktop/ChalmersKandidat/Kandidat19/catkin_ws_clean/install
+
+Name: truck_manual_ctrl
+Description: Description of truck_manual_ctrl
+Version: 0.0.1
+Cflags: 
+Libs: -L/home/kem/Desktop/ChalmersKandidat/Kandidat19/catkin_ws_clean/install/lib 
+Requires: 

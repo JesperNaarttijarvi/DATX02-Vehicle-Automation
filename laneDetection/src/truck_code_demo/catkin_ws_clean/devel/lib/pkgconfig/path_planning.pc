@@ -1,0 +1,8 @@
+prefix=/home/kem/Desktop/ChalmersKandidat/Kandidat19/catkin_ws_clean/devel
+
+Name: path_planning
+Description: Description of path_planning
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/kem/Desktop/ChalmersKandidat/Kandidat19/catkin_ws_clean/devel/lib 
+Requires: rospy std_msgs
