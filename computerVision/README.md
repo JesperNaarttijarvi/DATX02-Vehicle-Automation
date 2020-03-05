@@ -73,22 +73,4 @@ To change resolution. Run `ffmpeg -i input.avi -vf scale=1280:720 output.avi` wh
 
 
 <br/>
-Computer MT14
-   *-memory*
-          description: System memory
-          physical id: 0
-          size: 32GiB
-     *-cpu*
-          product: Intel(R) Core(TM) i5-7600 CPU @ 3.50GHz
-          vendor: Intel Corp.
-          vendor_id: GenuineIntel
-          physical id: 1
-          bus info: cpu@0
-          size: 2793MHz
-          capacity: 4100MHz
-          width: 64 bits
-
-     *description: VGA compatible controller
-                product: GP106 [GeForce GTX 1060 6GB]
-                vendor: NVIDIA Corporation
-
+Computer MT14 size: RAM: 32GiB | CPU i5-7600 CPU @ 3.50GHz | GPU GP106
