@@ -70,3 +70,25 @@ To increase/decrease **speed**. Run `ffmpeg -i input.mp4 -r 60 -filter:v "setpts
 To change the **bitrate** of a video. Run `ffmpeg -i input.mp4 -b 1000000 output.mp4` where -b 1000000 is the desired bitrate in bytes/sec <br/><br/>
 To **compress** a video. Run `ffmpeg -i input.mp4 -vcodec libx265 -crf 24 output.mp4` where libx265 is the compress algorithm and -crf 24 is how much it should compress it. <br/><br/>
 To change resolution. Run `ffmpeg -i input.avi -vf scale=1280:720 output.avi` where scale=x:y is the scale <br/><br/>
+
+
+<br/>
+Computer MT14
+   *-memory*
+          description: System memory
+          physical id: 0
+          size: 32GiB
+     *-cpu*
+          product: Intel(R) Core(TM) i5-7600 CPU @ 3.50GHz
+          vendor: Intel Corp.
+          vendor_id: GenuineIntel
+          physical id: 1
+          bus info: cpu@0
+          size: 2793MHz
+          capacity: 4100MHz
+          width: 64 bits
+
+     *description: VGA compatible controller
+                product: GP106 [GeForce GTX 1060 6GB]
+                vendor: NVIDIA Corporation
+
