@@ -91,5 +91,25 @@ echo 'export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}$' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
 source  ~/.bashrc
 
+echo 'Installing python3'
+
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
+
+wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
+
+tar -xf Python-3.7.4.tgz
+
+cd Python-3.7.4
+./configure --enable-optimizations
+
+make
+sudo make altinstall
+
+
+echo 'Adding Python3 to symlink'
+echo '# Python3 link' >> ~/.bashrc
+alias python='python3'
+source  ~/.bashrc
+
 echo 'If everything worked fine, reboot now.'
 
