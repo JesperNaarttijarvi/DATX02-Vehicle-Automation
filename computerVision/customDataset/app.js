@@ -1,0 +1,1 @@
+const conifg = require('./config/config')

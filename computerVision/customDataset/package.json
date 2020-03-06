@@ -1,0 +1,41 @@
+{
+  "name": "custom_dataset",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.3",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.5.1",
+    "express-session": "^1.15.6",
+    "http-proxy": "^1.17.0",
+    "http-proxy-middleware": "^0.19.1",
+    "imap": "^0.8.19",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-html": "^4.0.5",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "5.2.1",
+    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-standard": "3.0.1",
+    "husky": "^3.0.4",
+    "jshint": "^2.10.1",
+    "mocha": "^6.2.0",
+    "mocha-eslint": "^5.0.0",
+    "nodemon": "^1.18.4"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha"
+  },
+  "author": "Jesper Naarttijärvi NPTC",
+  "license": "ISC"
+}
