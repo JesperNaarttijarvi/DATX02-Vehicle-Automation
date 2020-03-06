@@ -111,5 +111,9 @@ echo '# Python3 link' >> ~/.bashrc
 alias python='python3'
 source  ~/.bashrc
 
+
+echo 'Installing PIP'
+sudo apt install -y python-pip
+
 echo 'If everything worked fine, reboot now.'
 
