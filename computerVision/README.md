@@ -70,7 +70,10 @@ To increase/decrease **speed**. Run `ffmpeg -i input.mp4 -r 60 -filter:v "setpts
 To change the **bitrate** of a video. Run `ffmpeg -i input.mp4 -b 1000000 output.mp4` where -b 1000000 is the desired bitrate in bytes/sec <br/><br/>
 To **compress** a video. Run `ffmpeg -i input.mp4 -vcodec libx265 -crf 24 output.mp4` where libx265 is the compress algorithm and -crf 24 is how much it should compress it. <br/><br/>
 To change resolution. Run `ffmpeg -i input.avi -vf scale=1280:720 output.avi` where scale=x:y is the scale <br/><br/>
-
+ffmpeg -ss 00:00:30.0 -i input.wmv -c copy -t 00:00:10.0 output.wmv
 
 <br/>
 Computer MT14 size: RAM: 32GiB | CPU i5-7600 CPU @ 3.50GHz | GPU GP106
+
+To download images with labels for Traffic sign and traffic light, objective is to train and limit the max images to 10k
+`python3 main.py downloader --classes 'Traffic sign' 'Traffic light' --type_csv train --limit 10000`

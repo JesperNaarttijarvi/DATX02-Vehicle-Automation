@@ -115,5 +115,13 @@ source  ~/.bashrc
 echo 'Installing PIP'
 sudo apt install -y python-pip
 
+# AwsClient for saving images
+sudo apt  install -y awscli
+
+echo 'Adding PIP3 to symlink'
+echo '# Python3 link' >> ~/.bashrc
+alias pip='pip3'
+source  ~/.bashrc
+
 echo 'If everything worked fine, reboot now.'
 
