@@ -4,3 +4,5 @@ ehthumbs.db
 Icon?
 Thumbs.db
 *.swp
+computerVision/getCustomDataset/OID/Dataset/
+computerVision/getCustomDataset/OID/Dataset/*
