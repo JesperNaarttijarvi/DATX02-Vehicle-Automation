@@ -8,6 +8,7 @@
 *.mp4
 *.MP4
 getCustomDataset/OID/Dataset/
+customDataset/
 darknet/
 data/
 old/
