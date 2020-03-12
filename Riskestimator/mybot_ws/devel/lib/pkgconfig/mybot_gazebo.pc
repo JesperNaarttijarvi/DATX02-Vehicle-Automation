@@ -1,0 +1,8 @@
+prefix=/home/bachelor20-group39/Documents/youtube_car/mybot_ws/devel
+
+Name: mybot_gazebo
+Description: Description of mybot_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
