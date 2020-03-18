@@ -1,6 +1,9 @@
 # Computer vision
 Contains a installation script for Ubuntu. Also contains all the basic files for Darknet. After you complete this README darknet with cuda and OPENCV will work. Have in mind that the entire folder darknet is gitignored, if you need to update weigts or other settings in it you'll need to manually enable uploads.
 
+## Guides
+- [Technical guide to YOLO3 and CNN](https://lilianweng.github.io/lil-log/2017/10/29/object-recognition-for-dummies-part-1.html)
+
 ## How to install everything you need to make it work in a fresh computer with a nvidia card.
 Takes about 3-5 hours. A good internet connection is recommended.
 

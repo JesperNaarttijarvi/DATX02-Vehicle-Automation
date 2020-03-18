@@ -1,2 +1,2 @@
-Person
-Human hand
+Human body
+Human head
