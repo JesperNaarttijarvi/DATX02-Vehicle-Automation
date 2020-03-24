@@ -1,4 +1,4 @@
-prefix=/home/bachelor20-group39/Documents/youtube_car/mybot_ws/install
+prefix=/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install
 
 Name: teleop_tools_msgs
 Description: Description of teleop_tools_msgs

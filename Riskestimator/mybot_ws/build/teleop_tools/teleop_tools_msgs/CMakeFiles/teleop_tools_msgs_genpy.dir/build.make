@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bachelor20-group39/Documents/youtube_car/mybot_ws/src
+CMAKE_SOURCE_DIR = /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bachelor20-group39/Documents/youtube_car/mybot_ws/build
+CMAKE_BINARY_DIR = /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build
 
 # Utility rule file for teleop_tools_msgs_genpy.
 
@@ -63,10 +63,10 @@ teleop_tools/teleop_tools_msgs/CMakeFiles/teleop_tools_msgs_genpy.dir/build: tel
 .PHONY : teleop_tools/teleop_tools_msgs/CMakeFiles/teleop_tools_msgs_genpy.dir/build
 
 teleop_tools/teleop_tools_msgs/CMakeFiles/teleop_tools_msgs_genpy.dir/clean:
-	cd /home/bachelor20-group39/Documents/youtube_car/mybot_ws/build/teleop_tools/teleop_tools_msgs && $(CMAKE_COMMAND) -P CMakeFiles/teleop_tools_msgs_genpy.dir/cmake_clean.cmake
+	cd /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/teleop_tools_msgs && $(CMAKE_COMMAND) -P CMakeFiles/teleop_tools_msgs_genpy.dir/cmake_clean.cmake
 .PHONY : teleop_tools/teleop_tools_msgs/CMakeFiles/teleop_tools_msgs_genpy.dir/clean
 
 teleop_tools/teleop_tools_msgs/CMakeFiles/teleop_tools_msgs_genpy.dir/depend:
-	cd /home/bachelor20-group39/Documents/youtube_car/mybot_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bachelor20-group39/Documents/youtube_car/mybot_ws/src /home/bachelor20-group39/Documents/youtube_car/mybot_ws/src/teleop_tools/teleop_tools_msgs /home/bachelor20-group39/Documents/youtube_car/mybot_ws/build /home/bachelor20-group39/Documents/youtube_car/mybot_ws/build/teleop_tools/teleop_tools_msgs /home/bachelor20-group39/Documents/youtube_car/mybot_ws/build/teleop_tools/teleop_tools_msgs/CMakeFiles/teleop_tools_msgs_genpy.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/teleop_tools_msgs /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/teleop_tools_msgs /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/teleop_tools_msgs/CMakeFiles/teleop_tools_msgs_genpy.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : teleop_tools/teleop_tools_msgs/CMakeFiles/teleop_tools_msgs_genpy.dir/depend
 

@@ -1,8 +1,8 @@
-# Install script for directory: /home/bachelor20-group39/Documents/youtube_car/mybot_ws/src/teleop_tools/mouse_teleop
+# Install script for directory: /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/mouse_teleop
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/bachelor20-group39/Documents/youtube_car/mybot_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,29 +33,29 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/bachelor20-group39/Documents/youtube_car/mybot_ws/build/teleop_tools/mouse_teleop/catkin_generated/installspace/mouse_teleop.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/mouse_teleop/catkin_generated/installspace/mouse_teleop.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mouse_teleop/cmake" TYPE FILE FILES
-    "/home/bachelor20-group39/Documents/youtube_car/mybot_ws/build/teleop_tools/mouse_teleop/catkin_generated/installspace/mouse_teleopConfig.cmake"
-    "/home/bachelor20-group39/Documents/youtube_car/mybot_ws/build/teleop_tools/mouse_teleop/catkin_generated/installspace/mouse_teleopConfig-version.cmake"
+    "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/mouse_teleop/catkin_generated/installspace/mouse_teleopConfig.cmake"
+    "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/mouse_teleop/catkin_generated/installspace/mouse_teleopConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mouse_teleop" TYPE FILE FILES "/home/bachelor20-group39/Documents/youtube_car/mybot_ws/src/teleop_tools/mouse_teleop/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mouse_teleop" TYPE FILE FILES "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/mouse_teleop/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/mouse_teleop" TYPE PROGRAM FILES "/home/bachelor20-group39/Documents/youtube_car/mybot_ws/src/teleop_tools/mouse_teleop/scripts/mouse_teleop.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/mouse_teleop" TYPE PROGRAM FILES "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/mouse_teleop/scripts/mouse_teleop.py")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mouse_teleop/config" TYPE DIRECTORY FILES "/home/bachelor20-group39/Documents/youtube_car/mybot_ws/src/teleop_tools/mouse_teleop/config/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mouse_teleop/config" TYPE DIRECTORY FILES "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/mouse_teleop/config/")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mouse_teleop/launch" TYPE DIRECTORY FILES "/home/bachelor20-group39/Documents/youtube_car/mybot_ws/src/teleop_tools/mouse_teleop/launch/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mouse_teleop/launch" TYPE DIRECTORY FILES "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/mouse_teleop/launch/")
 endif()
 
