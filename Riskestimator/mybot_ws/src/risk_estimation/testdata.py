@@ -1,31 +1,50 @@
-x0 = 5500
-y0 = 3800
-s0 = -1000
-a0 = 80
+import os
+#(0,[(5, -20, 1.57, 0),(-30, 5, 0, 0)],(1,'straight','go'))
 
-x1 = 1200
-y1 = 9000
-s1 = -800
+x0 = 10
+y0 = -50
+s0 = 10
+a0 = -2
 
-xi = 1200 
-yi = 3800
+x1 = -50
+y1 = 5
+s1 = 10
+a1 = 0
 
-timeInterval = 0.1
+xi = 0 
+yi = 0
+
+timeInterval = 0.05
 time = 0
 
-for x in range(100) :
-     x0 = x0 + (s0 * timeInterval)
+os.remove("debug.txt") 
+f = open("debug.txt", "a")
 
-     if s0 < -50 : 
+
+for x in range(400) :
+     
+     y0 = y0 + s0 * timeInterval
+     x1 = x1 + s1 * timeInterval
+     
+     if s0 > 0 and y0 > -40 : 
           s0 = s0 + a0 * timeInterval
-     else :
+     elif y0 > -20 :
           s0 = 0
+      
+     
+     s1 = s1 + a1 * timeInterval   
 
-     y1 = y1 + s1 * timeInterval
+    
+
+
 
      car0 = (x0, y0, 1.57, -s0)
      car1 = (x1, y1, 0, -s1)
-     output = "("+ str(time) + ",[" + str(car0)  + ","+ str(car0) +"],(1,'straight','go'))"
-     time = time + timeInterval
-     print(output) 
      
+     output = "("+ str(time) + ",[" + str(car0)  + ","+ str(car1) +"],(0,'straight',''))\n"
+     f.write(output)
+     time = time + timeInterval
+
+
+print("write success")
+f.close()

@@ -42,7 +42,7 @@ class RiskEstimator:
         
 
         #get initial directions that the vehicle are travelling towards
-        self.travelling_directions = [intersection.getTravellingDirection(x, y, theta,"Intersection_2") for (x, y, theta, _) in initial_measurements]
+        self.travelling_directions = [intersection.getTravellingDirection(x, y, theta,"") for (x, y, theta, _) in initial_measurements]
 
         #initialize the particle filters
         self.particle_filters = \
@@ -143,11 +143,11 @@ class RiskEstimator:
         
         go_sum = 0
         for p, w in zip(pf.particles, pf.weights):
-            _, go = Es_estimate(id, turn, p.PS, pf.travelling_directions, pf.intersection, self.most_likely_states, precalculation, self.grantList, True)
+            _, go = Es_estimate(id, turn, p.PS, pf.travelling_directions, pf.intersection, self.most_likely_states, precalculation, self.grantList, False)
             
             
             go_sum += float(go*w)
-            if id == 1: print go_sum
+            #if id == 1: print go_sum
         
         self.mutex.release()
         return go_sum > 0.5

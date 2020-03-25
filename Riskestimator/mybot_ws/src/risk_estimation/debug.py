@@ -39,6 +39,10 @@ with open("debug.txt") as f:
             re.setKnownIc(id, Ic)
             re.setKnownIs(id, Is)
             re.update_state(x[0], x[1])
+            
+            #print("maneuver: " + str( re.isManeuverOk(1,"straight") ))
+            #print("risk: " + str(re.get_risk()))
+            
         
 
 endtime = time.time()

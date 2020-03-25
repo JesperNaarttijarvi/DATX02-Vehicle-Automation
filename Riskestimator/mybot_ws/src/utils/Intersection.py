@@ -12,7 +12,7 @@ class Intersection:
         
         self.turns = ("left", "straight", "right")
         self.travelling_directions = ("north", "east", "south", "west")
-        self.laneWidth = 800 # Lanewidth for testbedd
+        self.laneWidth = 10 # Lanewidth for testbedd
 
 
         self.cloud_travelling_directions = {}
@@ -55,7 +55,7 @@ class Intersection:
         
         #vehicles coming in these two directions are priority by default in this intersection.
         #unless changed by a maneuver negotiation protocol
-        self.priority_directions = ["south","north"]
+        self.priority_directions = ["east","west"]
 
         self.relativePositions = {}
         for td1 in self.travelling_directions:
@@ -151,7 +151,7 @@ class Intersection:
         elif x >= middlex+(self.laneWidth/2) and theta >= math.pi/4 and theta <= 3*math.pi/4:
             return "north"
         elif x < middlex+self.laneWidth/2 and x > middlex-self.laneWidth/2 and y < middlex+self.laneWidth/2 and y > middlex-self.laneWidth/2:
-            #print("My coordinates: " + str(x) + " " + str(y) + " " + str(theta))
+            print("My coordinates: " + str(x) + " " + str(y) + " " + str(theta))
             return "middle"
         else:
             return "out" #None #Has left intersection

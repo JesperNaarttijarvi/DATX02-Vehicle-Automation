@@ -10,7 +10,8 @@ def Es_estimate(carid, ego_Ic, ego_PS, travelling_directions, intersection, most
 
     ego_travelling_direction = travelling_directions[carid]
     ego_course = intersection.courses[ego_travelling_direction, ego_Ic]
-
+  #  print("etd: " + str(ego_travelling_direction))
+  #  print("ec: " + str(ego_course))
 
     if not travelling_directions[carid] or ego_course.hasLeftIntersection(*ego_PS[:3]) or carid in grantlist:
         return "go",1.0
@@ -20,7 +21,12 @@ def Es_estimate(carid, ego_Ic, ego_PS, travelling_directions, intersection, most
     blob = zip(travelling_directions, most_likely_states, ttc_hli, range(len(most_likely_states)))
     blob = blob[:carid] + blob[carid+1:]
 
+   # print("blob: " + str(blob))
+
+
     ego_ttc = ego_course.getTimeToCrossing(*ego_PS, Is="go")
+
+   # print("ego_ttc: " + str(ego_ttc))
 
     min_go_vehicles = 1 #P(Es = go). Choose lowest probability out of other vehicles
     for td, st, th, i in blob:
