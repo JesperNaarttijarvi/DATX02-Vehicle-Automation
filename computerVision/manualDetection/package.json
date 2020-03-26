@@ -1,11 +1,9 @@
 {
-  "name": "ntpc-cardreader",
+  "name": "stuff",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "@bugsnag/js": "^6.3.2",
-    "@bugsnag/plugin-express": "^6.3.0",
     "assert": "^2.0.0",
     "axios": "^0.19.0",
     "bcrypt-nodejs": "0.0.3",
@@ -15,25 +13,15 @@
     "express": "^4.17.1",
     "express-http-proxy": "^1.5.1",
     "express-session": "^1.15.6",
+    "ffmpeg-extract-frames": "^2.0.2",
     "http-proxy": "^1.17.0",
     "http-proxy-middleware": "^0.19.1",
-    "imap": "^0.8.19",
-    "mailparser": "^2.7.1",
-    "mariasql": "^0.2.6",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
-    "node-rtsp-recorder": "^1.0.3",
-    "nodemailer": "^4.4.0",
-    "pdfkit": "^0.8.3",
-    "pigpio-client": "^1.2.0",
-    "qs": "^6.9.0",
-    "request-promise": "^4.2.4",
-    "sequelize": "^4.22.11",
-    "serialport": "^7.1.5"
+    "qs": "^6.9.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-html": "^4.0.5",
@@ -45,12 +33,20 @@
     "jshint": "^2.10.1",
     "mocha": "^6.2.0",
     "mocha-eslint": "^5.0.0",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.21"
   },
   "scripts": {
     "start": "node app.js",
     "test": "mocha"
   },
-  "author": "Jesper Naarttijärvi NPTC",
+  "author": "Jesper Naarttijärvi",
   "license": "ISC"
 }

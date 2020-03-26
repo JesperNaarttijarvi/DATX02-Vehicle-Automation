@@ -4,8 +4,8 @@
 
 module.exports = {
   server: {
-    host: '10.0.1.15',
-    port: '8088',
+    host: 'localhost',
+    port: '8095',
     securePort: '8433'
   }
 }

@@ -92,7 +92,7 @@ require('./routes.js')({
 
 server.listen(config.server.port, config.server.host)
 //httpsServer.listen(config.server.port, config.server.host);
-log.success(`${util.getTimeStamp()}: Server started on ${config.server.host} |  secure-port: ${config.server.securePort}, port: ${config.server.port}`)
+log.success(`${util.getTimeStamp()}: Server started on ${config.server.host}:${config.server.port}`)
 
 // If we have a unhandled rejection, print it
 process.on('unhandledRejection', (error, p) => {

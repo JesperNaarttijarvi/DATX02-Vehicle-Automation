@@ -79,6 +79,27 @@ module.exports = () => {
       }
   })
 
+  util.writeToFile = (file, data) => new Promise((resolve, reject) => {
+    const fs = require('fs');
+
+    fs.writeFile(file, data, function(err) {
+        if(err) {
+            reject(err)
+        }
+        resolve('ok')
+    });
+  })
+
+  util.readFile = (file) => new Promise((resolve, reject) => {
+    const fs = require('fs');
+
+    fs.readFile(file, function(err, data) {
+        if(err) {
+            reject(err)
+        }
+        resolve(data)
+    });
+  })
 
   util.appendToFile = (file, data) => new Promise((resolve, reject) => {
     const fs = require('fs')
@@ -86,6 +107,40 @@ module.exports = () => {
       if (err) reject(err)
       resolve('Saved to file')
     })
+  })
+
+  util.copyFile = (soruce, destination) => new Promise((resolve, reject) => {
+    const fs = require('fs');
+    // destination will be created or overwritten by default.
+    fs.copyFile(soruce, destination, (err) => {
+      if (err) reject(err);
+      resolve()
+    });
+  })
+
+
+  util.readAllFiles = (directory, suffixes) => new Promise((resolve, reject) => {
+    const allFiles = []
+    const fs = require('fs')
+
+    fs.readdir(directory, (err, files) => {
+      if (err) reject(err)
+
+      files.forEach(file => {
+        const fileDot = file.lastIndexOf('.')
+        if (suffixes) {
+          suffixes.forEach(suffix => {
+            if (file.substring(fileDot + 1).toLowerCase() === suffix.toLowerCase()) {
+              allFiles.push(`${directory}/${file}`)
+            }
+          });
+
+        } else {
+          allFiles.push(`${directory}/${file}`)
+        }
+      });
+      resolve(allFiles)
+    });
   })
 
   util.getDate = (daysBack = 0) => {
