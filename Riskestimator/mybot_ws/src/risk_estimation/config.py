@@ -1,3 +1,6 @@
+
+import sys
+sys.path.append("/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src")
 from utils.Intersection import Intersection
 
 GEN_CONFIG = {
@@ -35,7 +38,7 @@ GEN_CONFIG = {
 SIM_CONFIG = {
     'xy_deviation' : 0.3,
     'theta_deviation' : 0.1,
-    'speed_deviation': 0.2,
+    'speed_deviation': 0.02,
 #    'slowdown': 1.5,
  #   'rate': 15,
  #   'pid' : (0.4, 0.0, 0.05),
@@ -60,7 +63,7 @@ RISK_CONFIG = {
         'x0_2': 1.5,
         'k2': 3
     },
-    'Is_comply': 0.90,
+    'Is_comply': 0.75,
     'Ic_same': 0.5,
 #    'grant_threshold': 0.5
 

@@ -23,8 +23,6 @@ def sample((xnew, ynew, thetanew, newspeed), deviations):
 
     x_estimate = np.random.normal(xnew, x_deviation)
     y_estimate = np.random.normal(ynew, y_deviation)
-    print("tn: " + str(thetanew))
-    print("td: " + str(theta_deviation))
     theta_estimate = np.random.normal(thetanew, 0.1)
     s_estimate = np.random.normal(newspeed, speed_deviation)
     ps_estimate = np.array((x_estimate, y_estimate, theta_estimate, s_estimate))

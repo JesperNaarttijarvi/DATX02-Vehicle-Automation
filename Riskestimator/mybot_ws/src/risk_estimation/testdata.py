@@ -4,7 +4,7 @@ import os
 x0 = 10
 y0 = -50
 s0 = 10
-a0 = -2
+a0 = 0
 
 x1 = -50
 y1 = 5
@@ -41,7 +41,7 @@ for x in range(400) :
      car0 = (x0, y0, 1.57, -s0)
      car1 = (x1, y1, 0, -s1)
      
-     output = "("+ str(time) + ",[" + str(car0)  + ","+ str(car1) +"],(0,'straight',''))\n"
+     output = "("+ str(time) + ",[" + str(car0)  + ","+ str(car1) +"],(0,'',''))\n"
      f.write(output)
      time = time + timeInterval
 

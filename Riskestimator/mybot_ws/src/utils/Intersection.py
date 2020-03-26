@@ -12,7 +12,7 @@ class Intersection:
         
         self.turns = ("left", "straight", "right")
         self.travelling_directions = ("north", "east", "south", "west")
-        self.laneWidth = 10 # Lanewidth for testbedd
+        self.laneWidth = 12 # Lanewidth for testbedd
 
 
         self.cloud_travelling_directions = {}
@@ -25,7 +25,7 @@ class Intersection:
         for d in self.travelling_directions:
             for t in self.turns:
                 self.courses[(d,t)] = Course(d,t)
-        print(self.courses)
+
         #to determine who has right of way
         self.prioTable = {"left": 
                             {"opposing": False, 
@@ -55,7 +55,7 @@ class Intersection:
         
         #vehicles coming in these two directions are priority by default in this intersection.
         #unless changed by a maneuver negotiation protocol
-        self.priority_directions = ["east","west"]
+        self.priority_directions = ["north","south"]
 
         self.relativePositions = {}
         for td1 in self.travelling_directions:
@@ -138,9 +138,9 @@ class Intersection:
         print("y: " + str(y))
         print("theta: " + str(theta))
 
-        print("p3: " + str(x >= middlex+(self.laneWidth/2)))
-        print("and " + str(theta >= math.pi/4))
-        print("and " + str(theta <= 3*math.pi/4))
+        print("p3: " + str(y >= middley+(self.laneWidth/2)))
+        print("and " + str(theta <= math.pi/4))
+        print("and " + str(theta >= -math.pi/4))
     
         if y <= middley-(self.laneWidth/2) and (theta >= 3*math.pi/4 or theta <= -3*math.pi/4):
             return "west"

@@ -31,17 +31,17 @@ def plot_particles(p_filters, measurement_vector, t, plot_folder):
     ax.spines['left'].set_position('center')
     ax.spines['bottom'].set_position('center')
 
-    xlim = (-80, 80)
-    ylim = (-80, 80)
+    xlim = (-150, 150)
+    ylim = (-150, 150)
 
     plt.xlim(*xlim)
     plt.ylim(*ylim)
     plt.autoscale(False)
     ax.add_patch(
         patches.Rectangle(
-            (-7.5,-7.5),  
-            7.5*2,   #width
-            7.5*2,   #height
+            (-12,-12),  
+            12*2,   #width
+            12*2,   #height
             fill= False
         )
     )

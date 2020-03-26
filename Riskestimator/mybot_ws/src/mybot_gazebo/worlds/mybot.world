@@ -20,7 +20,7 @@
 
     <include>
       <uri>model://tCrossing</uri>
-
+      <pose>0.357 0.698 0 0 0 0</pose>
     </include>
 
     <!-- Focus camera on tall pendulum -->

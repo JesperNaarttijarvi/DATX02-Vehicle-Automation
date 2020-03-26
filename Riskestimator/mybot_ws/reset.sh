@@ -1,9 +1,9 @@
-#-x 10.87 -y 0 -z 0.1 -Y 0
+#-x 11.28 -y 0.74 -z 0.1
 rostopic pub -1 /gazebo/set_model_state gazebo_msgs/ModelState "model_name: 'mybot1'
 pose:
   position:
-    x: 10.87
-    y: 0.0
+    x: 11.28
+    y: 0.74
     z: 0.1
   orientation:
     x: 0.0
@@ -21,12 +21,12 @@ twist:
     z: 0.0
 reference_frame: ''"
 
-#-x 0.43 -y -10.48 -z 0.1 -Y -1.5707
+#-x 0.85 -y -9.48 -z 0.1
 rostopic pub -1 /gazebo/set_model_state gazebo_msgs/ModelState "model_name: 'mybot2'
 pose:
   position:
-    x: 0.43
-    y: -10.48
+    x: 0.85
+    y: -9.48
     z: 0.1
   orientation:
     x: 0.0
