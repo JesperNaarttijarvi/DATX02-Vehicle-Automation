@@ -1,4 +1,9 @@
 #!/bin/bash
+source devel/setup.bash
+catkin_make
+
+#cp -r ../roadSystem ~/.gazebo/models
+cp -r ../tCrossing ~/.gazebo/models
 
 sudo killall rosmaster
 sudo killall gzserver

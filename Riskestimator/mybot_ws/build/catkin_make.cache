@@ -1,2 +1,0 @@
-mybot_description:mybot_gazebo:teleop_tools/joy_teleop:teleop_tools/key_teleop:teleop_tools/mouse_teleop:teleop_tools/teleop_tools:teleop_tools/teleop_tools_msgs
--DCATKIN_DEVEL_PREFIX=/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/devel -DCMAKE_INSTALL_PREFIX=/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install -G Unix Makefiles

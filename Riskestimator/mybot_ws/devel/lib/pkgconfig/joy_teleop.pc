@@ -1,8 +1,0 @@
-prefix=/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/devel
-
-Name: joy_teleop
-Description: Description of joy_teleop
-Version: 0.3.1
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: actionlib

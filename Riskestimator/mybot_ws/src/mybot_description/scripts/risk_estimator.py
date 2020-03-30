@@ -6,7 +6,11 @@ from std_msgs.msg import String
 from gazebo_msgs.msg import ModelStates
 from geometry_msgs.msg import Twist
 import sys
-sys.path.append("/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src")
+
+#home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/risk_estimation
+#sys.path.append("../../risk_estimation")
+sys.path.append(str(sys.path[0]).split("mybot_description")[0])
+#/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src")
 from risk_estimation.config import *
 from risk_estimation.driver import *
 import time
