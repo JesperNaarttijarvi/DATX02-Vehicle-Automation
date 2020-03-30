@@ -24,7 +24,7 @@ class RESystem :
     def __init__(self):
             self.speed1 = 1
             self.speed2 = 1
-            self.plot = True
+            self.plot = False
 
             xy_deviation = SIM_CONFIG["xy_deviation"]
             theta_deviation = SIM_CONFIG["theta_deviation"]
@@ -41,11 +41,14 @@ class RESystem :
             self.car0_old_pos = (None,None)
             self.car1_old_pos = (None,None)
             self.estimator_time = 0
-            self.frequency = 0.1
+            self.frequency = 0.05
 
             self.riskEstimator = None
 
             self.iter = 0
+            self.RisksSaved = 3
+            self.earlierRisks0 = [0] * self.RisksSaved
+            self.earlierRisks1 = [0] * self.RisksSaved  
     
             
     def newModel(self, msg):
@@ -74,19 +77,19 @@ class RESystem :
 
     def updateRisk(self, msg):
 
-        if self.iter <= 100 : 
+        if self.iter <= 50 : 
             self.iter += 1
             return 
         else : 
             self.iter = 0 
 
-        bot0_x = -10 * msg.pose[2].position.x
-        bot0_y =  -10 * msg.pose[2].position.y
+        bot0_x = -5 * msg.pose[2].position.x
+        bot0_y =  -5 * msg.pose[2].position.y
         bot0_quaternion = msg.pose[2].orientation
         bot0_euler = self.quaternion_to_euler(bot0_quaternion.x,bot0_quaternion.y,bot0_quaternion.z,bot0_quaternion.w)
 
-        bot1_x = -10 * msg.pose[3].position.x
-        bot1_y =  -10 *  msg.pose[3].position.y
+        bot1_x = -5 * msg.pose[3].position.x
+        bot1_y =  -5 *  msg.pose[3].position.y
         bot1_quaternion = msg.pose[3].orientation
         bot1_euler = self.quaternion_to_euler(bot1_quaternion.x,bot1_quaternion.y,bot1_quaternion.z,bot1_quaternion.w)
         
@@ -114,11 +117,24 @@ class RESystem :
             self.riskEstimator.setKnownIc(0, Ic)
             self.riskEstimator.setKnownIs(0, Is)
         else : 
-            print self.estimator_time # timestamp
+            #print self.estimator_time # timestamp
+            
             self.riskEstimator.setKnownIc(id, Ic)
             self.riskEstimator.setKnownIs(id, Is)
             self.riskEstimator.update_state(self.estimator_time, [bot0,bot1])
-        
+            #print("maneuver: " + str( re.isManeuverOk(1,"straight") ))
+            #print("risk: " + str(self.riskEstimator.get_risk()))
+            self.earlierRisks0.pop(0)
+            self.earlierRisks1.pop(0)
+            self.earlierRisks0.append(self.riskEstimator.get_risk()[0])
+            self.earlierRisks1.append(self.riskEstimator.get_risk()[1])
+            print("risk: " + str(sum(self.earlierRisks1)/self.RisksSaved))
+            if sum(self.earlierRisks0)/self.RisksSaved > 0.6 : 
+                print("____________WARNING 000000000_____________")
+            if sum(self.earlierRisks1)/self.RisksSaved > 0.6 : 
+                print("____________WARNING 111111111_____________")
+            #print("base: " + str(self.riskEstimator.get_risk()))
+            
         self.estimator_time += self.frequency
         
 

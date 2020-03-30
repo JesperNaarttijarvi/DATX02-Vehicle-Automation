@@ -39,9 +39,9 @@ def plot_particles(p_filters, measurement_vector, t, plot_folder):
     plt.autoscale(False)
     ax.add_patch(
         patches.Rectangle(
-            (-12,-12),  
-            12*2,   #width
-            12*2,   #height
+            (-6,-6),  
+            6*2,   #width
+            6*2,   #height
             fill= False
         )
     )

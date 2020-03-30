@@ -5,9 +5,6 @@ gnome-terminal -e "src/mybot_description/scripts/autodrive.py" &
 sleep 0.15
 xdotool windowminimize $(xdotool getactivewindow)
 
-
-python src/mybot_description/scripts/risk_estimator.py
-
 #-x 11.28 -y 0.74 -z 0.1
 rostopic pub -1 /gazebo/set_model_state gazebo_msgs/ModelState "model_name: 'mybot1'
 pose:
@@ -53,3 +50,5 @@ twist:
     y: 0.0
     z: 0.0
 reference_frame: ''"
+
+python src/mybot_description/scripts/risk_estimator.py

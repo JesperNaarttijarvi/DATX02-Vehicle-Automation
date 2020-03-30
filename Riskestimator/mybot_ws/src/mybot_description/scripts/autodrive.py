@@ -7,17 +7,19 @@ from geometry_msgs.msg import Twist
 
 class Autodrive : 
     def __init__(self):
-            self.speed1 = 1
-            self.speed2 = 1
+            self.speed1 = 4
+            self.speed2 = 4
             
     def newModel(self, msg):
         rospy.loginfo(msg.pose[3].position.x)
-        if msg.pose[2].position.x < 3 : 
+        if msg.pose[2].position.x < 3.5 : 
             rospy.loginfo("speed is 0")
             self.speed1 = 0
+        #if msg.pose[3].position.y > -4 : 
+        #    rospy.loginfo("speed is 0")
+        #    self.speed2 = 0
       
         
-
     def talker(self):
         pub =  rospy.Publisher('/robot1/key_vel', Twist, queue_size=10)
         pub2 =  rospy.Publisher('/robot2/key_vel', Twist, queue_size=10)

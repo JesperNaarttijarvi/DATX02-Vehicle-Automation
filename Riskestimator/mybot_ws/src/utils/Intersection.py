@@ -12,7 +12,7 @@ class Intersection:
         
         self.turns = ("left", "straight", "right")
         self.travelling_directions = ("north", "east", "south", "west")
-        self.laneWidth = 12 # Lanewidth for testbedd
+        self.laneWidth = 1.2 # Lanewidth for testbedd
 
 
         self.cloud_travelling_directions = {}
