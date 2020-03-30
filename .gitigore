@@ -2,4 +2,5 @@
 *.png
 Riskestimator/mybot_ws/devel
 Riskestimator/mybot_ws/build
-Riskestimator/mybot_ws/src/risk_estimation/plotfolder
+Riskestimator/mybot_ws/src/risk_estimation/plotfolder/*
+*.*.png
