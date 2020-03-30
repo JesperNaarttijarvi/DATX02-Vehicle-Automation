@@ -24,7 +24,7 @@ class RESystem :
     def __init__(self):
             self.speed1 = 1
             self.speed2 = 1
-            self.plot = False
+            self.plot = True
 
             xy_deviation = SIM_CONFIG["xy_deviation"]
             theta_deviation = SIM_CONFIG["theta_deviation"]
@@ -51,12 +51,6 @@ class RESystem :
             self.earlierRisks1 = [0] * self.RisksSaved  
     
             
-    def newModel(self, msg):
-        rospy.loginfo(msg.pose[3].position.x)
-        if msg.pose[2].position.x < 3 : 
-            rospy.loginfo("speed is 0")
-            self.speed1 = 0
-
     #from: https://stackoverflow.com/questions/53033620/how-to-convert-euler-angles-to-quaternions-and-get-the-same-euler-angles-back-fr
     def quaternion_to_euler(self,x, y, z, w):
         t0 = +2.0 * (w * x + y * z)

@@ -8,13 +8,25 @@ from geometry_msgs.msg import Twist
 class Autodrive : 
     def __init__(self):
             self.speed1 = 4
+            self.angle1 = 0
             self.speed2 = 4
+            self.angle2 = 0
             
     def newModel(self, msg):
         rospy.loginfo(msg.pose[3].position.x)
-        if msg.pose[2].position.x < 3.5 : 
+        if msg.pose[2].position.x < 4.5 : 
             rospy.loginfo("speed is 0")
+            print("***********************")
             self.speed1 = 0
+            self.angle1 = 1
+
+        print("z: " + str(msg.pose[2].orientation.z))
+        if msg.pose[2].orientation.z < -0.66 : 
+            print("qua")
+            self.angle1 = 0
+        
+        #if msg.pose[2].orientation.z > -0.66 and msg.pose[2].orientation.z < -0.7 : 
+        #    self.speed1 = 4 
         #if msg.pose[3].position.y > -4 : 
         #    rospy.loginfo("speed is 0")
         #    self.speed2 = 0
@@ -39,9 +51,12 @@ class Autodrive :
             vel_msg.angular.z = 0
 
             vel_msg.linear.x = self.speed1
+            vel_msg.angular.z = self.angle1
             pub.publish(vel_msg)
 
             vel_msg.linear.x = self.speed2
+            vel_msg.angular.z = self.angle2
+
             pub2.publish(vel_msg)
             
             rate.sleep()
