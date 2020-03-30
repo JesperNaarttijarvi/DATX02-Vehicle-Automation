@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # license removed for brevity
 import rospy
+import os
 from std_msgs.msg import String
 from gazebo_msgs.msg import ModelStates
 from geometry_msgs.msg import Twist
 import sys
-
-sys.path.append("/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/risk_estimation")
-from config import *
-from driver import *
+sys.path.append("/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src")
+from risk_estimation.config import *
+from risk_estimation.driver import *
 import time
 import random
 import math
@@ -65,7 +65,7 @@ class RESystem :
         t4 = +1.0 - 2.0 * (y * y + z * z)
         Z = math.atan2(t3, t4)
 
-        return (X, Y, -1 *Z)
+        return (X, Y, Z)
 
 
     def updateRisk(self, msg):
@@ -76,13 +76,13 @@ class RESystem :
         else : 
             self.iter = 0 
 
-        bot0_x = -5 * msg.pose[2].position.x
-        bot0_y =  5 * msg.pose[2].position.y
+        bot0_x = -10 * msg.pose[2].position.x
+        bot0_y =  -10 * msg.pose[2].position.y
         bot0_quaternion = msg.pose[2].orientation
         bot0_euler = self.quaternion_to_euler(bot0_quaternion.x,bot0_quaternion.y,bot0_quaternion.z,bot0_quaternion.w)
 
-        bot1_x = -5 * msg.pose[3].position.x
-        bot1_y =  5 *  msg.pose[3].position.y
+        bot1_x = -10 * msg.pose[3].position.x
+        bot1_y =  -10 *  msg.pose[3].position.y
         bot1_quaternion = msg.pose[3].orientation
         bot1_euler = self.quaternion_to_euler(bot1_quaternion.x,bot1_quaternion.y,bot1_quaternion.z,bot1_quaternion.w)
         

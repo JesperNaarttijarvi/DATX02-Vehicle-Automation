@@ -1,4 +1,4 @@
-prefix=/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install
+prefix=/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install
 
 Name: mybot_gazebo
 Description: Description of mybot_gazebo

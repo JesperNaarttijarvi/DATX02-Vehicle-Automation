@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src
+CMAKE_SOURCE_DIR = /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build
+CMAKE_BINARY_DIR = /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build
 
 # Utility rule file for std_msgs_generate_messages_cpp.
 
@@ -63,10 +63,10 @@ teleop_tools/teleop_tools_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/bui
 .PHONY : teleop_tools/teleop_tools_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 
 teleop_tools/teleop_tools_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
-	cd /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/teleop_tools_msgs && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/teleop_tools_msgs && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : teleop_tools/teleop_tools_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 
 teleop_tools/teleop_tools_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend:
-	cd /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/teleop_tools_msgs /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/teleop_tools_msgs /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/teleop_tools_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/teleop_tools_msgs /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/teleop_tools_msgs /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/teleop_tools_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : teleop_tools/teleop_tools_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
 

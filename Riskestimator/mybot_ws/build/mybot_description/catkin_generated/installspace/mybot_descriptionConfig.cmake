@@ -67,14 +67,14 @@ set(mybot_description_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(mybot_description_SOURCE_PREFIX /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/mybot_description)
-  set(mybot_description_DEVEL_PREFIX /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/devel)
+  set(mybot_description_SOURCE_PREFIX /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/mybot_description)
+  set(mybot_description_DEVEL_PREFIX /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/devel)
   set(mybot_description_INSTALL_PREFIX "")
   set(mybot_description_PREFIX ${mybot_description_DEVEL_PREFIX})
 else()
   set(mybot_description_SOURCE_PREFIX "")
   set(mybot_description_DEVEL_PREFIX "")
-  set(mybot_description_INSTALL_PREFIX /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install)
+  set(mybot_description_INSTALL_PREFIX /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install)
   set(mybot_description_PREFIX ${mybot_description_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install/lib;/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

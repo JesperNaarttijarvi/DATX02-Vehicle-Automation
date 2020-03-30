@@ -1,8 +1,8 @@
-# Install script for directory: /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/mybot_gazebo
+# Install script for directory: /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/mybot_gazebo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/mybot_gazebo/catkin_generated/installspace/mybot_gazebo.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/mybot_gazebo/catkin_generated/installspace/mybot_gazebo.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mybot_gazebo/cmake" TYPE FILE FILES
-    "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/mybot_gazebo/catkin_generated/installspace/mybot_gazeboConfig.cmake"
-    "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/mybot_gazebo/catkin_generated/installspace/mybot_gazeboConfig-version.cmake"
+    "/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/mybot_gazebo/catkin_generated/installspace/mybot_gazeboConfig.cmake"
+    "/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/mybot_gazebo/catkin_generated/installspace/mybot_gazeboConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mybot_gazebo" TYPE FILE FILES "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/mybot_gazebo/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mybot_gazebo" TYPE FILE FILES "/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/mybot_gazebo/package.xml")
 endif()
 

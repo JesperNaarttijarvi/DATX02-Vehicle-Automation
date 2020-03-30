@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src
-# Build directory: /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build
+# Source directory: /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src
+# Build directory: /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

@@ -1,8 +1,8 @@
-# Install script for directory: /home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/key_teleop
+# Install script for directory: /home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/key_teleop
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,21 +33,21 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/key_teleop/catkin_generated/installspace/key_teleop.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/key_teleop/catkin_generated/installspace/key_teleop.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/key_teleop/cmake" TYPE FILE FILES
-    "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/key_teleop/catkin_generated/installspace/key_teleopConfig.cmake"
-    "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/key_teleop/catkin_generated/installspace/key_teleopConfig-version.cmake"
+    "/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/key_teleop/catkin_generated/installspace/key_teleopConfig.cmake"
+    "/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/build/teleop_tools/key_teleop/catkin_generated/installspace/key_teleopConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/key_teleop" TYPE FILE FILES "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/key_teleop/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/key_teleop" TYPE FILE FILES "/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/key_teleop/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/key_teleop" TYPE PROGRAM FILES "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/key_teleop/scripts/key_teleop.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/key_teleop" TYPE PROGRAM FILES "/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/teleop_tools/key_teleop/scripts/key_teleop.py")
 endif()
 

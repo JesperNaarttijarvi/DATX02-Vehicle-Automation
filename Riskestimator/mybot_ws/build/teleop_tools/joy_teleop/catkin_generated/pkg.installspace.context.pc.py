@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "actionlib".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "joy_teleop"
-PROJECT_SPACE_DIR = "/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install"
+PROJECT_SPACE_DIR = "/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/install"
 PROJECT_VERSION = "0.3.1"

@@ -1,8 +1,8 @@
-prefix=/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/devel
+prefix=/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/devel
 
 Name: teleop_tools_msgs
 Description: Description of teleop_tools_msgs
 Version: 0.3.1
-Cflags: -I/home/bachelor20-group39/Documents/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/devel/include
+Cflags: -I/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/devel/include
 Libs: -L${prefix}/lib 
 Requires: message_runtime actionlib_msgs

@@ -38,14 +38,14 @@ GEN_CONFIG = {
 SIM_CONFIG = {
     'xy_deviation' : 0.3,
     'theta_deviation' : 0.1,
-    'speed_deviation': 0.02,
+    'speed_deviation': 0.2,
 #    'slowdown': 1.5,
  #   'rate': 15,
  #   'pid' : (0.4, 0.0, 0.05),
  #   'lookahead': 5,
 #    'carlength': 4,
 
-    'total_nr_particles': 400,
+    'total_nr_particles': 600,
 #    'discard_measurement_time': 0.15, #seconds
 #    'Es_threshold': 0.5,
 #    'risk_threshold': 0.8,
