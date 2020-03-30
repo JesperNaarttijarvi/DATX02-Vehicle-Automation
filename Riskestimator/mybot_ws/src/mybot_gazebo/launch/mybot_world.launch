@@ -24,7 +24,7 @@
   </group>
 
   <group ns="robot2">
-    <node name="mybot_spawn2" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -x 0.85 -y -9.48 -z 0.1 -Y -1.5707 -model mybot2" />
+    <node name="mybot_spawn2" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -x 0.85 -y -9 -z 0.1 -Y -1.5707 -model mybot2" />
     <param name="robot_description" command="$(find xacro)/xacro.py '$(find mybot_description)/urdf/mybot.xacro'"/>
   </group>
 

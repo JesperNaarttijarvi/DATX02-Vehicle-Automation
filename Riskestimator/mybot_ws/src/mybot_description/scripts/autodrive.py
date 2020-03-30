@@ -29,7 +29,7 @@ class Autodrive :
         vel_msg = Twist()
 
         while not rospy.is_shutdown():
-            hello_str = "hello world %s" % rospy.get_time()        
+            #hello_str = "hello world %s" % rospy.get_time()        
             vel_msg.linear.y = 0
             vel_msg.linear.z = 0
             vel_msg.angular.x = 0

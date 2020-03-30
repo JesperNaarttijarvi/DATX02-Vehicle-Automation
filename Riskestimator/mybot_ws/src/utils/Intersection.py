@@ -12,7 +12,7 @@ class Intersection:
         
         self.turns = ("left", "straight", "right")
         self.travelling_directions = ("north", "east", "south", "west")
-        self.laneWidth = 12 # Lanewidth for testbedd
+        self.laneWidth = 6 # Lanewidth for testbedd
 
 
         self.cloud_travelling_directions = {}
@@ -146,9 +146,9 @@ class Intersection:
             return "west"
         elif y >= middley+(self.laneWidth/2) and theta <= math.pi/4 and theta >= -math.pi/4: #EME: added el and middle
             return "east"
-        elif x <= middlex-(self.laneWidth/2) and theta <= -math.pi/4 and theta >= -3*math.pi/4:
+        elif x >= middlex+(self.laneWidth/2) and theta <= -math.pi/4 and theta >= -3*math.pi/4:
             return "south"
-        elif x >= middlex+(self.laneWidth/2) and theta >= math.pi/4 and theta <= 3*math.pi/4:
+        elif x <= middlex-(self.laneWidth/2) and theta >= math.pi/4 and theta <= 3*math.pi/4:
             return "north"
         elif x < middlex+self.laneWidth/2 and x > middlex-self.laneWidth/2 and y < middlex+self.laneWidth/2 and y > middlex-self.laneWidth/2:
             print("My coordinates: " + str(x) + " " + str(y) + " " + str(theta))

@@ -52,7 +52,6 @@ class RESystem :
 
     #from: https://stackoverflow.com/questions/53033620/how-to-convert-euler-angles-to-quaternions-and-get-the-same-euler-angles-back-fr
     def quaternion_to_euler(self,x, y, z, w):
-
         t0 = +2.0 * (w * x + y * z)
         t1 = +1.0 - 2.0 * (x * x + y * y)
         X = math.atan2(t0, t1)
@@ -66,7 +65,7 @@ class RESystem :
         t4 = +1.0 - 2.0 * (y * y + z * z)
         Z = math.atan2(t3, t4)
 
-        return (X, Y, Z)
+        return (X, Y, -1 *Z)
 
 
     def updateRisk(self, msg):
@@ -77,16 +76,19 @@ class RESystem :
         else : 
             self.iter = 0 
 
-        bot0_x = -10 * msg.pose[2].position.x
-        bot0_y =  10 * msg.pose[2].position.y
+        bot0_x = -5 * msg.pose[2].position.x
+        bot0_y =  5 * msg.pose[2].position.y
         bot0_quaternion = msg.pose[2].orientation
         bot0_euler = self.quaternion_to_euler(bot0_quaternion.x,bot0_quaternion.y,bot0_quaternion.z,bot0_quaternion.w)
 
-        bot1_x = -10 * msg.pose[3].position.x
-        bot1_y =  -10 *  msg.pose[3].position.y
+        bot1_x = -5 * msg.pose[3].position.x
+        bot1_y =  5 *  msg.pose[3].position.y
         bot1_quaternion = msg.pose[3].orientation
         bot1_euler = self.quaternion_to_euler(bot1_quaternion.x,bot1_quaternion.y,bot1_quaternion.z,bot1_quaternion.w)
         
+        Z = bot1_euler[2]
+
+
         if self.car0_old_pos == (None,None) : 
             self.car0_old_pos = (bot0_x,bot0_y)
             self.car1_old_pos = (bot1_x,bot1_y)
