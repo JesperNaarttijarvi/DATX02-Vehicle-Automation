@@ -2,6 +2,7 @@
 # license removed for brevity
 import rospy
 import os
+import time
 from std_msgs.msg import String
 from gazebo_msgs.msg import ModelStates
 from geometry_msgs.msg import Twist
@@ -24,7 +25,7 @@ class RESystem :
     def __init__(self):
             self.speed1 = 1
             self.speed2 = 1
-            self.plot = True
+            self.plot = False
 
             xy_deviation = SIM_CONFIG["xy_deviation"]
             theta_deviation = SIM_CONFIG["theta_deviation"]
@@ -40,12 +41,14 @@ class RESystem :
 
             self.car0_old_pos = (None,None)
             self.car1_old_pos = (None,None)
-            self.estimator_time = 0
-            self.frequency = 0.05
+            
 
             self.riskEstimator = None
 
+            self.estimator_time = 0
+            self.timeDelta = 0.1
             self.iter = 0
+
             self.RisksSaved = 3
             self.earlierRisks0 = [0] * self.RisksSaved
             self.earlierRisks1 = [0] * self.RisksSaved  
@@ -70,12 +73,15 @@ class RESystem :
 
 
     def updateRisk(self, msg):
-
-        if self.iter <= 50 : 
+        if self.iter <= self.timeDelta*1000 : 
             self.iter += 1
             return 
         else : 
             self.iter = 0 
+        
+        #!!!Check if system time in fractions!!!
+        start_time = time.time()
+
 
         bot0_x = -5 * msg.pose[2].position.x
         bot0_y =  -5 * msg.pose[2].position.y
@@ -94,8 +100,8 @@ class RESystem :
             self.car0_old_pos = (bot0_x,bot0_y)
             self.car1_old_pos = (bot1_x,bot1_y)
         
-        bot0_speed = math.sqrt(math.pow(bot0_x-self.car0_old_pos[0],2)+math.pow(bot0_y-self.car0_old_pos[1],2))/self.frequency
-        bot1_speed = math.sqrt(math.pow(bot1_x-self.car1_old_pos[0],2)+math.pow(bot1_y-self.car1_old_pos[1],2))/self.frequency
+        bot0_speed = math.sqrt(math.pow(bot0_x-self.car0_old_pos[0],2)+math.pow(bot0_y-self.car0_old_pos[1],2))/self.timeDelta
+        bot1_speed = math.sqrt(math.pow(bot1_x-self.car1_old_pos[0],2)+math.pow(bot1_y-self.car1_old_pos[1],2))/self.timeDelta
         
         self.car0_old_pos = (bot0_x,bot0_y)
         self.car1_old_pos = (bot1_x,bot1_y)
@@ -130,10 +136,12 @@ class RESystem :
             #print("base: " + str(self.riskEstimator.get_risk()))
 
             print(self.riskEstimator.isManeuverOk(1,"straight"))
-            
-        self.estimator_time += self.frequency
-        
 
+        
+        self.timeDelta = time.time() - start_time
+        self.estimator_time += self.timeDelta
+        print(self.estimator_time)
+        
     def listener(self):
         #pub =  rospy.Publisher('/robot1/key_vel', Twist, queue_size=10)
         #pub2 =  rospy.Publisher('/robot2/key_vel', Twist, queue_size=10)
