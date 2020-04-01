@@ -128,6 +128,8 @@ class RESystem :
             if sum(self.earlierRisks1)/self.RisksSaved > 0.6 : 
                 print("____________WARNING 111111111_____________")
             #print("base: " + str(self.riskEstimator.get_risk()))
+
+            print(self.riskEstimator.isManeuverOk(1,"straight"))
             
         self.estimator_time += self.frequency
         

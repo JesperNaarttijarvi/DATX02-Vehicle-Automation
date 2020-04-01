@@ -9,22 +9,35 @@ class Autodrive :
     def __init__(self):
             self.speed1 = 4
             self.angle1 = 0
-            self.speed2 = 4
+            self.speed2 = 0
             self.angle2 = 0
             
     def newModel(self, msg):
-        rospy.loginfo(msg.pose[3].position.x)
-        if msg.pose[2].position.x < 4.5 : 
-            rospy.loginfo("speed is 0")
-            print("***********************")
-            self.speed1 = 0
-            self.angle1 = 1
-
-        print("z: " + str(msg.pose[2].orientation.z))
-        if msg.pose[2].orientation.z < -0.66 : 
-            print("qua")
-            self.angle1 = 0
+        #rospy.loginfo(msg.pose[3].position.x)
+        #car will always drive unless it is excplicitly told to stop
+        oldSpeed = self.speed1
+        self.speed1 = 4
+        #self.angle1 = 0
+        #car approaching stop sign and the other car has not yet passed
+        if msg.pose[2].position.x < 4 and msg.pose[3].position.y < 2: 
+            self.speed1 = 0.5
+            self.angle1 = 0.5
         
+        if msg.pose[2].orientation.z < -0.66:
+            self.angle1 = 0
+
+        
+        #elif msg.pose[2].position.x < 2 and msg.pose[2].orientation.z > -0.02:
+        #    self.speed1 = 0
+        #    self.angle1 = 0.5
+
+        #print("z: " + str(msg.pose[2].orientation.z))
+        #elif msg.pose[2].position.x < 2 and msg.pose[2].orientation.z > -0.2 : 
+        #    self.angle1 = 0
+        #    self.speed1 = 0.3
+
+        if oldSpeed != self.speed1:
+            print(self.speed1)        
         #if msg.pose[2].orientation.z > -0.66 and msg.pose[2].orientation.z < -0.7 : 
         #    self.speed1 = 4 
         #if msg.pose[3].position.y > -4 : 
