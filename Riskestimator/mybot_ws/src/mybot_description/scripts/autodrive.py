@@ -9,33 +9,60 @@ class Autodrive :
     def __init__(self):
             self.speed1 = 4
             self.angle1 = 0
-            self.speed2 = 4
+            self.speed2 = 0.25
             self.angle2 = 0
-            
+            # turn is either left, right or straight
+            self.turn = "right"
+            self.initiatedTurn = "false"
+
     def newModel(self, msg):
         #rospy.loginfo(msg.pose[3].position.x)
         #car will always drive unless it is excplicitly told to stop
         oldSpeed = self.speed1
-        self.speed1 = 4
+        #self.speed1 = 4
         #self.angle1 = 0
 
-        #car approaching stop sign and the other car has not yet passed
-        if (msg.pose[2].position.x < 4 and msg.pose[3].position.y < 2):
-            self.speed1 = 0
+        if self.turn == "right" :
+            #car approaching stop sign and the other car has not yet passed, if turn is initiated it should be completed and car should not stop
+            if (msg.pose[2].position.x < 4 and msg.pose[3].position.y < 2) and self.initiatedTurn == "false":
+                self.speed1 = 0
 
-        # start turning
-        if msg.pose[2].position.x < 4 and (msg.pose[3].position.y > 2 or msg.pose[3].position.y < -6): 
-            self.speed1 = 0.4
-            self.angle1 = 0.3
-        
-        # stop turning
-        if msg.pose[2].orientation.z < -0.65:
-            self.angle1 = 0
+            # start turning, if turn is initiated it should be completed, if turn is initiated it should be completed and car should not stop
+            if msg.pose[2].position.x < 4 and (msg.pose[3].position.y > 2 or msg.pose[3].position.y < -6) or self.initiatedTurn == "true": 
+                self.speed1 = 0.4
+                self.angle1 = 0.3
+                self.initiatedTurn = "true"
+            
+            # stop turning
+            if msg.pose[2].orientation.z < -0.65:
+                self.angle1 = 0
 
-        # accelerate after turn
-        if msg.pose[2].position.y > 2:
-            self.speed1 = 4
+            # accelerate after turn
+            if msg.pose[2].position.y > 2:
+                self.speed1 = 4
 
+        elif self.turn == "left":
+            #car approaching stop sign and the other car has not yet passed
+            if (msg.pose[2].position.x < 4 and msg.pose[3].position.y < 2) and self.initiatedTurn == "false":
+                self.speed1 = 0
+
+            # start turning, if turn is initiated it should be completed
+            if msg.pose[2].position.x < 4 and (msg.pose[3].position.y > 2 or msg.pose[3].position.y < -6) or self.initiatedTurn == "true": 
+                self.speed1 = 0.48
+                self.angle1 = -0.18
+                self.initiatedTurn = "true"
+            
+            # stop turning
+            if msg.pose[2].orientation.z > 0.65:
+                self.angle1 = 0
+
+            # accelerate after turn
+            if msg.pose[2].position.y < -3:
+                self.speed1 = 4
+        elif self.turn == "straight":
+            #car approaching stop sign and the other car has not yet passed
+            if (msg.pose[2].position.x < 4 and msg.pose[3].position.y < 2):
+                self.speed1 = 0            
 
         
         #elif msg.pose[2].position.x < 2 and msg.pose[2].orientation.z > -0.02:
@@ -48,6 +75,7 @@ class Autodrive :
         #    self.speed1 = 0.3
 
         if oldSpeed != self.speed1:
+            print(self.turn)
             print(self.speed1)        
         #if msg.pose[2].orientation.z > -0.66 and msg.pose[2].orientation.z < -0.7 : 
         #    self.speed1 = 4 

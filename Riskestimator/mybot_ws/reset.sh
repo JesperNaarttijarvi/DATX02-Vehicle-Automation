@@ -2,8 +2,8 @@ sudo killall python
 #python src/mybot_description/scripts/autodrive.py &
 #disown
 gnome-terminal -e "src/mybot_description/scripts/autodrive.py" &
-sleep 0.15
-xdotool windowminimize $(xdotool getactivewindow)
+#sleep 0.15
+#xdotool windowminimize $(xdotool getactivewindow)
 
 #-x 11.28 -y 0.74 -z 0.1
 rostopic pub -1 /gazebo/set_model_state gazebo_msgs/ModelState "model_name: 'mybot1'
