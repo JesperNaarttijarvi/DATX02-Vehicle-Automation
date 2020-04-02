@@ -12,7 +12,7 @@ class Autodrive :
             self.speed2 = 0.25
             self.angle2 = 0
             # turn is either left, right or straight
-            self.turn = "right"
+            self.turn = "left"
             self.initiatedTurn = "false"
 
     def newModel(self, msg):

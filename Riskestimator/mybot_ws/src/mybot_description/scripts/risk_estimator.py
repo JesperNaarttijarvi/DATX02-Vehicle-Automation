@@ -25,7 +25,7 @@ class RESystem :
     def __init__(self):
             self.speed1 = 1
             self.speed2 = 1
-            self.plot = False
+            self.plot = True
 
             xy_deviation = SIM_CONFIG["xy_deviation"]
             theta_deviation = SIM_CONFIG["theta_deviation"]
@@ -114,8 +114,8 @@ class RESystem :
         if self.estimator_time == 0 :
             pppf = self.total_nr_particles / (num_car**2)
             self.riskEstimator = RiskEstimator(pppf,[bot0,bot1], self.estimator_time, self.deviations, self.plot, self.plotafter)
-            self.riskEstimator.setKnownIc(0, Ic)
-            self.riskEstimator.setKnownIs(0, Is)
+            self.riskEstimator.setKnownIc(id, Ic)
+            self.riskEstimator.setKnownIs(id, Is)
         else : 
             #print self.estimator_time # timestamp
             
@@ -135,7 +135,7 @@ class RESystem :
                 print("____________WARNING 111111111_____________")
             #print("base: " + str(self.riskEstimator.get_risk()))
 
-            print(self.riskEstimator.isManeuverOk(1,"straight"))
+            print(self.riskEstimator.isManeuverOk(0,"left"))
 
         
         self.timeDelta = time.time() - start_time

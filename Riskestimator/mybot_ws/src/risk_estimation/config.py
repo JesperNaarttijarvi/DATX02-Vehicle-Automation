@@ -45,7 +45,7 @@ SIM_CONFIG = {
  #   'lookahead': 5,
 #    'carlength': 4,
 
-    'total_nr_particles': 600,
+    'total_nr_particles': 400,
 #    'discard_measurement_time': 0.15, #seconds
 #    'Es_threshold': 0.5,
 #    'risk_threshold': 0.8,

@@ -51,11 +51,14 @@ def Es_estimate(carid, ego_Ic, ego_PS, travelling_directions, intersection, most
             if hasLeft: 
                 go_turns[turn] = 1.0
                 continue
-            
-            gap = ttc - ego_ttc
-            
+            #if(carid == 0):
+            #    print("ego_time_to_intersection: " + str(5*ego_ttc))
+            #    print("time_to_intersection: " + str(5*ttc))
+            gap = 5*ttc - 5*ego_ttc
+            #print(gap)
             #gap model return P(Es=go) If lower than lowest so far, update min variable
             go = gap_models.gap_model(gap)
+            #print("Go: " + str(go))
             go_turns[turn] = go
 
 

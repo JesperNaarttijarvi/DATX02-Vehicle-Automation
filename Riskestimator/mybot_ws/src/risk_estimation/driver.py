@@ -150,7 +150,6 @@ class RiskEstimator:
             #if id == 1: print go_sum
         
         self.mutex.release()
-        print(go_sum)
         return go_sum > 0.5
 
 
