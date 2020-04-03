@@ -1,14 +1,12 @@
 def generateReport(data):
     l = cleanData(data)
-    
-    for i in l:
-        print(l[i])
+    for item in l[:]:
+        print(item)
     
 def cleanData(data):
     l = data.split(" ")
-    i = 0
-    while i < len(l):
-        if l[i] == "pos" or l[i].isnumeric:
-            l.remove(i)
-            i += 1
+    
+    for item in l[:]:
+        if item == "pos":
+            l.remove(item)
     return l
