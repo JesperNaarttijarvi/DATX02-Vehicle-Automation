@@ -12,4 +12,4 @@ args = parser.parse_args()
 if args.test:
     print("TEST")
 else:
-    report.generateReport("stopplikt pos 443 121")
+    report.generate_report("stopplikt pos 443 121")

@@ -1,11 +1,11 @@
-def generateReport(data):
-    l = cleanData(data)
+def generate_report(data):
+    l = clean_data(data)
     for item in l[:]:
         print(item)
-    
-def cleanData(data):
+
+
+def clean_data(data):
     l = data.split(" ")
-    
     for item in l[:]:
         if item == "pos":
             l.remove(item)
