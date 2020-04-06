@@ -12,7 +12,7 @@ class Autodrive :
             self.speed2 = 0.25
             self.angle2 = 0
             # turn is either left, right or straight
-            self.turn = "left"
+            self.turn = "straight"
             self.initiatedTurn = "false"
 
     def newModel(self, msg):
@@ -62,7 +62,12 @@ class Autodrive :
         elif self.turn == "straight":
             #car approaching stop sign and the other car has not yet passed
             if (msg.pose[2].position.x < 4 and msg.pose[3].position.y < 2):
-                self.speed1 = 0            
+                self.speed1 = 0     
+
+            # start turning, if turn is initiated it should be completed, if turn is initiated it should be completed and car should not stop
+            if msg.pose[2].position.x < 4 and (msg.pose[3].position.y > 2 or msg.pose[3].position.y < -6) or self.initiatedTurn == "true": 
+                self.speed1 = 4
+                self.initiatedTurn = "true"       
 
         
         #elif msg.pose[2].position.x < 2 and msg.pose[2].orientation.z > -0.02:
