@@ -1,4 +1,8 @@
 #!/bin/bash
+python -m pip install squaternion
+python -m pip install scipy
+ 
+
 catkin_make
 source devel/setup.bash
 
