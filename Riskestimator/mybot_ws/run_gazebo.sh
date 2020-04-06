@@ -4,6 +4,7 @@ source devel/setup.bash
 
 #cp -r ../roadSystem ~/.gazebo/models
 cp -r ../tCrossing ~/.gazebo/models
+cp -r ../4WayCrossing ~/.gazebo/models
 
 sudo killall rosmaster
 sudo killall gzserver
