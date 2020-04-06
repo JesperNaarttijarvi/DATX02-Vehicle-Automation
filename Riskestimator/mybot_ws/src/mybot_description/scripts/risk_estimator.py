@@ -43,6 +43,9 @@ class RESystem :
             self.car0_old_pos = (None,None)
             self.car1_old_pos = (None,None)
 
+            self.pub = None 
+            self.sub = None
+
             self.riskEstimator = None
 
             self.estimator_time = 0
@@ -91,7 +94,8 @@ class RESystem :
             print("____________WARNING 111111111_____________")
 
         #print(self.riskEstimator.isManeuverOk(1,"straight"))
-
+        
+        self.pub.publish(str(sum(self.earlierRisks0)/self.RisksSaved))
         
         self.timeDelta = time.time() - start_time
         
@@ -128,7 +132,8 @@ class RESystem :
     def listener(self):
         #pub =  rospy.Publisher('/robot1/key_vel', Twist, queue_size=10)
         #pub2 =  rospy.Publisher('/robot2/key_vel', Twist, queue_size=10)
-        sub = rospy.Subscriber("/gazebo/model_states",ModelStates,self.msg_handler)
+        self.pub =  rospy.Publisher('/risk', String, queue_size=10)
+        self.sub = rospy.Subscriber("/gazebo/model_states",ModelStates,self.msg_handler)
         #pub = rospy.Publisher('chatter', String, queue_size=10)
         #rospy.init_node('autodrive')
         rospy.init_node('listener', anonymous=True)
