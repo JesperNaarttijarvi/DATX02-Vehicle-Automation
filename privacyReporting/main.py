@@ -12,4 +12,4 @@ args = parser.parse_args()
 if args.test:
     print("TEST")
 else:
-    report.generate_report("stopplikt pos 443 121")
+    report.generate_report("violation:stopplikt,location:korsvägen,timestamp:2020-04-09 11:31,pos:[443;121]")

@@ -1,13 +1,13 @@
+import sender
+from email.mime.text import MIMEText
+
 def generate_report(data):
-    l = clean_data(data)
-    for item in l[:]:
-        print(item)
+    sender.send(formatreport(data))
 
 
-def clean_data(data):
-    l = data.split(" ")
+def formatreport(data):
+    body = "Rawdata: " + data
+    l = data.split(",")
 
-    for item in l[:]:
-        if item == "pos":
-            l.remove(item)
-    return l
+    return body + "\n\nTraffic violation \"" + l[0][10:] + "\" occured in area \""\
+           + l[1][9:] + "\" at approximately " + l[2][21:]
