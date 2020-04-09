@@ -22,3 +22,4 @@ def send(m):
     with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, msg.as_string())
+        print("Mail sent to: " + receiver_email)
