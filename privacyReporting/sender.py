@@ -7,7 +7,7 @@ port = 465  # SSL
 password = "datx02report"
 
 sender_email = "trafficruleviolationreport@gmail.com"
-receiver_email = "mmarcussvensson@gmail.com"
+receiver_email = input("Receiver email: ")
 
 # Secure SSL context
 context = ssl.create_default_context()
