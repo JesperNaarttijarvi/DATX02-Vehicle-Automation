@@ -2,7 +2,7 @@ sudo killall python
 #python src/mybot_description/scripts/autodrive.py &
 #disown
 gnome-terminal -e "src/mybot_description/scripts/autodrive.py" &
-sleep 0.15
+sleep 0.2
 xdotool windowminimize $(xdotool getactivewindow)
 
 #-x 11.28 -y 0.74 -z 0.1

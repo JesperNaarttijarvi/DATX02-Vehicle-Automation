@@ -4,90 +4,182 @@ import rospy
 from std_msgs.msg import String
 from gazebo_msgs.msg import ModelStates
 from geometry_msgs.msg import Twist
+from squaternion import quat2euler
 
 class Autodrive : 
     def __init__(self):
-            self.speed1 = 4
-            self.angle1 = 0
-            self.speed2 = 0.25
-            self.angle2 = 0
-            # turn is either left, right or straight
-            self.turn = "straight"
+            self.aquireDistNonPrio = 4 # should be atleast 4
+            self.aquireDistPrio = 8 # should be atleast 4
+            self.stoppingTurn = None
             self.initiatedTurn = "false"
+            self.firstIter = True
+            #carId starts from 2
+            self.cars = {
+                2 : {
+                "speed" : 4,
+                "angle" : 0,
+                "twist" : 0, #The cars starting angle, will be set at first iteration
+                "turn" : "right",
+                "criticalSectionAquired" : False,
+                "maneuverComplete" : False,
+                "priorityLane" : False
+                },
+                3 : {
+                "speed" : 4,
+                "angle" : 0,
+                "twist" : 0, #The cars starting angle, will be set at first iteration
+                "turn" : "right",
+                "criticalSectionAquired" : False,
+                "maneuverComplete" : False,
+                "priorityLane" : True
+                }
+            }
+
+    def criticalSectionAvailable(self):
+        for car in self.cars:
+                 if self.cars[car]["criticalSectionAquired"] == True:
+                    return False
+        return True
+    
+    def getCriticalSection(self, msg, carId):
+        # Cars x and y position
+        carPosX = msg.pose[carId].position.x
+        carPosY = msg.pose[carId].position.y
+
+        # Aquire critical section while driving priority lane
+        if self.cars[carId]["priorityLane"]:
+            if  carPosX < self.aquireDistPrio and carPosX > -self.aquireDistPrio and \
+                carPosY < self.aquireDistPrio and carPosY > -self.aquireDistPrio:
+                self.cars[carId]["criticalSectionAquired"] = True
+
+        # Aquire critical section while driving non priority lane
+        elif self.criticalSectionAvailable():
+            if  carPosX < self.aquireDistNonPrio and carPosX > -self.aquireDistNonPrio and \
+                carPosY < self.aquireDistNonPrio and carPosY > -self.aquireDistNonPrio:
+                self.cars[carId]["criticalSectionAquired"] = True
+    
+    def turnLeft(self, msg, carId):
+         # Cars x and y position
+        carPosX = msg.pose[carId].position.x
+        carPosY = msg.pose[carId].position.y
+
+        if self.cars[carId]["maneuverComplete"]:
+            self.cars[carId]["criticalSectionAquired"] = False
+            self.cars[carId]["speed"] = 4
+            return
+        else:
+            self.getCriticalSection(msg, carId)
+
+                
+        # get angle in radians
+        pose = msg.pose[carId]
+        bot_euler = quat2euler(*(pose.orientation.w,pose.orientation.x,pose.orientation.y,pose.orientation.z), degrees=False)
+        rotation = abs(bot_euler[2])
+
+        # start turning, if turn is initiated it should be completed
+        if carPosX < 3.85 and carPosX > -3.85 and carPosY < 3.85 and carPosY > -3.85:
+            if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"]:
+                self.cars[carId]["speed"] = 0.48
+                self.cars[carId]["angle"] = -0.18
+            else:
+                self.cars[carId]["speed"] = 0
+                # Initiate turn, i.e turn the car a little towards the way it will turn
+                if abs(rotation-self.cars[carId]["twist"]) < 0.4:
+                    self.cars[carId]["angle"] = -0.1
+                else:
+                    self.cars[carId]["angle"] = 0  
+
+
+        # stop turning
+        if abs(rotation-self.cars[carId]["twist"]) > 1.4:
+            self.cars[carId]["angle"] = 0
+            if carPosX > 4 or carPosX < -4 or carPosY > 4 or carPosY < -4:
+                self.cars[carId]["maneuverComplete"] = True
+
+
+    def turnRight(self, msg, carId):
+         # Cars x and y position
+        carPosX = msg.pose[carId].position.x
+        carPosY = msg.pose[carId].position.y
+
+        if self.cars[carId]["maneuverComplete"]:
+            self.cars[carId]["criticalSectionAquired"] = False
+            self.cars[carId]["speed"] = 4
+            return
+        else:
+            self.getCriticalSection(msg, carId)
+
+        # get angle in radians
+        pose = msg.pose[carId]
+        bot_euler = quat2euler(*(pose.orientation.w,pose.orientation.x,pose.orientation.y,pose.orientation.z), degrees=False)
+        rotation = abs(bot_euler[2])
+
+        # start turning, if turn is initiated it should be completed
+        if carPosX < 3.85 and carPosX > -3.85 and carPosY < 3.85 and carPosY > -3.85:
+            if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"]:
+                self.cars[carId]["speed"] = 0.4 #0.4
+                self.cars[carId]["angle"] = 0.3 #0.3
+            else:  
+                self.cars[carId]["speed"] = 0
+                # Initiate turn, i.e turn the car a little towards the way it will turn
+                if abs(rotation-self.cars[carId]["twist"]) < 0.5:
+                    self.cars[carId]["angle"] = 0.1
+                else:
+                    self.cars[carId]["angle"] = 0
+        
+        # stop turning
+        if abs(rotation-self.cars[carId]["twist"]) > 1.4:
+            self.cars[carId]["angle"] = 0
+            if carPosX > 4 or carPosX < -4 or carPosY > 4 or carPosY < -4:
+                self.cars[carId]["maneuverComplete"] = True
+
+
+    def goStraight(self, msg, carId):
+        # Cars x and y position
+        carPosX = msg.pose[carId].position.x
+        carPosY = msg.pose[carId].position.y
+
+        enteredCrossing = None
+        # Needed to see if car has been in intersection yet
+
+        if carPosX < 1 and carPosX > -1:
+            enteredCrossing = True
+
+        if self.cars[carId]["maneuverComplete"]:
+            self.cars[carId]["criticalSectionAquired"] = False
+            self.cars[carId]["speed"] = 4
+            return
+        else:
+            self.getCriticalSection(msg, carId)
+
+        if carPosX < 4 and carPosX > -4 and carPosY < 4 and carPosY > -4:
+            if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"]:
+                self.cars[carId]["speed"] = 4
+            else:
+                self.cars[carId]["speed"] = 0       
+
+        if (carPosX > 4 or carPosX < -4 or carPosY > 4 or carPosY < -4) and enteredCrossing:
+            self.cars[carId]["maneuverComplete"] = True
+        
+
 
     def newModel(self, msg):
-        #rospy.loginfo(msg.pose[3].position.x)
-        #car will always drive unless it is excplicitly told to stop
-        oldSpeed = self.speed1
-        #self.speed1 = 4
-        #self.angle1 = 0
-
-        if self.turn == "right" :
-            #car approaching stop sign and the other car has not yet passed, if turn is initiated it should be completed and car should not stop
-            if (msg.pose[2].position.x < 4 and msg.pose[3].position.y < 2) and self.initiatedTurn == "false":
-                self.speed1 = 0
-
-            # start turning, if turn is initiated it should be completed, if turn is initiated it should be completed and car should not stop
-            if msg.pose[2].position.x < 4 and (msg.pose[3].position.y > 2 or msg.pose[3].position.y < -6) or self.initiatedTurn == "true": 
-                self.speed1 = 0.4
-                self.angle1 = 0.3
-                self.initiatedTurn = "true"
-            
-            # stop turning
-            if msg.pose[2].orientation.z < -0.65:
-                self.angle1 = 0
-
-            # accelerate after turn
-            if msg.pose[2].position.y > 2:
-                self.speed1 = 4
-
-        elif self.turn == "left":
-            #car approaching stop sign and the other car has not yet passed
-            if (msg.pose[2].position.x < 4 and msg.pose[3].position.y < 2) and self.initiatedTurn == "false":
-                self.speed1 = 0
-
-            # start turning, if turn is initiated it should be completed
-            if msg.pose[2].position.x < 4 and (msg.pose[3].position.y > 2 or msg.pose[3].position.y < -6) or self.initiatedTurn == "true": 
-                self.speed1 = 0.48
-                self.angle1 = -0.18
-                self.initiatedTurn = "true"
-            
-            # stop turning
-            if msg.pose[2].orientation.z > 0.65:
-                self.angle1 = 0
-
-            # accelerate after turn
-            if msg.pose[2].position.y < -3:
-                self.speed1 = 4
-        elif self.turn == "straight":
-            #car approaching stop sign and the other car has not yet passed
-            if (msg.pose[2].position.x < 4 and msg.pose[3].position.y < 2):
-                self.speed1 = 0     
-
-            # start turning, if turn is initiated it should be completed, if turn is initiated it should be completed and car should not stop
-            if msg.pose[2].position.x < 4 and (msg.pose[3].position.y > 2 or msg.pose[3].position.y < -6) or self.initiatedTurn == "true": 
-                self.speed1 = 4
-                self.initiatedTurn = "true"       
-
+        if self.firstIter:
+            for car in self.cars:
+                # set start angle in radians
+                pose = msg.pose[car]
+                bot_euler = quat2euler(*(pose.orientation.w,pose.orientation.x,pose.orientation.y,pose.orientation.z), degrees=False)
+                self.cars[car]["twist"] = abs(bot_euler[2])
+                self.firstIter = False
         
-        #elif msg.pose[2].position.x < 2 and msg.pose[2].orientation.z > -0.02:
-        #    self.speed1 = 0
-        #    self.angle1 = 0.5
+        for car in self.cars:
+            if self.cars[car]["turn"] == "left":
+                self.turnLeft(msg, car)
+            elif self.cars[car]["turn"] == "right":
+                self.turnRight(msg, car)
+            else:
+                self.goStraight(msg, car)
 
-        #print("z: " + str(msg.pose[2].orientation.z))
-        #elif msg.pose[2].position.x < 2 and msg.pose[2].orientation.z > -0.2 : 
-        #    self.angle1 = 0
-        #    self.speed1 = 0.3
-
-        if oldSpeed != self.speed1:
-            print(self.turn)
-            print(self.speed1)        
-        #if msg.pose[2].orientation.z > -0.66 and msg.pose[2].orientation.z < -0.7 : 
-        #    self.speed1 = 4 
-        #if msg.pose[3].position.y > -4 : 
-        #    rospy.loginfo("speed is 0")
-        #    self.speed2 = 0
-      
         
     def talker(self):
         pub =  rospy.Publisher('/robot1/key_vel', Twist, queue_size=10)
@@ -107,13 +199,13 @@ class Autodrive :
             vel_msg.angular.y = 0
             vel_msg.angular.z = 0
 
-            vel_msg.linear.x = self.speed1
-            vel_msg.angular.z = self.angle1
+ 
+            vel_msg.linear.x = self.cars[2]["speed"]
+            vel_msg.angular.z = self.cars[2]["angle"]
             pub.publish(vel_msg)
 
-            vel_msg.linear.x = self.speed2
-            vel_msg.angular.z = self.angle2
-
+            vel_msg.linear.x = self.cars[3]["speed"]
+            vel_msg.angular.z = self.cars[3]["angle"]
             pub2.publish(vel_msg)
             
             rate.sleep()
