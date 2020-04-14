@@ -13,6 +13,7 @@ class Autodrive :
             self.stoppingTurn = None
             self.initiatedTurn = "false"
             self.firstIter = True
+            self.publishers = []
             #carId starts from 2
             self.cars = {
                 2 : {
@@ -34,6 +35,19 @@ class Autodrive :
                 "priorityLane" : True
                 }
             }
+
+    def newCar(self, name, carId, turn, speed, prioLane):
+        # create publisher for car
+        self.publishers.append(rospy.Publisher('/' + name + '/key_vel', Twist, queue_size=10))
+
+        #add car to dicttionary cars
+        self.cars[carId]["speed"] = speed
+        self.cars[carId]["angle"] = 0
+        self.cars[carId]["twist"] = 0
+        self.cars[carId]["turn"] = turn
+        self.cars[carId]["criticalSectionAquired"] = False
+        self.cars[carId]["maneuverComplete"] = False
+        self.cars[carId]["priorityLane"] = prioLane
 
     def criticalSectionAvailable(self):
         for car in self.cars:
@@ -182,8 +196,6 @@ class Autodrive :
 
         
     def talker(self):
-        pub =  rospy.Publisher('/robot1/key_vel', Twist, queue_size=10)
-        pub2 =  rospy.Publisher('/robot2/key_vel', Twist, queue_size=10)
         sub = rospy.Subscriber("/gazebo/model_states",ModelStates,self.newModel)
         #pub = rospy.Publisher('chatter', String, queue_size=10)
         #rospy.init_node('autodrive')
@@ -198,21 +210,19 @@ class Autodrive :
             vel_msg.angular.x = 0
             vel_msg.angular.y = 0
             vel_msg.angular.z = 0
-
  
-            vel_msg.linear.x = self.cars[2]["speed"]
-            vel_msg.angular.z = self.cars[2]["angle"]
-            pub.publish(vel_msg)
-
-            vel_msg.linear.x = self.cars[3]["speed"]
-            vel_msg.angular.z = self.cars[3]["angle"]
-            pub2.publish(vel_msg)
+            for i in range(len(self.publishers)):
+                vel_msg.linear.x = self.cars[i+2]["speed"]
+                vel_msg.angular.z = self.cars[i+2]["angle"]
+                self.publishers[i].publish(vel_msg)
             
             rate.sleep()
 
+'''
 if __name__ == '__main__':
     try:
         auto = Autodrive()
         auto.talker()
     except rospy.ROSInterruptException:
         pass
+    '''

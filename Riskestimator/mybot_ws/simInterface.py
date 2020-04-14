@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import sys 
+import sys, os
 import rospy
 import time
 from gazebo_msgs.srv import DeleteModel, SpawnModel, DeleteModelRequest, GetModelState, SetModelState
@@ -7,6 +7,9 @@ from gazebo_msgs.msg import ModelState
 from std_srvs.srv import Empty
 from geometry_msgs.msg import *
 from sets import Set
+cwd = os.getcwd()
+sys.path.append(cwd + "/src/mybot_description/scripts/")
+from autodrive import Autodrive
 #from src.mybot_description.scripts.autodrive import Autodrive
 
 
@@ -19,7 +22,8 @@ class simInterface :
     def __init__(self,scenario = None): 
         self.robotNames = Set()
         self.reload_bots()
-        self.current_scenario = scenario 
+        self.current_scenario = scenario
+        self.aDrive = Autodrive()
 
     def reload_bots(self) : 
         model_coordinates = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
@@ -32,10 +36,10 @@ class simInterface :
             if exists == True : 
                 self.robotNames.add(reload_name)
 
-    def spawn_bot(self,point = Point(0,0,0),quaternion = Quaternion(0,0,0,0)) :        
+    def spawn_bot(self,point = Point(0,0,0),quaternion = Quaternion(0,0,0,0), turn = "straight", speed=4, prioLane = False) :        
         
         name = "robot" + str(len(self.robotNames))
-        namespace = "/robot" + str(len(self.robotNames))
+        namespace = "robot" + str(len(self.robotNames))
 
         self.robotNames.add(name)
 
@@ -45,7 +49,8 @@ class simInterface :
             rospy.wait_for_service("/gazebo/spawn_urdf_model")
             try:
                 spawner = rospy.ServiceProxy("/gazebo/spawn_urdf_model", SpawnModel)
-                spawner(str(name), open("/home/adam/Documents/gitHub/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/mybot_description/urdf/mybot.urdf",'r').read(), namespace, Pose(position= point,orientation=quaternion),"world")
+                spawner(str(name), open("/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/mybot_description/urdf/mybot.urdf",'r').read(), namespace, Pose(position= point,orientation=quaternion),"world")
+                self.aDrive.newCar(namespace, len(self.robotNames)+1, turn, speed, prioLane)
             except rospy.ServiceException as e:
                 print("Service call failed: ",e)
         else :             
@@ -102,6 +107,9 @@ class simInterface :
             elif len(words) == 8 : 
                 quaternion = Quaternion(float(words[4]),float(words[5]),float(words[6]),float(words[7]))
                 self.spawn_bot(point,quaternion)
+            elif len(words) == 11 : 
+                quaternion = Quaternion(float(words[4]),float(words[5]),float(words[6]),float(words[7]))
+                self.spawn_bot(point,quaternion, str(words[8]), float(words[9]), bool(words[10]))
         elif words[0] == "reset" or words[0] == "r" : 
             self.reset()
         elif words[0] == "killall" : 
@@ -114,13 +122,17 @@ class simInterface :
             print(self.robotNames)
         elif words[0] == "new" : 
             self.newscenario(words[1])
+        elif words[0] == "start":
+            try:
+                self.aDrive.talker()
+            except rospy.ROSInterruptException:
+                pass
 
-        
-            
-        
+
 
 if __name__ == "__main__":
     sI  = None
+    print("Spawn car by by writing: spawn x y z x_orientation y_orientation z_orientation turnDirection speed prioLane(True/False)")
     if len(sys.argv) == 2: 
         sI = simInterface(sys.argv[1])
         sI.parse("new " + sys.argv[1])
