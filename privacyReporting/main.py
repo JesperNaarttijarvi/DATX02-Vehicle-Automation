@@ -18,14 +18,14 @@ if args.test:
     print("TEST")
     print("Raw data: " + data)
     if args.mail:
-        report.generate_report(data)
         report.generate_mail(data)
+        report.generate_report(data)
     else:
         report.generate_report(data)
 elif args.live:
     data = input("Input violation data: ")
     if args.mail:
-        report.generate_report(data)
         report.generate_mail(data)
+        report.generate_report(data)
     else:
         report.generate_report(data)

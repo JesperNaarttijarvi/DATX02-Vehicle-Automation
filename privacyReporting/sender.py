@@ -7,13 +7,13 @@ port = 465  # SSL
 password = "datx02report"
 
 sender_email = "trafficruleviolationreport@gmail.com"
-receiver_email = input("Receiver email: ")
 
 # Secure SSL context
 context = ssl.create_default_context()
 
 
 def send(m):
+    receiver_email = input("Receiver email: ")
     msg = MIMEText(m.encode('utf-8'), _charset='utf-8')
     msg['Subject'] = 'Traffic violation detected'
     msg['From'] = sender_email
