@@ -1,5 +1,6 @@
 import argparse
 import report
+import randomizedresponse
 
 # Argsparser
 parser = argparse.ArgumentParser()
@@ -14,7 +15,8 @@ args = parser.parse_args()
 
 # Check for arg
 if args.test:
-    data = "violation:stopplikt,location:korsvägen,timestamp:2020-04-09 11.31,position:[443;121]"
+    data = "violation:stopplikt,location:korsvägen,timestamp:2020-04-09 11.31,position:[443;121],occured:1"
+    data = randomizedresponse.random_response(data)
     print("TEST")
     print("Raw data: " + data)
     if args.mail:
@@ -24,6 +26,7 @@ if args.test:
         report.generate_report(data)
 elif args.live:
     data = input("Input violation data: ")
+    data = randomizedresponse.random_response(data)
     if args.mail:
         report.generate_mail(data)
         report.generate_report(data)
