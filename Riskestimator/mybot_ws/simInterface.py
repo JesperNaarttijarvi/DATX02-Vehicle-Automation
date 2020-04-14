@@ -20,59 +20,45 @@ from autodrive import Autodrive
 
 class simInterface : 
     def __init__(self,scenario = None): 
-        self.robotNames = Set()
-        self.reload_bots()
-        self.current_scenario = scenario
         self.aDrive = Autodrive()
+        self.numRobot = 0
+        self.current_scenario = scenario 
 
-    def reload_bots(self) : 
-        model_coordinates = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
-        exists = None
-        while exists != False :  
-            model_coordinates = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
-            reload_name = "robot" + str(len(self.robotNames))
-            message = model_coordinates(reload_name,"")
-            exists = message.success
-            if exists == True : 
-                self.robotNames.add(reload_name)
+    def robot_exists(self,name) : 
+        existance_checker = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
+        return existance_checker(name,"").success
 
     def spawn_bot(self,point = Point(0,0,0),quaternion = Quaternion(0,0,0,0), turn = "straight", speed=4, prioLane = False) :        
         
-        name = "robot" + str(len(self.robotNames))
-        namespace = "robot" + str(len(self.robotNames))
-
-        self.robotNames.add(name)
-
-        model_coordinates = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
+        name = "robot" + str(self.numRobot)
+        self.numRobot += 1
             
-        if model_coordinates(name,"").success == False :     
+        if self.robot_exists(name) :     
+           self.move_bot(name,point,quaternion)
+        else :             
             rospy.wait_for_service("/gazebo/spawn_urdf_model")
             try:
                 spawner = rospy.ServiceProxy("/gazebo/spawn_urdf_model", SpawnModel)
-                spawner(str(name), open("/home/simon/Documents/School/DATX02-Vehicle-Automation/Riskestimator/mybot_ws/src/mybot_description/urdf/mybot.urdf",'r').read(), namespace, Pose(position= point,orientation=quaternion),"world")
-                self.aDrive.newCar(namespace, len(self.robotNames)+1, turn, speed, prioLane)
+                spawner(str(name), open("src/mybot_description/urdf/mybot.urdf",'r').read(), "/" + name, Pose(position= point,orientation=quaternion),"world")
+                self.aDrive.newCar(name, self.numRobot+1, turn, speed, prioLane)
             except rospy.ServiceException as e:
                 print("Service call failed: ",e)
-        else :             
-            self.move_bot(name,point,quaternion)
-        
         
     def move_bot(self,name,point = Point(0,0,0),quaternion = Quaternion(0,0,0,0)) : 
         rospy.wait_for_service("/gazebo/set_model_state")
         try : 
             placer = rospy.ServiceProxy("/gazebo/set_model_state", SetModelState)
             placer(ModelState(name,Pose(position= point,orientation=quaternion),Twist(Vector3(0,0,0),Vector3(0,0,0)),"world"))
-
         except rospy.ServiceException as e:
             print("Service call failed: ",e)
 
     def reset(self) : 
         if  self.current_scenario != None : 
             self.newscenario(self.current_scenario)
-
         
     def newscenario(self,path) : 
         f = None
+        
         try :  
             f = open(path, "r")
             self.current_scenario = path
@@ -80,13 +66,13 @@ class simInterface :
             print("path error")
             return
 
-        num_old = len(self.robotNames)
-        self.robotNames.clear()
+        num_old = self.numRobot
+        self.numRobot = 0
+
         for line in f:
             sI.parse(line)            
-
-        num_new = len(self.robotNames)
-        for x in range(num_new,num_old) : 
+        
+        for x in range(self.numRobot,num_old) : 
             self.move_bot("robot"+str(x),Point(1000,1000,1000))
     
         play = rospy.ServiceProxy("/gazebo/unpause_physics", Empty)
@@ -129,15 +115,13 @@ class simInterface :
                 pass
 
 
+        
 
 if __name__ == "__main__":
-    sI  = None
+    sI  = simInterface()
     print("Spawn car by by writing: spawn x y z x_orientation y_orientation z_orientation turnDirection speed prioLane(True/False)")
     if len(sys.argv) == 2: 
-        sI = simInterface(sys.argv[1])
         sI.parse("new " + sys.argv[1])
-    else : 
-        sI = simInterface()
     while(1) : 
         line = str(raw_input(">"))
         sI.parse(line)
