@@ -23,7 +23,8 @@ class Autodrive :
                 "turn" : "right",
                 "criticalSectionAquired" : False,
                 "maneuverComplete" : False,
-                "priorityLane" : False
+                "priorityLane" : False,
+                "enteredCrossing" : False
                 },
                 3 : {
                 "speed" : 4,
@@ -32,13 +33,16 @@ class Autodrive :
                 "turn" : "right",
                 "criticalSectionAquired" : False,
                 "maneuverComplete" : False,
-                "priorityLane" : True
+                "priorityLane" : False,
+                "enteredCrossing" : False
                 }
             }
 
     def newCar(self, name, carId, turn, speed, prioLane):
         # create publisher for car
         self.publishers.append(rospy.Publisher('/' + name + '/key_vel', Twist, queue_size=10))
+        # convert string to bool
+        prioLane = True if "True" in prioLane else False
 
         #add car to dicttionary cars
         self.cars[carId]["speed"] = speed
@@ -48,6 +52,7 @@ class Autodrive :
         self.cars[carId]["criticalSectionAquired"] = False
         self.cars[carId]["maneuverComplete"] = False
         self.cars[carId]["priorityLane"] = prioLane
+        self.cars[carId]["enteredCrossing"] = False
 
     def criticalSectionAvailable(self):
         for car in self.cars:
@@ -70,6 +75,7 @@ class Autodrive :
         elif self.criticalSectionAvailable():
             if  carPosX < self.aquireDistNonPrio and carPosX > -self.aquireDistNonPrio and \
                 carPosY < self.aquireDistNonPrio and carPosY > -self.aquireDistNonPrio:
+                print(str(carId) + " critical section aquired non prio")
                 self.cars[carId]["criticalSectionAquired"] = True
     
     def turnLeft(self, msg, carId):
@@ -156,8 +162,8 @@ class Autodrive :
         enteredCrossing = None
         # Needed to see if car has been in intersection yet
 
-        if carPosX < 1 and carPosX > -1:
-            enteredCrossing = True
+        if carPosX < 1 and carPosX > -1 and carPosY < 1 and carPosY > -1:
+            self.cars[carId]["enteredCrossing"] = True
 
         if self.cars[carId]["maneuverComplete"]:
             self.cars[carId]["criticalSectionAquired"] = False
@@ -172,7 +178,8 @@ class Autodrive :
             else:
                 self.cars[carId]["speed"] = 0       
 
-        if (carPosX > 4 or carPosX < -4 or carPosY > 4 or carPosY < -4) and enteredCrossing:
+        if (carPosX > 4 or carPosX < -4 or carPosY > 4 or carPosY < -4) and self.cars[carId]["enteredCrossing"]:
+            print("maneuverComplete")
             self.cars[carId]["maneuverComplete"] = True
         
 

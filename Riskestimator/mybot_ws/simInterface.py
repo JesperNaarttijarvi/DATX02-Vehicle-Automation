@@ -28,8 +28,7 @@ class simInterface :
         existance_checker = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
         return existance_checker(name,"").success
 
-    def spawn_bot(self,point = Point(0,0,0),quaternion = Quaternion(0,0,0,0), turn = "straight", speed=4, prioLane = False) :        
-        
+    def spawn_bot(self,point = Point(0,0,0),quaternion = Quaternion(0,0,0,0), turn = "straight", speed=4, prioLane = "False") :        
         name = "robot" + str(self.numRobot)
         self.numRobot += 1
             
@@ -95,7 +94,7 @@ class simInterface :
                 self.spawn_bot(point,quaternion)
             elif len(words) == 11 : 
                 quaternion = Quaternion(float(words[4]),float(words[5]),float(words[6]),float(words[7]))
-                self.spawn_bot(point,quaternion, str(words[8]), float(words[9]), bool(words[10]))
+                self.spawn_bot(point,quaternion, str(words[8]), float(words[9]), str(words[10]))
         elif words[0] == "reset" or words[0] == "r" : 
             self.reset()
         elif words[0] == "killall" : 
