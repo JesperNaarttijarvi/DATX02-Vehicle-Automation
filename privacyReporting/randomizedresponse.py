@@ -1,5 +1,7 @@
 import math
 import random
+
+
 # A = violation, B = no violation
 
 # pi = the true probability of A in the population
@@ -16,25 +18,29 @@ def calculatelikelihood(pi, p, n):
     l2 = ((1 - pi) * p + pi * (1 - p))
     return math.pow(l1, n) * math.pow(l2, n)
 
+
 def coin_flip():
     r = random.randrange(1, 100, 1)
-    if r <= 50: return True
-    else: return False
+    if r <= 50:
+        return True
+    else:
+        return False
+
 
 def random_response(data):
     s = ""
     flip1 = coin_flip()
-    if flip1 :
+    if flip1:
         return data
-    else :
+    else:
         flip2 = coin_flip()
         data_list = data.split(",")
         v = data_list[4].split(":")
-        if flip2 :
+        if flip2:
             v[1] = ":1"
-        else :
+        else:
             v[1] = ":0"
         data_list[4] = v[0] + v[1]
-        for i  in range(len(data_list)) :
+        for i in range(len(data_list)):
             s += data_list[i] + ","
         return s[:-1]

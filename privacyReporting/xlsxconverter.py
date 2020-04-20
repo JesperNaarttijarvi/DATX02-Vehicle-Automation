@@ -1,26 +1,31 @@
-import xlsxwriter
 from datetime import datetime
+from openpyxl import Workbook, load_workbook
 
 # Get time for file name
 now = datetime.now()
 
-# Create workbook & add worksheet
-filename = 'Report/ViolationReport' + now.strftime("%d%m%Y%H%M%S") + '.xlsx'
-workbook = xlsxwriter.Workbook(filename)
-worksheet = workbook.add_worksheet('Data')
-
-
 def write(data):
-    row = 0
-    col = 0
-    # Create column names
-    worksheet.write(row, col, "Type")
-    worksheet.write(row, col + 1, "Value")
-    row += 1
-    for type, val in (data):
-        worksheet.write(row, col, type)
-        worksheet.write(row, col + 1, val)
-        row += 1
+    try:
+        with open('Report/ViolationReport.xlsx'):
+            wb = load_workbook("Report/ViolationReport.xlsx")
+            ws = wb.active
+    except IOError:
+        wb = Workbook()
+        ws = wb.active
+        ws.title = "Violation Data"
 
-    workbook.close()
-    print("Report generated: " + filename)
+    ws["A1"] = "Violation"
+    ws["B1"] = "Location"
+    ws["C1"] = "Timestamp"
+    ws["D1"] = "Position"
+    ws["E1"] = "Response"
+
+    m = ws.max_row + 1
+    for i in range(len(data)):
+        if(data[i][1].isnumeric()):
+            ws.cell(column=i + 1, row=m).value = float(data[i][1])
+        else:
+            ws.cell(column=i + 1, row=m).value = data[i][1]
+
+    wb.save("Report/ViolationReport.xlsx")
+    print("Report compiled")
