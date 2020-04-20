@@ -10,7 +10,6 @@ parser.add_argument("-l", "--live", help="Prompts user input of violation data, 
                                          "position:[443;121]", action="store_true")
 parser.add_argument("-m", "--mail", help="Activates smpt mail service and sends"
                                          " mail with a brief violation summary", action="store_true")
-parser.add_argument("-o", "--openpyxl", help="t", action="store_true")
 
 args = parser.parse_args()
 
