@@ -8,6 +8,7 @@ from openpyxl.chart import (
 # Get time for file name
 now = datetime.now()
 
+
 def write(data):
     try:
         with open('Report/ViolationReport.xlsx'):
@@ -29,7 +30,7 @@ def write(data):
             ws.cell(column=i + 1, row=m).value = float(data[i][1])
         else:
             ws.cell(column=i + 1, row=m).value = data[i][1]
-    createChart(ws)
+    # createChart(ws)
 
     wb.save("Report/ViolationReport.xlsx")
     print("Report compiled")
