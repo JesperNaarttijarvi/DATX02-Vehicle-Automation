@@ -38,6 +38,12 @@ class Autodrive :
                 }
             }
 
+    def reset(self):
+        for car in self.cars:
+            self.cars[car]["maneuverComplete"] = False
+            self.cars[car]["enteredCrossing"] = False
+            self.cars[car]["criticalSectionAquired"] = False
+
     def newCar(self, name, carId, turn, speed, prioLane):
         # create publisher for car
         self.publishers.append(rospy.Publisher('/' + name + '/key_vel', Twist, queue_size=10))
