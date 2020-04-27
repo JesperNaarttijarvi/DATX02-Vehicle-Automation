@@ -219,7 +219,6 @@ class Autodrive :
         sub = rospy.Subscriber("/gazebo/model_states",ModelStates,self.newModel)
         #pub = rospy.Publisher('chatter', String, queue_size=10)
         #rospy.init_node('autodrive')
-        rospy.init_node('talker', anonymous=True)
         rate = rospy.Rate(10) # 10hz
         vel_msg = Twist()
 
