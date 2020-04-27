@@ -1,0 +1,12 @@
+new scenario1.txt
+start
+play
+sleep 10
+r
+sleep 10
+r
+sleep 10
+r
+sleep 10
+r
+sleep 10
