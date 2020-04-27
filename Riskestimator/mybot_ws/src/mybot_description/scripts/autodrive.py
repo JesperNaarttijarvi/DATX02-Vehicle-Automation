@@ -8,6 +8,7 @@ from squaternion import quat2euler
 
 class Autodrive : 
     def __init__(self):
+            self.pauseSimulation = False
             self.aquireDistNonPrio = 4 # should be atleast 4
             self.aquireDistPrio = 8 # should be atleast 4
             self.stoppingTurn = None
@@ -37,6 +38,12 @@ class Autodrive :
                 "enteredCrossing" : False
                 }
             }
+
+    def stopSimulation(self):
+        self.stopSimulation = True
+
+    def startSimulation(self):
+        self.stopSimulation = False
 
     def reset(self):
         for car in self.cars:
@@ -216,7 +223,7 @@ class Autodrive :
         rate = rospy.Rate(10) # 10hz
         vel_msg = Twist()
 
-        while not rospy.is_shutdown():
+        while not rospy.is_shutdown() and not self.pauseSimulation:
             #hello_str = "hello world %s" % rospy.get_time()        
             vel_msg.linear.y = 0
             vel_msg.linear.z = 0
