@@ -72,6 +72,7 @@ class simInterface :
     def reset(self) : 
         if  self.current_scenario != None : 
             self.newscenario(self.current_scenario)
+            self.aDrive.reset()
         
     def newscenario(self,path) : 
         print("new Scenario")
