@@ -40,10 +40,10 @@ class Autodrive :
             }
 
     def stopSimulation(self):
-        self.stopSimulation = True
+        self.pauseSimulation = True
 
     def startSimulation(self):
-        self.stopSimulation = False
+        self.pauseSimulation = False
 
     def reset(self):
         for car in self.cars:
@@ -58,14 +58,17 @@ class Autodrive :
         prioLane = True if "True" in prioLane else False
 
         #add car to dicttionary cars
-        self.cars[carId]["speed"] = speed
-        self.cars[carId]["angle"] = 0
-        self.cars[carId]["twist"] = 0
-        self.cars[carId]["turn"] = turn
-        self.cars[carId]["criticalSectionAquired"] = False
-        self.cars[carId]["maneuverComplete"] = False
-        self.cars[carId]["priorityLane"] = prioLane
-        self.cars[carId]["enteredCrossing"] = False
+        self.cars.update({carId : 
+                            {"speed" : speed, 
+                            "angle" : 0, 
+                            "twist" : 0, 
+                            "turn" : turn, 
+                            "criticalSectionAquired" : False, 
+                            "maneuverComplete" : False, 
+                            "priorityLane" : prioLane, 
+                            "enteredCrossing" : False}
+                        })
+
 
     def criticalSectionAvailable(self):
         for car in self.cars:
@@ -222,7 +225,7 @@ class Autodrive :
         rate = rospy.Rate(10) # 10hz
         vel_msg = Twist()
 
-        while not rospy.is_shutdown() and not self.pauseSimulation:
+        while not rospy.is_shutdown():
             #hello_str = "hello world %s" % rospy.get_time()        
             vel_msg.linear.y = 0
             vel_msg.linear.z = 0
@@ -231,8 +234,12 @@ class Autodrive :
             vel_msg.angular.z = 0
  
             for i in range(len(self.publishers)):
-                vel_msg.linear.x = self.cars[i+2]["speed"]
-                vel_msg.angular.z = self.cars[i+2]["angle"]
+                if self.pauseSimulation:
+                    vel_msg.linear.x = 0
+                    vel_msg.angular.z = 0
+                else:
+                    vel_msg.linear.x = self.cars[i+2]["speed"]
+                    vel_msg.angular.z = self.cars[i+2]["angle"]
                 self.publishers[i].publish(vel_msg)
             
             rate.sleep()

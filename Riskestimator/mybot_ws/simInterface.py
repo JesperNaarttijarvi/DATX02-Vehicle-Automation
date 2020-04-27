@@ -73,6 +73,7 @@ class simInterface :
             self.newscenario(self.current_scenario)
         
     def newscenario(self,path) : 
+        print("new Scenario")
         f = None
         
         try :  
@@ -127,11 +128,14 @@ class simInterface :
         elif words[0] == "new" : 
             self.newscenario(words[1])
         elif words[0] == "start":
-            self.adThread = threading.Thread(target=self.aDrive.talker, args=())
-            self.adThread.daemon = True
-            self.adThread.start()
+            self.aDrive.startSimulation()
+            if self.adThread == None:
+                self.adThread = threading.Thread(target=self.aDrive.talker, args=())
+                self.adThread.daemon = True
+                self.adThread.start()
         elif words[0] == "stop":
-            print(stop)
+            self.aDrive.stopSimulation()
+            print("stop")
         else :
             print("Command not found")    
 
