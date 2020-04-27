@@ -2,6 +2,8 @@
 import sys, os
 import rospy
 import time
+import threading
+
 from gazebo_msgs.srv import DeleteModel, SpawnModel, DeleteModelRequest, GetModelState, SetModelState
 from gazebo_msgs.msg import ModelState
 from std_srvs.srv import Empty
@@ -20,9 +22,22 @@ from autodrive import Autodrive
 
 class simInterface : 
     def __init__(self,scenario = None): 
+        rospy.init_node('talker', anonymous=True)
+        
         self.aDrive = Autodrive()
-        self.numRobot = 0
+        self.numRobot = self.getNumberOfbots()
         self.current_scenario = scenario 
+        self.adThread = None
+
+        self.iteration = 0
+
+
+    def getNumberOfbots(self) : 
+        x = 0
+        while( self.robot_exists("robot" + str(x)) ) : 
+            x += 1
+        return x
+
 
     def robot_exists(self,name) : 
         existance_checker = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
@@ -39,7 +54,9 @@ class simInterface :
             try:
                 spawner = rospy.ServiceProxy("/gazebo/spawn_urdf_model", SpawnModel)
                 spawner(str(name), open("src/mybot_description/urdf/mybot.urdf",'r').read(), "/" + name, Pose(position= point,orientation=quaternion),"world")
+            
                 self.aDrive.newCar(name, self.numRobot+1, turn, speed, prioLane)
+            
             except rospy.ServiceException as e:
                 print("Service call failed: ",e)
         
@@ -72,6 +89,7 @@ class simInterface :
             sI.parse(line)            
         
         for x in range(self.numRobot,num_old) : 
+            print("x:  " +  str(x))
             self.move_bot("robot"+str(x),Point(1000,1000,1000))
     
         play = rospy.ServiceProxy("/gazebo/unpause_physics", Empty)
@@ -79,6 +97,7 @@ class simInterface :
         time.sleep(0.05)    
         pause = rospy.ServiceProxy("/gazebo/pause_physics", Empty)
         pause()
+        
     
 
 
@@ -108,10 +127,14 @@ class simInterface :
         elif words[0] == "new" : 
             self.newscenario(words[1])
         elif words[0] == "start":
-            try:
-                self.aDrive.talker()
-            except rospy.ROSInterruptException:
-                pass
+            self.adThread = threading.Thread(target=self.aDrive.talker, args=())
+            self.adThread.daemon = True
+            self.adThread.start()
+        elif words[0] == "stop":
+            print(stop)
+        else 
+            print("Command not found")    
+
 
 
         
