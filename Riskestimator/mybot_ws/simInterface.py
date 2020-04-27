@@ -47,7 +47,8 @@ class simInterface :
         name = "robot" + str(self.numRobot)
         self.numRobot += 1
             
-        if self.robot_exists(name) :     
+        if self.robot_exists(name) :
+            self.aDrive.newCar(name, self.numRobot+1, turn, speed, prioLane)     
             self.move_bot(name,point,quaternion)
         else :             
             rospy.wait_for_service("/gazebo/spawn_urdf_model")
@@ -71,6 +72,7 @@ class simInterface :
 
     def reset(self) : 
         if  self.current_scenario != None : 
+            self.numRobot = 0
             self.newscenario(self.current_scenario)
             self.aDrive.reset()
         
@@ -141,14 +143,13 @@ class simInterface :
         elif words[0] == "quit" or words[0] == "q" : 
             quit()
         elif words[0] == "new" : 
-            print(words[1])
             self.newscenario(words[1])
+            self.reset()
         elif words[0] == "start":
             self.aDrive.startSimulation()
             self.startAutodrive()
         elif words[0] == "stop":
             self.aDrive.stopSimulation()
-            print("stop")  
         elif words[0] == "play" :
             self.playSimulation()
         elif words[0] == "pause" : 

@@ -50,10 +50,13 @@ class Autodrive :
             self.cars[car]["maneuverComplete"] = False
             self.cars[car]["enteredCrossing"] = False
             self.cars[car]["criticalSectionAquired"] = False
+        self.firstIter = True
 
     def newCar(self, name, carId, turn, speed, prioLane):
+        print(carId)
         # create publisher for car
-        self.publishers.append(rospy.Publisher('/' + name + '/key_vel', Twist, queue_size=10))
+        if len(self.publishers) < carId-1:
+            self.publishers.append(rospy.Publisher('/' + name + '/key_vel', Twist, queue_size=10))
         # convert string to bool
         prioLane = True if "True" in prioLane else False
 
@@ -120,7 +123,7 @@ class Autodrive :
                 self.cars[carId]["speed"] = 0
                 # Initiate turn, i.e turn the car a little towards the way it will turn
                 if abs(rotation-self.cars[carId]["twist"]) < 0.4:
-                    self.cars[carId]["angle"] = -0.1
+                    self.cars[carId]["angle"] = -0.2
                 else:
                     self.cars[carId]["angle"] = 0  
 
