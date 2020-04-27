@@ -144,8 +144,7 @@ class simInterface :
             self.newscenario(words[1])
         elif words[0] == "start":
             self.aDrive.startSimulation()
-            if self.adThread == None:
-                self.startAutodrive()
+            self.startAutodrive()
         elif words[0] == "stop":
             self.aDrive.stopSimulation()
             print("stop")  

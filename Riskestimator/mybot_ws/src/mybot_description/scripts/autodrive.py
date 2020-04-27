@@ -8,7 +8,7 @@ from squaternion import quat2euler
 
 class Autodrive : 
     def __init__(self):
-            self.pauseSimulation = False
+            self.exitSimulation = False
             self.aquireDistNonPrio = 4 # should be atleast 4
             self.aquireDistPrio = 8 # should be atleast 4
             self.stoppingTurn = None
@@ -40,10 +40,10 @@ class Autodrive :
             }
 
     def stopSimulation(self):
-        self.pauseSimulation = True
+        self.exitSimulation = True
 
     def startSimulation(self):
-        self.pauseSimulation = False
+        self.exitSimulation = False
 
     def reset(self):
         for car in self.cars:
@@ -91,7 +91,6 @@ class Autodrive :
         elif self.criticalSectionAvailable():
             if  carPosX < self.aquireDistNonPrio and carPosX > -self.aquireDistNonPrio and \
                 carPosY < self.aquireDistNonPrio and carPosY > -self.aquireDistNonPrio:
-                print(str(carId) + " critical section aquired non prio")
                 self.cars[carId]["criticalSectionAquired"] = True
     
     def turnLeft(self, msg, carId):
@@ -195,7 +194,6 @@ class Autodrive :
                 self.cars[carId]["speed"] = 0       
 
         if (carPosX > 4 or carPosX < -4 or carPosY > 4 or carPosY < -4) and self.cars[carId]["enteredCrossing"]:
-            print("maneuverComplete")
             self.cars[carId]["maneuverComplete"] = True
         
 
@@ -232,16 +230,19 @@ class Autodrive :
             vel_msg.angular.x = 0
             vel_msg.angular.y = 0
             vel_msg.angular.z = 0
+
  
             for i in range(len(self.publishers)):
-                if self.pauseSimulation:
-                    vel_msg.linear.x = 0
-                    vel_msg.angular.z = 0
-                else:
-                    vel_msg.linear.x = self.cars[i+2]["speed"]
-                    vel_msg.angular.z = self.cars[i+2]["angle"]
+                vel_msg.linear.x = self.cars[i+2]["speed"]
+                vel_msg.angular.z = self.cars[i+2]["angle"]
                 self.publishers[i].publish(vel_msg)
             
+            if self.exitSimulation:
+                for i in range(len(self.publishers)):
+                    vel_msg.linear.x = 0
+                    vel_msg.angular.z = 0
+                    self.publishers[i].publish(vel_msg)
+                break
             rate.sleep()
 
 '''
