@@ -9,6 +9,9 @@ from gazebo_msgs.msg import ModelState
 from std_srvs.srv import Empty
 from geometry_msgs.msg import *
 from sets import Set
+
+from subprocess import Popen, PIPE
+
 cwd = os.getcwd()
 sys.path.append(cwd + "/src/mybot_description/scripts/")
 from autodrive import Autodrive
@@ -75,7 +78,7 @@ class simInterface :
             self.aDrive.reset()
         
     def newscenario(self,path) : 
-        print("new Scenario")
+        print(path)
         f = None
         try :  
             f = open(path, "r")
@@ -114,10 +117,28 @@ class simInterface :
         pause()
     
     def startAutodrive(self) : 
+        self.aDrive.startSimulation()
         self.adThread = threading.Thread(target=self.aDrive.talker, args=())
         self.adThread.daemon = True
         self.adThread.start()
+
+    def startRiskestimation(self, seconds) : 
+        path = 'src/mybot_description/scripts/risk_estimator.py'
+        process = Popen(['python', path, seconds], stdout=PIPE, stderr=PIPE)
     
+    def sleep(self,sec) :
+        print("Waiting " + str(sec) + " seconds" )    
+        time.sleep(sec)
+    
+    def runScenario(self,seconds) :
+        self.startAutodrive()
+        self.playSimulation()
+        self.startRiskestimation(str(seconds))
+        self.sleep(int(seconds))
+        time.sleep(1)
+        self.pauseSimulation()
+        self.aDrive.stopSimulation() 
+
     def parse(self,line) : 
         words  = line.rstrip().split(" ")
 
@@ -141,21 +162,22 @@ class simInterface :
         elif words[0] == "quit" or words[0] == "q" : 
             quit()
         elif words[0] == "new" : 
-            print(words[1])
             self.newscenario(words[1])
         elif words[0] == "start":
-            self.aDrive.startSimulation()
             self.startAutodrive()
         elif words[0] == "stop":
-            self.aDrive.stopSimulation()
-            print("stop")  
+            self.aDrive.stopSimulation() 
         elif words[0] == "play" :
             self.playSimulation()
         elif words[0] == "pause" : 
             self.pauseSimulation() 
         elif words[0] == "sleep" and len(words) == 2 : 
-            print("Waiting " + words[1] + " seconds" )    
-            time.sleep(int(words[1]))
+            self.sleep(int(words[1]))
+        elif words[0] == "re" and len(words) == 2 : 
+            self.startRiskestimation(words[1])
+        elif words[0] == "run" and len(words) == 2  :
+            self.runScenario(words[1])  
+        
         else :
             print("Command not found")    
 

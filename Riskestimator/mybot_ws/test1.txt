@@ -1,12 +1,13 @@
 new scenario1.txt
-start
-play
-sleep 10
+run 10
 r
-sleep 10
+run 10
 r
-sleep 10
+run 10
 r
-sleep 10
+run 10
 r
-sleep 10
+run 10
+r
+run 10
+r

@@ -23,7 +23,7 @@ import numpy as np
 class RESystem :
 
         
-    def __init__(self):
+    def __init__(self,simulationLength):
             self.speed1 = 1
             self.speed2 = 1
             self.plot = True
@@ -48,6 +48,7 @@ class RESystem :
 
             self.riskEstimator = None
 
+            self.simLenght = simulationLength
             self.estimator_time = 0
             self.timeDelta = 0.1
             self.iter = 0
@@ -98,7 +99,12 @@ class RESystem :
         self.pub.publish(str(sum(self.earlierRisks0)/self.RisksSaved))
         
         self.timeDelta = time.time() - start_time
-        
+        print("estimator time: " + str(self.estimator_time))
+        print("sim: " + str(self.simLenght))
+        if(self.estimator_time > self.simLenght) : 
+            print("_________quit___________")
+            rospy.signal_shutdown("finished risk estimator")    
+
     
     def createModel(self, msg) : 
         self.car0_old_pos = (msg.pose[2].position.x * self.g_scale,msg.pose[2].position.y * self.g_scale)
@@ -137,12 +143,18 @@ class RESystem :
         #pub = rospy.Publisher('chatter', String, queue_size=10)
         #rospy.init_node('autodrive')
         rospy.init_node('listener', anonymous=True)
-        rospy.spin()
-
+        while not rospy.core.is_shutdown():
+             rospy.rostime.wallsleep(0.5)
 
 if __name__ == '__main__':
+    
+    reSys = None
+    if len(sys.argv) == 2: 
+        print("args")
+        reSys = RESystem(int(sys.argv[1]))
+    else : 
+        reSys = RESystem(10)
     try:
-        reSys = RESystem()
         reSys.listener()
     except rospy.ROSInterruptException:
         pass
