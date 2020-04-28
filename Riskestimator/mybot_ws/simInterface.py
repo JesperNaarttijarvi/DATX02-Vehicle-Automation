@@ -15,6 +15,7 @@ from subprocess import Popen, PIPE
 cwd = os.getcwd()
 sys.path.append(cwd + "/src/mybot_description/scripts/")
 from autodrive import Autodrive
+from time import sleep
 #from src.mybot_description.scripts.autodrive import Autodrive
 
 
@@ -50,7 +51,8 @@ class simInterface :
         name = "robot" + str(self.numRobot)
         self.numRobot += 1
             
-        if self.robot_exists(name) :     
+        if self.robot_exists(name) :
+            self.aDrive.newCar(name, self.numRobot+1, turn, speed, prioLane)     
             self.move_bot(name,point,quaternion)
         else :             
             rospy.wait_for_service("/gazebo/spawn_urdf_model")
@@ -74,11 +76,19 @@ class simInterface :
 
     def reset(self) : 
         if  self.current_scenario != None : 
+            self.aDrive.stopSimulation()
+            sleep(0.1)
+            self.numRobot = 0
             self.newscenario(self.current_scenario)
             self.aDrive.reset()
+            #autostart after reset (uncomment the following two rows)
+            #self.aDrive.startSimulation()
+            #self.startAutodrive()
         
-    def newscenario(self,path) : 
+    def newscenario(self,path) :
         print(path)
+        
+        self.aDrive.stopSimulation() 
         f = None
         try :  
             f = open(path, "r")
@@ -163,6 +173,7 @@ class simInterface :
             quit()
         elif words[0] == "new" : 
             self.newscenario(words[1])
+            self.reset()
         elif words[0] == "start":
             self.startAutodrive()
         elif words[0] == "stop":
