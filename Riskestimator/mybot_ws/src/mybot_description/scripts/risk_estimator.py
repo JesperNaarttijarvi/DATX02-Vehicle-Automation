@@ -70,7 +70,7 @@ class RESystem :
         self.g_scale = -5
 
 
-            self.timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
+        self.timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
 
     def updateRisk(self, msg):
         if self.iter <= self.timeDelta*1000 : 
@@ -106,7 +106,8 @@ class RESystem :
         #print("estimator time: " + str(self.estimator_time))
         #print("sim: " + str(self.simLenght))
 
-        self.append_CSV([bot0,bot1],[self.riskEstimator.get_risk()[0],self.riskEstimator.get_risk()[1]])
+        #fix THIS
+        self.append_CSV(self.bots,[self.riskEstimator.get_risk()[0],self.riskEstimator.get_risk()[1]])
         
         if(self.estimator_time > self.simLenght) : 
             print("_________quit___________")
