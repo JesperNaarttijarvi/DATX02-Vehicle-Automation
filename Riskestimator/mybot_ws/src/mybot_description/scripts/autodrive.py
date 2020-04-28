@@ -53,7 +53,7 @@ class Autodrive :
         self.firstIter = True
 
     def newCar(self, name, carId, turn, speed, prioLane):
-        print(carId)
+        print(carId, speed)
         # create publisher for car
         if len(self.publishers) < carId-1:
             self.publishers.append(rospy.Publisher('/' + name + '/key_vel', Twist, queue_size=10))
@@ -116,14 +116,14 @@ class Autodrive :
 
         # start turning, if turn is initiated it should be completed
         if carPosX < 3.85 and carPosX > -3.85 and carPosY < 3.85 and carPosY > -3.85:
-            if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"]:
+            if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"] and not (self.cars[carId]["speed"] == 0 and abs(rotation-self.cars[carId]["twist"]) < 0.018):
                 self.cars[carId]["speed"] = 0.48
                 self.cars[carId]["angle"] = -0.18
             else:
                 self.cars[carId]["speed"] = 0
                 # Initiate turn, i.e turn the car a little towards the way it will turn
                 if abs(rotation-self.cars[carId]["twist"]) < 0.4:
-                    self.cars[carId]["angle"] = -0.2
+                    self.cars[carId]["angle"] = -0.1
                 else:
                     self.cars[carId]["angle"] = 0  
 
@@ -154,7 +154,7 @@ class Autodrive :
 
         # start turning, if turn is initiated it should be completed
         if carPosX < 3.85 and carPosX > -3.85 and carPosY < 3.85 and carPosY > -3.85:
-            if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"]:
+            if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"] and not (self.cars[carId]["speed"] == 0 and abs(rotation-self.cars[carId]["twist"]) < 0.018):
                 self.cars[carId]["speed"] = 0.4 #0.4
                 self.cars[carId]["angle"] = 0.3 #0.3
             else:  
@@ -233,11 +233,11 @@ class Autodrive :
             vel_msg.angular.x = 0
             vel_msg.angular.y = 0
             vel_msg.angular.z = 0
-
  
             for i in range(len(self.publishers)):
                 vel_msg.linear.x = self.cars[i+2]["speed"]
                 vel_msg.angular.z = self.cars[i+2]["angle"]
+                #print(self.cars[i+2]["speed"])
                 self.publishers[i].publish(vel_msg)
             
             if self.exitSimulation:
@@ -245,6 +245,7 @@ class Autodrive :
                     vel_msg.linear.x = 0
                     vel_msg.angular.z = 0
                     self.publishers[i].publish(vel_msg)
+                    sub.unregister()
                 break
             rate.sleep()
 

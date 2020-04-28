@@ -12,6 +12,7 @@ from sets import Set
 cwd = os.getcwd()
 sys.path.append(cwd + "/src/mybot_description/scripts/")
 from autodrive import Autodrive
+from time import sleep
 #from src.mybot_description.scripts.autodrive import Autodrive
 
 
@@ -72,11 +73,17 @@ class simInterface :
 
     def reset(self) : 
         if  self.current_scenario != None : 
+            self.aDrive.stopSimulation()
+            sleep(0.1)
             self.numRobot = 0
             self.newscenario(self.current_scenario)
             self.aDrive.reset()
+            #autostart after reset (uncomment the following two rows)
+            #self.aDrive.startSimulation()
+            #self.startAutodrive()
         
-    def newscenario(self,path) : 
+    def newscenario(self,path) :
+        self.aDrive.stopSimulation() 
         print("new Scenario")
         f = None
         try :  
