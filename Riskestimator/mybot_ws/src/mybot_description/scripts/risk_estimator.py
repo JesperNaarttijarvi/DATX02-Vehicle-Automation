@@ -19,44 +19,55 @@ import time
 import random
 import math
 import numpy as np
+from gazebo_msgs.srv import GetModelState
 
 class RESystem :
 
         
-    def __init__(self,simulationLength):
-            self.speed1 = 1
-            self.speed2 = 1
-            self.plot = True
+    def __init__(self,simulationLength,numBots):
 
-            xy_deviation = SIM_CONFIG["xy_deviation"]
-            theta_deviation = SIM_CONFIG["theta_deviation"]
-            speed_deviation = SIM_CONFIG["speed_deviation"]
+        self.plot = True
 
-            self.deviations = xy_deviation, theta_deviation, speed_deviation
-            self.plotafter = 0
+        self.numBots = numBots
 
-            self.total_nr_particles = SIM_CONFIG["total_nr_particles"]
+        print(self.numBots)
 
-            #random.seed()
-            #np.random.seed()
-            
-            self.car0_old_pos = (None,None)
-            self.car1_old_pos = (None,None)
+        xy_deviation = SIM_CONFIG["xy_deviation"]
+        theta_deviation = SIM_CONFIG["theta_deviation"]
+        speed_deviation = SIM_CONFIG["speed_deviation"]
 
-            self.pub = None 
-            self.sub = None
+        self.deviations = xy_deviation, theta_deviation, speed_deviation
+        self.plotafter = 0
 
-            self.riskEstimator = None
+        self.total_nr_particles = SIM_CONFIG["total_nr_particles"]
 
-            self.simLenght = simulationLength
-            self.estimator_time = 0
-            self.timeDelta = 0.1
-            self.iter = 0
+        self.cars = {
+            0 : {
+                "oldPos" : (None, None)
+            },
+            1 : {
+                "oldPos" : (None, None)
+            }
+        }
 
-            self.RisksSaved = 3
-            self.earlierRisks0 = [0] * self.RisksSaved
-            self.earlierRisks1 = [0] * self.RisksSaved  
-            self.g_scale = -5
+        self.bots = []
+
+
+        self.pub = None 
+        self.sub = None
+
+        self.riskEstimator = None
+
+        self.simLenght = simulationLength
+        self.estimator_time = 0
+        self.timeDelta = 0.1
+        self.iter = 0
+
+        self.earlierRisks = []
+
+        self.RisksSaved = 3
+        self.g_scale = -5
+
 
     def updateRisk(self, msg):
         if self.iter <= self.timeDelta*1000 : 
@@ -65,38 +76,28 @@ class RESystem :
         else : 
             self.iter = 0 
         self.estimator_time += self.timeDelta    
-        
+
         #!!!Check if system time in fractions!!!
         start_time = time.time()
 
-        bot0 = self.create_car(msg.pose[2],self.car0_old_pos)
-        bot1 = self.create_car(msg.pose[3],self.car1_old_pos)
-            
-        self.car0_old_pos = (bot0[0],bot0[1])
-        self.car1_old_pos = (bot1[0],bot1[1])
+        for i in range(self.numBots):
+            self.cars[i]["oldPos"] = (msg.pose[i+2].position.x * self.g_scale,msg.pose[i+2].position.y * self.g_scale)
+            self.bots[i] = (self.create_car(msg.pose[i+2],self.cars[i]["oldPos"]))
         
         id, Ic, Is = 0, '', ''
 
         self.riskEstimator.setKnownIc(id, Ic)
         self.riskEstimator.setKnownIs(id, Is)
-        self.riskEstimator.update_state(self.estimator_time, [bot0,bot1])
+        self.riskEstimator.update_state(self.estimator_time, self.bots)
 
-        self.earlierRisks0.pop(0)
-        self.earlierRisks1.pop(0)
-
-        self.earlierRisks0.append(self.riskEstimator.get_risk()[0])
-        self.earlierRisks1.append(self.riskEstimator.get_risk()[1])
-
-        #print("risk: " + str(sum(self.earlierRisks1)/self.RisksSaved))
-
-        if sum(self.earlierRisks0)/self.RisksSaved > 0.6 : 
-            print("____________WARNING 000000000_____________")
-        if sum(self.earlierRisks1)/self.RisksSaved > 0.6 : 
-            print("____________WARNING 111111111_____________")
-
-        #print(self.riskEstimator.isManeuverOk(1,"straight"))
+        for i in range(self.numBots):
+            self.earlierRisks[i].pop(0)
+            self.earlierRisks[i].append(self.riskEstimator.get_risk()[i])
+            if sum(self.earlierRisks[i])/self.RisksSaved > 0.6 : 
+                print("____________WARNING " + str(i) +"_____________")
         
-        self.pub.publish(str(sum(self.earlierRisks0)/self.RisksSaved))
+        #Fix so each risk is published correctly
+        self.pub.publish(str(sum(self.earlierRisks[0])/self.RisksSaved))
         
         self.timeDelta = time.time() - start_time
         print("estimator time: " + str(self.estimator_time))
@@ -107,17 +108,17 @@ class RESystem :
 
     
     def createModel(self, msg) : 
-        self.car0_old_pos = (msg.pose[2].position.x * self.g_scale,msg.pose[2].position.y * self.g_scale)
-        self.car1_old_pos = (msg.pose[3].position.x * self.g_scale,msg.pose[3].position.y * self.g_scale)
-        
-        bot0 = self.create_car(msg.pose[2],self.car0_old_pos)
-        bot1 = self.create_car(msg.pose[3],self.car1_old_pos)
+        for i in range(self.numBots):
+            self.cars.update({i : {"oldPos" : (msg.pose[i+2].position.x * self.g_scale,msg.pose[i+2].position.y * self.g_scale)}})
+            self.bots.append(self.create_car(msg.pose[i+2],self.cars[i]["oldPos"]))
+            #One riskSaver for each car
+            self.earlierRisks.append([0] * self.RisksSaved)
 
-        num_car = 2
+        num_car = self.numBots
         id, Ic, Is = 0, '', ''
 
         pppf = self.total_nr_particles / (num_car**2)
-        self.riskEstimator = RiskEstimator(pppf,[bot0,bot1], self.estimator_time, self.deviations, self.plot, self.plotafter)
+        self.riskEstimator = RiskEstimator(pppf, self.bots, self.estimator_time, self.deviations, self.plot, self.plotafter)
         self.riskEstimator.setKnownIc(id, Ic)
         self.riskEstimator.setKnownIs(id, Is)
     
@@ -149,11 +150,11 @@ class RESystem :
 if __name__ == '__main__':
     
     reSys = None
-    if len(sys.argv) == 2: 
+    if len(sys.argv) == 3: 
         print("args")
-        reSys = RESystem(int(sys.argv[1]))
+        reSys = RESystem(int(sys.argv[1]), int(sys.argv[2]))
     else : 
-        reSys = RESystem(10)
+        reSys = RESystem(10, 2)
     try:
         reSys.listener()
     except rospy.ROSInterruptException:
