@@ -4,6 +4,7 @@ import sys
 import os
 import rospy
 import time
+import csv
 from std_msgs.msg import String
 from gazebo_msgs.msg import ModelStates
 from geometry_msgs.msg import Twist
@@ -58,6 +59,8 @@ class RESystem :
             self.earlierRisks1 = [0] * self.RisksSaved  
             self.g_scale = -5
 
+            self.timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
+
     def updateRisk(self, msg):
         if self.iter <= self.timeDelta*1000 : 
             self.iter += 1
@@ -99,13 +102,34 @@ class RESystem :
         self.pub.publish(str(sum(self.earlierRisks0)/self.RisksSaved))
         
         self.timeDelta = time.time() - start_time
-        print("estimator time: " + str(self.estimator_time))
-        print("sim: " + str(self.simLenght))
+        #print("estimator time: " + str(self.estimator_time))
+        #print("sim: " + str(self.simLenght))
+
+        self.append_CSV([bot0,bot1],[self.riskEstimator.get_risk()[0],self.riskEstimator.get_risk()[1]])
+        
         if(self.estimator_time > self.simLenght) : 
             print("_________quit___________")
             rospy.signal_shutdown("finished risk estimator")    
 
+    def append_CSV(self,listOfbots,botRisks) :
+        decimals = 2
+
+        line = [str(round(self.estimator_time,decimals))]
+        for x in range(len(listOfbots )) :
+            print(listOfbots) 
+            line.append("   ")
+            line.append(round(listOfbots[x][0],decimals))
+            line.append(round(listOfbots[x][1],decimals))
+            line.append(round(listOfbots[x][2],decimals))
+            line.append(round(listOfbots[x][3],decimals))
+            line.append(round(botRisks[x],decimals))
+
+        with open('sim_data/' + str(self.timestamp) + '.csv', 'a') as file:
+            writer = csv.writer(file)
+            
+            writer.writerow(line)
     
+
     def createModel(self, msg) : 
         self.car0_old_pos = (msg.pose[2].position.x * self.g_scale,msg.pose[2].position.y * self.g_scale)
         self.car1_old_pos = (msg.pose[3].position.x * self.g_scale,msg.pose[3].position.y * self.g_scale)
@@ -117,7 +141,7 @@ class RESystem :
         id, Ic, Is = 0, '', ''
 
         pppf = self.total_nr_particles / (num_car**2)
-        self.riskEstimator = RiskEstimator(pppf,[bot0,bot1], self.estimator_time, self.deviations, self.plot, self.plotafter)
+        self.riskEstimator = RiskEstimator(pppf,[bot0,bot1], self.estimator_time, self.deviations, self.plot, self.timestamp, self.plotafter)
         self.riskEstimator.setKnownIc(id, Ic)
         self.riskEstimator.setKnownIs(id, Is)
     

@@ -10,7 +10,8 @@ import os
 import glob
 from E_estimate import *
 dir_path = os.path.dirname(os.path.realpath(__file__))
-plot_folder = os.path.join(dir_path, "plotfolder")
+plot_path = os.path.join(dir_path, "plotfolder")
+#plot_folder = ""
 from utils.Intersection import *
 from threading import Lock,Timer
 from config import *
@@ -20,15 +21,17 @@ intersection = GEN_CONFIG["intersection"]
 
 class RiskEstimator:
 
-    def __init__(self, n_particles, initial_measurements, init_time, deviations, plot, plotafter=0):
+    def __init__(self, n_particles, initial_measurements, init_time, deviations, plot, plotsequence, plotafter=0):
+        self.plot_folder = plot_path + "/plot" + str(plotsequence)
 
-        if not os.path.exists(plot_folder):
-            os.makedirs(plot_folder)
+
+        if not os.path.exists(self.plot_folder):
+            os.makedirs(self.plot_folder)
 
 
         if plot and wipe_dir:
             self.plotafter = plotafter
-            files = glob.glob(plot_folder + "/*")
+            files = glob.glob(self.plot_folder + "/*")
             for f in files:
                 os.remove(f)
 
@@ -130,7 +133,7 @@ class RiskEstimator:
         self.last_t = t
 
         if self.plot and t >= self.plotafter:
-            plotter.plot_particles(self.particle_filters, measurements, t, plot_folder)
+            plotter.plot_particles(self.particle_filters, measurements, t, self.plot_folder)
         
         self.mutex.release()
 
