@@ -20,7 +20,6 @@ import time
 import random
 import math
 import numpy as np
-from gazebo_msgs.srv import GetModelState
 
 class RESystem :
 
@@ -84,8 +83,8 @@ class RESystem :
         start_time = time.time()
 
         for i in range(self.numBots):
-            self.cars[i]["oldPos"] = (msg.pose[i+2].position.x * self.g_scale,msg.pose[i+2].position.y * self.g_scale)
             self.bots[i] = (self.create_car(msg.pose[i+2],self.cars[i]["oldPos"]))
+            self.cars[i]["oldPos"] = (msg.pose[i+2].position.x * self.g_scale,msg.pose[i+2].position.y * self.g_scale)
         
         id, Ic, Is = 0, '', ''
 
@@ -107,7 +106,7 @@ class RESystem :
         #print("sim: " + str(self.simLenght))
 
         #fix THIS
-        self.append_CSV(self.bots,[self.riskEstimator.get_risk()[0],self.riskEstimator.get_risk()[1]])
+        self.append_CSV(self.bots, self.riskEstimator.get_risk())
         
         if(self.estimator_time > self.simLenght) : 
             print("_________quit___________")
