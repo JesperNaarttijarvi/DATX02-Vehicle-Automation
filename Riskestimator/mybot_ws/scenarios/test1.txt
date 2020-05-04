@@ -1,0 +1,26 @@
+new safe_scenario1_1.txt
+run 15
+new safe_scenario1_2.txt
+run 18
+new safe_scenario1_3.txt
+run 22
+new safe_scenario2_1.txt
+run 15
+new safe_scenario2_2.txt
+run 18
+new safe_scenario2_3.txt
+run 24
+new safe_scenario3_1.txt
+run 13
+new safe_scenario3_2.txt
+run 16
+new safe_scenario3_3.txt
+run 21
+new safe_scenario4_1.txt
+run 15
+new safe_scenario4_2.txt
+run 18
+new safe_scenario4_3.txt
+run 23
+r
+

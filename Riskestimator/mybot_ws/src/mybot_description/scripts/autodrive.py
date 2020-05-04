@@ -192,7 +192,8 @@ class Autodrive :
 
         if carPosX < 4 and carPosX > -4 and carPosY < 4 and carPosY > -4:
             if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"]:
-                self.cars[carId]["speed"] = 4
+                if self.cars[carId]["speed"] == 0:
+                    self.cars[carId]["speed"] = 4
             else:
                 self.cars[carId]["speed"] = 0       
 

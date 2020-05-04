@@ -26,7 +26,7 @@ class RESystem :
         
     def __init__(self,simulationLength,numBots):
 
-        self.plot = True
+        self.plot = False
 
         self.numBots = numBots
 
@@ -86,7 +86,7 @@ class RESystem :
             self.bots[i] = (self.create_car(msg.pose[i+2],self.cars[i]["oldPos"]))
             self.cars[i]["oldPos"] = (msg.pose[i+2].position.x * self.g_scale,msg.pose[i+2].position.y * self.g_scale)
         
-        id, Ic, Is = 0, '', ''
+        id, Ic, Is = 1, 'straight', 'go'
 
         self.riskEstimator.setKnownIc(id, Ic)
         self.riskEstimator.setKnownIs(id, Is)
@@ -101,7 +101,9 @@ class RESystem :
         #Fix so each risk is published correctly
         self.pub.publish(str(sum(self.earlierRisks[0])/self.RisksSaved))
         
-        self.timeDelta = time.time() - start_time
+
+        if self.plot:
+            self.timeDelta = time.time() - start_time
         #print("estimator time: " + str(self.estimator_time))
         #print("sim: " + str(self.simLenght))
 
