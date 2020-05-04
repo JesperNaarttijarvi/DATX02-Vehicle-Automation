@@ -63,8 +63,8 @@ RISK_CONFIG = {
         'x0_2': 1.5,
         'k2': 3
     },
-    'Is_comply': 0.75,
-    'Ic_same': 0.5,
+    'Is_comply': 0.9,
+    'Ic_same': 0.9,
 #    'grant_threshold': 0.5
 
 

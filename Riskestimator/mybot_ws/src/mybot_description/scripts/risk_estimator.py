@@ -99,11 +99,6 @@ class RESystem :
             self.earlierRisks[i].append(self.riskEstimator.get_risk()[i])
             if sum(self.earlierRisks[i])/self.RisksSaved > 0.6 : 
                 pass
-        
-        #Fix so each risk is published correctly
-        #self.pub.publish(str(sum(self.earlierRisks[0])/self.RisksSaved))
-        
-        self.timeDelta = time.time() - start_time
 
         #Save when risk was acknowledged, only do so for the 'turning' car
         if self.riskEstimator.get_risk()[0] > 0.7:
@@ -129,20 +124,23 @@ class RESystem :
                         writer.writerow(line)
 
 
+        #remove this comment use adaptive time
+        #self.timeDelta = time.time() - start_time
 
         self.append_CSV(self.bots, self.riskEstimator.get_risk())
         
-        if(self.estimator_time > self.simLenght) : 
-            line = []
-            line.append(self.timestamp)
-            line.append(self.scenario)
-            if(self.riskAtTime != []):
-                line.append("Risk wrongly perceived at: " + str(self.riskAtTime))
-            else:
-                line.append("test succesful, no risk percieved")
-            with open('sim_data/nonCollisions.csv', 'a') as file:
-                writer = csv.writer(file)
-                writer.writerow(line)
+        if(self.estimator_time > self.simLenght) :
+            if "notsafe" not in self.scenario:
+                line = []
+                line.append(self.timestamp)
+                line.append(self.scenario)
+                if(self.riskAtTime != []):
+                    line.append("Risk wrongly perceived at: " + str(self.riskAtTime))
+                else:
+                    line.append("No risk detected")
+                with open('sim_data/nonCollisions.csv', 'a') as file:
+                    writer = csv.writer(file)
+                    writer.writerow(line)
             print("_________quit___________")
             rospy.signal_shutdown("finished risk estimator")    
 
