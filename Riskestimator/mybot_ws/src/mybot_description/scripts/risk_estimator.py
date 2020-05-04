@@ -102,8 +102,8 @@ class RESystem :
         self.pub.publish(str(sum(self.earlierRisks[0])/self.RisksSaved))
         
 
-        if self.plot:
-            self.timeDelta = time.time() - start_time
+    
+        self.timeDelta = time.time() - start_time
         #print("estimator time: " + str(self.estimator_time))
         #print("sim: " + str(self.simLenght))
 
@@ -119,7 +119,6 @@ class RESystem :
 
         line = [str(round(self.estimator_time,decimals))]
         for x in range(len(listOfbots )) :
-            print(listOfbots) 
             line.append("   ")
             line.append(round(listOfbots[x][0],decimals))
             line.append(round(listOfbots[x][1],decimals))
