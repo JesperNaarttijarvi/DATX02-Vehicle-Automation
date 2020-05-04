@@ -134,7 +134,7 @@ class simInterface :
 
     def startRiskestimation(self, seconds) : 
         path = 'src/mybot_description/scripts/risk_estimator.py'
-        process = Popen(['python', path, seconds, str(self.numRobot)], stdout=PIPE, stderr=PIPE)
+        process = Popen(['python', path, seconds, str(self.numRobot), str(self.current_scenario)], stdout=PIPE, stderr=PIPE)
     
     def sleep(self,sec) :
         print("Waiting " + str(sec) + " seconds" )    

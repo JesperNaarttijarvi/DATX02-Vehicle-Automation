@@ -24,11 +24,13 @@ import numpy as np
 class RESystem :
 
         
-    def __init__(self,simulationLength,numBots):
+    def __init__(self,simulationLength,numBots,scenario):
 
         self.plot = False
-
+        self.riskAtTime = []
+        self.collisionTime = None
         self.numBots = numBots
+        self.scenario = scenario
 
         print(self.numBots)
 
@@ -96,21 +98,51 @@ class RESystem :
             self.earlierRisks[i].pop(0)
             self.earlierRisks[i].append(self.riskEstimator.get_risk()[i])
             if sum(self.earlierRisks[i])/self.RisksSaved > 0.6 : 
-                print("____________WARNING " + str(i) +"_____________")
+                pass
         
         #Fix so each risk is published correctly
-        self.pub.publish(str(sum(self.earlierRisks[0])/self.RisksSaved))
+        #self.pub.publish(str(sum(self.earlierRisks[0])/self.RisksSaved))
         
+        self.timeDelta = time.time() - start_time
 
-        if self.plot:
-            self.timeDelta = time.time() - start_time
-        #print("estimator time: " + str(self.estimator_time))
-        #print("sim: " + str(self.simLenght))
+        #Save when risk was acknowledged, only do so for the 'turning' car
+        if self.riskEstimator.get_risk()[0] > 0.7:
+            self.riskAtTime.append(round(self.estimator_time, 2))
 
-        #fix THIS
+        for i in range (self.numBots-1):
+            if (abs(msg.pose[i+2].position.x * self.g_scale - msg.pose[i+3].position.x * self.g_scale) < 2.7 and
+                abs(msg.pose[i+2].position.y * self.g_scale - msg.pose[i+3].position.y * self.g_scale) < 2.7 and
+                self.collisionTime == None):
+                    self.collisionTime = self.estimator_time
+                    line = []
+                    line.append(self.timestamp)
+                    line.append(self.scenario)
+                    if(self.riskAtTime != []):
+                        line.append("Risk perceived: " + str(self.riskAtTime[0]))
+                        line.append("Collision: " + str(self.collisionTime))
+                        line.append("Time delta: " + str(self.collisionTime-self.riskAtTime[0]))
+                    else:
+                        line.append("Risk missed")
+                        line.append("Collision: " + str(self.collisionTime))
+                    with open('sim_data/collisions.csv', 'a') as file:
+                        writer = csv.writer(file)
+                        writer.writerow(line)
+
+
+
         self.append_CSV(self.bots, self.riskEstimator.get_risk())
         
         if(self.estimator_time > self.simLenght) : 
+            line = []
+            line.append(self.timestamp)
+            line.append(self.scenario)
+            if(self.riskAtTime != []):
+                line.append("Risk wrongly perceived at: " + str(self.riskAtTime))
+            else:
+                line.append("test succesful, no risk percieved")
+            with open('sim_data/nonCollisions.csv', 'a') as file:
+                writer = csv.writer(file)
+                writer.writerow(line)
             print("_________quit___________")
             rospy.signal_shutdown("finished risk estimator")    
 
@@ -119,7 +151,6 @@ class RESystem :
 
         line = [str(round(self.estimator_time,decimals))]
         for x in range(len(listOfbots )) :
-            print(listOfbots) 
             line.append("   ")
             line.append(round(listOfbots[x][0],decimals))
             line.append(round(listOfbots[x][1],decimals))
@@ -165,7 +196,7 @@ class RESystem :
     def listener(self):
         #pub =  rospy.Publisher('/robot1/key_vel', Twist, queue_size=10)
         #pub2 =  rospy.Publisher('/robot2/key_vel', Twist, queue_size=10)
-        self.pub =  rospy.Publisher('/risk', String, queue_size=10)
+        #self.pub =  rospy.Publisher('/risk', String, queue_size=10)
         self.sub = rospy.Subscriber("/gazebo/model_states",ModelStates,self.msg_handler)
         #pub = rospy.Publisher('chatter', String, queue_size=10)
         #rospy.init_node('autodrive')
@@ -176,11 +207,11 @@ class RESystem :
 if __name__ == '__main__':
     
     reSys = None
-    if len(sys.argv) == 3: 
+    if len(sys.argv) == 4: 
         print("args")
-        reSys = RESystem(int(sys.argv[1]), int(sys.argv[2]))
+        reSys = RESystem(int(sys.argv[1]), int(sys.argv[2]), str(sys.argv[3]))
     else : 
-        reSys = RESystem(10, 2)
+        reSys = RESystem(10, 2, None)
     try:
         reSys.listener()
     except rospy.ROSInterruptException:
