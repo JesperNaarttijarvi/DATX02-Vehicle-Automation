@@ -1,0 +1,12 @@
+new safe2_1.txt
+run 18
+new safe2_2.txt
+run 16
+new safe2_3.txt
+run 25
+new safe4_1.txt
+run 18
+new safe4_2.txt
+run 16
+new safe4_3.txt
+run 25

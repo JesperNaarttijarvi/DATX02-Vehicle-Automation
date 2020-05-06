@@ -1,2 +1,2 @@
-spawn -11 -0.74 0.1 0 0 3.14 0 left 6 True
+spawn -8 -0.74 0.1 0 0 3.14 0 left 6 True
 spawn 0.8 -27 0.1 0 0 -1.5707 1.5707 straight 8 True

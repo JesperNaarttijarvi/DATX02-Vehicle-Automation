@@ -94,11 +94,13 @@ class RESystem :
         self.riskEstimator.setKnownIs(id, Is)
         self.riskEstimator.update_state(self.estimator_time, self.bots)
 
+        '''
         for i in range(self.numBots):
             self.earlierRisks[i].pop(0)
             self.earlierRisks[i].append(self.riskEstimator.get_risk()[i])
             if sum(self.earlierRisks[i])/self.RisksSaved > 0.6 : 
                 pass
+        '''
 
         #Save when risk was acknowledged, only do so for the 'turning' car
         if self.riskEstimator.get_risk()[0] > 0.7:

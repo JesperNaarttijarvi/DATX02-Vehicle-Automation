@@ -114,18 +114,26 @@ class Autodrive :
         bot_euler = quat2euler(*(pose.orientation.w,pose.orientation.x,pose.orientation.y,pose.orientation.z), degrees=False)
         rotation = abs(bot_euler[2])
 
+        if abs(carPosX) < 7.5 and abs(carPosY) < 7.5 and self.cars[carId]["speed"] > 2:
+            self.cars[carId]["speed"] = 2
+
+        if abs(carPosX) < 7 and abs(carPosY) < 7:
+            if abs(carPosY) < 1.5 and abs(carPosX) > 3 and self.cars[carId]["speed"] > abs(carPosX/7):
+                self.cars[carId]["speed"] = abs(carPosX/7)
+            elif abs(carPosX) < 1.5 and abs(carPosY) > 3 and self.cars[carId]["speed"] > abs(carPosY/7):
+                self.cars[carId]["speed"] = abs(carPosY/7)
+
         # start turning, if turn is initiated it should be completed
-        if carPosX < 3.85 and carPosX > -3.85 and carPosY < 3.85 and carPosY > -3.85:
-            if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"] and not (self.cars[carId]["speed"] == 0 and abs(rotation-self.cars[carId]["twist"]) < 0.018):
-                self.cars[carId]["speed"] = 0.48
-                self.cars[carId]["angle"] = -0.18
+        if abs(carPosX) < 3 and abs(carPosY) < 3:
+            if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"]:
+                if abs(carPosX) < 1.8 and abs(carPosY) < 1.8:
+                    self.cars[carId]["speed"] = 0.4  #0.48
+                    self.cars[carId]["angle"] = -0.42 #-0.18
+                else:
+                    self.cars[carId]["speed"] = 0.45
+                    self.cars[carId]["angle"] = 0
             else:
                 self.cars[carId]["speed"] = 0
-                # Initiate turn, i.e turn the car a little towards the way it will turn
-                if abs(rotation-self.cars[carId]["twist"]) < 0.4:
-                    self.cars[carId]["angle"] = -0.1
-                else:
-                    self.cars[carId]["angle"] = 0  
 
 
         # stop turning
@@ -152,15 +160,25 @@ class Autodrive :
         bot_euler = quat2euler(*(pose.orientation.w,pose.orientation.x,pose.orientation.y,pose.orientation.z), degrees=False)
         rotation = abs(bot_euler[2])
 
+        if carPosX < 7 and carPosX > -7 and carPosY < 7 and carPosY > -7 and self.cars[carId]["speed"] > 2:
+            self.cars[carId]["speed"] = 2
+
+        if carPosX < 6.5 and carPosX > -6.5 and carPosY < 6.5 and carPosY > -6.5:
+            if carPosY < 1.5 and carPosX > 2.7 and self.cars[carId]["speed"] > abs(carPosX/6.5):
+                self.cars[carId]["speed"] = abs(carPosX/6.5)
+            elif carPosX < 1.5 and carPosY > 2.7 and self.cars[carId]["speed"] > abs(carPosY/6.5):
+                self.cars[carId]["speed"] = abs(carPosY/6.5)
+
+
         # start turning, if turn is initiated it should be completed
-        if carPosX < 3.85 and carPosX > -3.85 and carPosY < 3.85 and carPosY > -3.85:
+        if carPosX < 2.7 and carPosX > -2.7 and carPosY < 2.7 and carPosY > -2.7:
             if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"] and not (self.cars[carId]["speed"] == 0 and abs(rotation-self.cars[carId]["twist"]) < 0.018):
                 self.cars[carId]["speed"] = 0.4 #0.4
-                self.cars[carId]["angle"] = 0.3 #0.3
+                self.cars[carId]["angle"] = 0.45 #0.3
             else:  
                 self.cars[carId]["speed"] = 0
                 # Initiate turn, i.e turn the car a little towards the way it will turn
-                if abs(rotation-self.cars[carId]["twist"]) < 0.5:
+                if abs(rotation-self.cars[carId]["twist"]) < 0.4:
                     self.cars[carId]["angle"] = 0.1
                 else:
                     self.cars[carId]["angle"] = 0
@@ -190,10 +208,20 @@ class Autodrive :
         else:
             self.getCriticalSection(msg, carId)
 
-        if carPosX < 4 and carPosX > -4 and carPosY < 4 and carPosY > -4:
+
+        if abs(carPosX) < 7.5 and abs(carPosY) < 7.5 and self.cars[carId]["speed"] > 2 and not self.cars[carId]["priorityLane"]:
+            self.cars[carId]["speed"] = 2
+
+        if abs(carPosX) < 7 and abs(carPosY) < 7 and not self.cars[carId]["priorityLane"]:
+            if abs(carPosY) < 1.5 and abs(carPosX) > 3 and self.cars[carId]["speed"] > abs(carPosX/7):
+                self.cars[carId]["speed"] = abs(carPosX/7)
+            elif abs(carPosX) < 1.5 and abs(carPosY) > 3 and self.cars[carId]["speed"] > abs(carPosY/7):
+                self.cars[carId]["speed"] = abs(carPosY/7)
+
+        if carPosX < 3 and carPosX > -3 and carPosY < 3 and carPosY > -3:
             if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"]:
-                if self.cars[carId]["speed"] == 0:
-                    self.cars[carId]["speed"] = 4
+                if not self.cars[carId]["priorityLane"]:
+                    self.cars[carId]["speed"] = 1
             else:
                 self.cars[carId]["speed"] = 0       
 
@@ -235,6 +263,8 @@ class Autodrive :
             vel_msg.angular.y = 0
             vel_msg.angular.z = 0
  
+            print(self.cars[2]["speed"])
+
             for i in range(len(self.publishers)):
                 vel_msg.linear.x = self.cars[i+2]["speed"]
                 vel_msg.angular.z = self.cars[i+2]["angle"]
