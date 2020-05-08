@@ -1,8 +1,9 @@
 from datetime import datetime
 from openpyxl import Workbook, load_workbook
 from openpyxl.chart import (
-    PieChart3D,
-    Reference
+    BarChart,
+    Reference,
+    Series
 )
 
 # Get time for file name
@@ -30,18 +31,24 @@ def write(data):
             ws.cell(column=i + 1, row=m).value = float(data[i][1])
         else:
             ws.cell(column=i + 1, row=m).value = data[i][1]
-    # createChart(ws)
+    createChart(ws)
 
     wb.save("Report/ViolationReport.xlsx")
     print("Report compiled")
 
 
 def createChart(ws):
-    pie = PieChart3D()
-    labels = Reference(ws, min_col=1, min_row=1, max_col=5)
-    data = Reference(ws, min_col=5, min_row=2, max_row=ws.max_row)
-    pie.add_data(data)
-    pie.set_categories(labels)
-    pie.title = "Chart"
 
-    ws.add_chart(pie, "G1")
+    chart1 = BarChart()
+    chart1.type = "col"
+    chart1.style = 10
+    chart1.title = "Bar Chart"
+    chart1.y_axis.title = 'Number of violations'
+    chart1.x_axis.title = 'Area'
+
+    cats = Reference(ws, min_col=2, min_row=1, max_row=ws.max_row)
+    data = Reference(ws, min_col=1, min_row=2, max_row=ws.max_row)
+    chart1.add_data(data, titles_from_data=True)
+    chart1.set_categories(cats)
+    chart1.shape = 4
+    ws.add_chart(chart1, "G2")

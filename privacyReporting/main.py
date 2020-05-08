@@ -15,7 +15,7 @@ args = parser.parse_args()
 
 # Check for arg
 if args.test:
-    data = "violation:stopplikt,location:korsvägen,timestamp:2020-04-09 11.31,position:[443;121],occurred:1"
+    data = "violation:väjningsplikt,location:marklandsgatan,timestamp:2020-04-09 11.55,position:[443;121],occurred:1"
     data = randomizedresponse.random_response(data)
     print("TEST")
     print("Raw data: " + data)
