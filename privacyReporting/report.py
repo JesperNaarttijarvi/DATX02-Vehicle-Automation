@@ -1,10 +1,11 @@
 import sender
 import xlsxconverter
 
+
 def generate_report(data):
-    l = data.split(",")
-    res = [tuple(map(str, sub.split(':'))) for sub in l]
+    res = [tuple(map(str, sub.split(':'))) for sub in data.split(",")]
     xlsxconverter.write(res)
+
 
 def generate_mail(data):
     sender.send(format_report(data))
