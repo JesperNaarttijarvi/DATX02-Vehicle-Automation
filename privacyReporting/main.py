@@ -32,3 +32,10 @@ elif args.live:
         report.generate_report(data)
     else:
         report.generate_report(data)
+
+def test():
+    data = "violation:väjningsplikt,location:marklandsgatan,timestamp:2020-04-09 11.55,position:[443;121],occurred:1"
+    data = randomizedresponse.random_response(data)
+    #print("TEST")
+    #print("Raw data: " + data)
+    return int(data[len(data) - 1])
