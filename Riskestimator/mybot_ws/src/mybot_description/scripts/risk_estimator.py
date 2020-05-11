@@ -26,7 +26,7 @@ class RESystem :
         
     def __init__(self,simulationLength,numBots,scenario):
 
-        self.plot = False
+        self.plot = True
         self.riskAtTime = []
         self.collisionTime = None
         self.numBots = numBots
@@ -69,6 +69,7 @@ class RESystem :
 
         self.RisksSaved = 3
         self.g_scale = -5
+        self.crossingTime = 0
 
 
         self.timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
@@ -106,9 +107,16 @@ class RESystem :
         if self.riskEstimator.get_risk()[0] > 0.7:
             self.riskAtTime.append(round(self.estimator_time, 2))
 
+        # This only works if the prio vehicle drives on the prio lane (north-south)
+        if abs(msg.pose[3].position.x * self.g_scale) < 8 and abs(msg.pose[3].position.y * self.g_scale) < 8:
+            self.crossingTime = self.estimator_time
+
+        #if (msg.pose[3].position.y*self.g_scale) < -8 and self.crossingTime == 0:
+        #    self.crossingTime = self.estimator_time
+
         for i in range (self.numBots-1):
-            if (abs(msg.pose[i+2].position.x * self.g_scale - msg.pose[i+3].position.x * self.g_scale) < 2.7 and
-                abs(msg.pose[i+2].position.y * self.g_scale - msg.pose[i+3].position.y * self.g_scale) < 2.7 and
+            if (abs(msg.pose[i+2].position.x * self.g_scale - msg.pose[i+3].position.x * self.g_scale) < 2.9 and
+                abs(msg.pose[i+2].position.y * self.g_scale - msg.pose[i+3].position.y * self.g_scale) < 2.9 and
                 self.collisionTime == None):
                     self.collisionTime = self.estimator_time
                     line = []
@@ -131,7 +139,7 @@ class RESystem :
 
         self.append_CSV(self.bots, self.riskEstimator.get_risk())
         
-        if(self.estimator_time > self.simLenght) :
+        if(self.estimator_time >= self.simLenght) :
             if "notsafe" not in self.scenario:
                 line = []
                 line.append(self.timestamp)
@@ -140,6 +148,10 @@ class RESystem :
                     line.append("Risk wrongly perceived at: " + str(self.riskAtTime))
                 else:
                     line.append("No risk detected")
+                if self.crossingTime != 0:
+                    line.append("Intersection left at: " + str(self.crossingTime))
+                else:
+                    line.append("didn't reach crossing")
                 with open('sim_data/nonCollisions.csv', 'a') as file:
                     writer = csv.writer(file)
                     writer.writerow(line)

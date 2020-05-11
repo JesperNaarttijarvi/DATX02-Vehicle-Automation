@@ -53,7 +53,6 @@ class Autodrive :
         self.firstIter = True
 
     def newCar(self, name, carId, turn, speed, prioLane):
-        print(carId, speed)
         # create publisher for car
         if len(self.publishers) < carId-1:
             self.publishers.append(rospy.Publisher('/' + name + '/key_vel', Twist, queue_size=10))
@@ -139,7 +138,7 @@ class Autodrive :
         # stop turning
         if abs(rotation-self.cars[carId]["twist"]) > 1.4:
             self.cars[carId]["angle"] = 0
-            if carPosX > 4 or carPosX < -4 or carPosY > 4 or carPosY < -4:
+            if carPosX > 3 or carPosX < -3 or carPosY > 3 or carPosY < -3:
                 self.cars[carId]["maneuverComplete"] = True
 
 
@@ -160,33 +159,39 @@ class Autodrive :
         bot_euler = quat2euler(*(pose.orientation.w,pose.orientation.x,pose.orientation.y,pose.orientation.z), degrees=False)
         rotation = abs(bot_euler[2])
 
-        if carPosX < 7 and carPosX > -7 and carPosY < 7 and carPosY > -7 and self.cars[carId]["speed"] > 2:
+        if abs(carPosX) < 7.5 and abs(carPosY) < 7.5 and self.cars[carId]["speed"] > 2:
             self.cars[carId]["speed"] = 2
 
-        if carPosX < 6.5 and carPosX > -6.5 and carPosY < 6.5 and carPosY > -6.5:
-            if carPosY < 1.5 and carPosX > 2.7 and self.cars[carId]["speed"] > abs(carPosX/6.5):
-                self.cars[carId]["speed"] = abs(carPosX/6.5)
-            elif carPosX < 1.5 and carPosY > 2.7 and self.cars[carId]["speed"] > abs(carPosY/6.5):
-                self.cars[carId]["speed"] = abs(carPosY/6.5)
+        if abs(carPosX) < 7 and abs(carPosY) < 7:
+            if abs(carPosY) < 1.5 and abs(carPosX) > 3.5 and self.cars[carId]["speed"] > abs(carPosX/7):
+                self.cars[carId]["speed"] = abs(carPosX/7)
+            elif abs(carPosX) < 1.5 and abs(carPosY) > 3.5 and self.cars[carId]["speed"] > abs(carPosY/7):
+                self.cars[carId]["speed"] = abs(carPosY/7)
 
-
-        # start turning, if turn is initiated it should be completed
-        if carPosX < 2.7 and carPosX > -2.7 and carPosY < 2.7 and carPosY > -2.7:
-            if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"] and not (self.cars[carId]["speed"] == 0 and abs(rotation-self.cars[carId]["twist"]) < 0.018):
-                self.cars[carId]["speed"] = 0.4 #0.4
-                self.cars[carId]["angle"] = 0.45 #0.3
-            else:  
-                self.cars[carId]["speed"] = 0
-                # Initiate turn, i.e turn the car a little towards the way it will turn
-                if abs(rotation-self.cars[carId]["twist"]) < 0.4:
-                    self.cars[carId]["angle"] = 0.1
-                else:
-                    self.cars[carId]["angle"] = 0
         
+        # start turning, if turn is initiated it should be completed
+        if abs(carPosX) < 3.5 and abs(carPosY) < 3.5:
+            if self.cars[carId]["priorityLane"] or self.cars[carId]["criticalSectionAquired"]:
+                if abs(carPosX) < 2.6 and abs(carPosY) < 2.6:
+                    self.cars[carId]["speed"] = 0.4  #0.48
+                    self.cars[carId]["angle"] = 0.65 #-0.18
+                else:
+                    self.cars[carId]["speed"] = 0.4
+                    self.cars[carId]["angle"] = 0
+            else:
+                self.cars[carId]["speed"] = 0
+
+
         # stop turning
         if abs(rotation-self.cars[carId]["twist"]) > 1.4:
             self.cars[carId]["angle"] = 0
             if carPosX > 4 or carPosX < -4 or carPosY > 4 or carPosY < -4:
+                self.cars[carId]["maneuverComplete"] = True
+
+        # stop turning
+        if abs(rotation-self.cars[carId]["twist"]) > 1.4:
+            self.cars[carId]["angle"] = 0
+            if carPosX > 3.5 or carPosX < -3.5 or carPosY > 3.5 or carPosY < -3.5:
                 self.cars[carId]["maneuverComplete"] = True
 
 
@@ -225,7 +230,7 @@ class Autodrive :
             else:
                 self.cars[carId]["speed"] = 0       
 
-        if (carPosX > 4 or carPosX < -4 or carPosY > 4 or carPosY < -4) and self.cars[carId]["enteredCrossing"]:
+        if (carPosX > 3 or carPosX < -3 or carPosY > 3 or carPosY < -3) and self.cars[carId]["enteredCrossing"]:
             self.cars[carId]["maneuverComplete"] = True
         
 
@@ -263,12 +268,10 @@ class Autodrive :
             vel_msg.angular.y = 0
             vel_msg.angular.z = 0
  
-            print(self.cars[2]["speed"])
 
             for i in range(len(self.publishers)):
                 vel_msg.linear.x = self.cars[i+2]["speed"]
                 vel_msg.angular.z = self.cars[i+2]["angle"]
-                #print(self.cars[i+2]["speed"])
                 self.publishers[i].publish(vel_msg)
             
             if self.exitSimulation:

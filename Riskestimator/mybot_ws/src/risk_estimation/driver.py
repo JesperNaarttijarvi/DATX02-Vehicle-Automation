@@ -175,6 +175,7 @@ class RiskEstimator:
                 weight = pfilter.weights[i]
                 
                 if ((s.Es == "stop" and s.Is == "go") or (s.Es == "go" and s.Is == "stop")):
+                #if (s.Es == "stop" and s.Is == "go"):
                     risk += weight
             
             risks.append(risk)

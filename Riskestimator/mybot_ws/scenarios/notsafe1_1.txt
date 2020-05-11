@@ -1,2 +1,2 @@
-spawn 10 0.74 0.1 0 0 0 0 right 10 True
+spawn 9 0.74 0.1 0 0 0 0 right 10 True
 spawn 1 -18 0.1 0 0 -1.5707 1.5707 straight 2 True
