@@ -1,0 +1,14 @@
+new notsafe4_1.txt
+run 12
+new notsafe4_2.txt
+run 12
+new notsafe4_3.txt
+run 12
+new notsafe4_4.txt
+run 12
+new notsafe4_5.txt
+run 12
+new notsafe4_6.txt
+run 12
+r
+
