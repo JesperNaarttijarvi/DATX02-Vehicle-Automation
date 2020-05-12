@@ -16,7 +16,7 @@ args = parser.parse_args()
 # Check for arg
 if args.test:
     data = "violation:väjningsplikt,location:marklandsgatan,timestamp:2020-04-09 11.55,position:[443;121],occurred:1"
-    data = randomizedresponse.random_response(data)
+    data = randomizedresponse.random_response(data, 0.5)
     print("TEST")
     print("Raw data: " + data)
     if args.mail:
@@ -26,16 +26,16 @@ if args.test:
         report.generate_report(data)
 elif args.live:
     data = input("Input violation data: ")
-    data = randomizedresponse.random_response(data)
+    data = randomizedresponse.random_response(data, 0.5)
     if args.mail:
         report.generate_mail(data)
         report.generate_report(data)
     else:
         report.generate_report(data)
 
-def test():
+def test(coin_prob):
     data = "violation:väjningsplikt,location:marklandsgatan,timestamp:2020-04-09 11.55,position:[443;121],occurred:1"
-    data = randomizedresponse.random_response(data)
+    data = randomizedresponse.random_response(data, coin_prob)
     #print("TEST")
     #print("Raw data: " + data)
     return int(data[len(data) - 1])
