@@ -1,14 +1,16 @@
 import main
-import math
+
 loop_range = int(input("how many runs should the test perform?"))
 coin_prob = float(input("probability that coin toss returns true?"))
-
 count = 0
 subtotal = 0
 numbers = []
 n = 0
 for i in range(loop_range):
-    subtotal = subtotal + main.test(coin_prob)
+    n = main.test(coin_prob)
+
+    numbers.append(n)
+    subtotal = subtotal + n
     count = count + 1
 
 mean = (subtotal / count)
