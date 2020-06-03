@@ -15,7 +15,7 @@ args = parser.parse_args()
 
 # Check for arg
 if args.test:
-    data = "violation:väjningsplikt,location:marklandsgatan,timestamp:2020-04-09 11.55,position:[443;121],occurred:1"
+    data = "violation:asda32432sd,location:åby allé,timestamp:2020-04-09 11.55,position:[443;121],occurred:1"
     data = randomizedresponse.random_response(data, 0.5)
     print("TEST")
     print("Raw data: " + data)
@@ -34,7 +34,7 @@ elif args.live:
         report.generate_report(data)
 
 def test(coin_prob):
-    data = "violation:väjningsplikt,location:marklandsgatan,timestamp:2020-04-09 11.55,position:[443;121],occurred:1"
+    data = "violation:fdsjmundgnhhg,location:åby allé,timestamp:2020-04-09 11.55,position:[443;121],occurred:1"
     data = randomizedresponse.random_response(data, coin_prob)
     #print("TEST")
     #print("Raw data: " + data)
