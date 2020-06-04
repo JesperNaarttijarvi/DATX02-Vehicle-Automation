@@ -1,6 +1,6 @@
 ### List of simInterface commands:
 **spawn**
-  - spawn x y z yaw yaw yaw yaw turn speed prioLane(True/False)
+  - spawn x y z yaw yaw yaw yaw turn speed prioLane(True/False) (Ex. spawn 9 0.74 0.1 0 0 0 0 right 10 True)
     - spawns a new car
     
 **new** 
