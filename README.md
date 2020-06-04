@@ -97,3 +97,7 @@ git clone https://github.com/JesperNaarttijarvi/DATX02-Vehicle-Automation
   - run seconds (Ex. run 10)
     - starts the driving software, simulation and risk estimator. Run this when you want to collect data.
     
+**kill**  - not in use
+
+**killall** - not in use
+
