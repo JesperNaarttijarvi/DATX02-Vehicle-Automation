@@ -1,3 +1,0 @@
-spawn 10 0.74 0.1 0 0 0 0 right 4 False
-spawn 0.85 -8.5 0.1 0 0 -1.5707 1.5707 straight 4 True
-spawn -11.5 -0.74 0.1 0 0 -3.14 0 left 4 False
