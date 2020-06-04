@@ -91,7 +91,7 @@ class simInterface :
         self.aDrive.stopSimulation() 
         f = None
         try :  
-            f = open("scenarios/" + path, "r")
+            f = open(path, "r")
             self.current_scenario = path
         except:
             print("path error")
