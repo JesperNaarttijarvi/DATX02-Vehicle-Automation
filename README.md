@@ -28,35 +28,36 @@ git clone https://github.com/JesperNaarttijarvi/DATX02-Vehicle-Automation
 ### Run the intall.sh shell script 
 *Riskestimator/mybot_ws/Install.sh*
 
-To run a test scenario
-Move to workspace:  
-*cd Riskestimator/mybot_ws*
+## Run a test scenario
+- Move to workspace:  
+	- *cd Riskestimator/mybot_ws*
 
-Start gazebo with the test environment:
-*./run_Gazebo.sh*
+- Start gazebo with the test environment:
+	- *./run_Gazebo.sh*
 
-Then, start the simulation interface:
-*python  simInterface.py*
+- Then, start the simulation interface:
+	- *python  simInterface.py*
 
-When the interface has started, to spawn a test vehicle:
-*spawn 9 0.74 0.1 0 0 0 0 right 10 True*
-Read the list of interface commands.
-The interface can read a series of commands in text files. 
-To read a text file with commands either:
-type the command in the interface:
-*new path/file.txt*
+- When the interface has started, to spawn a test vehicle:
+	- *spawn 9 0.74 0.1 0 0 0 0 right 10 True*
 
-		OR: start the siminterface with the file as a program variable: 
-*python  simInterface.py  path/file.txt*
+- Read the list of interface commands. 
+	- The interface can read a series of commands in text files. 
+- To read a text file with commands use either:
+	- Type the command in the interface: 
+	- *new path/file.txt*
+	- Start the siminterface with the file as a program variable: 
+	- *python  simInterface.py  path/file.txt*
 
-To setup a premade scenario write
-*new scenarios/safe1_1.txt*
+- Setup a premade scenario write
+	- *new scenarios/safe1_1.txt*
 
-Then run the testcase for 20 seconds  with
-*run 20*
-After the test the measurements from the risk estimator can be found in:
-Mybot_ws/sim_data/
-The time is the left column and the other columns are the risk data from the vehicles. 
+- Run the testcase for 20 seconds  with
+	- *run 20*
+
+- After the test the measurements from the risk estimator can be found in:
+	- Mybot_ws/sim_data/ 
+	- The time is the left column and the other columns are the risk data from the vehicles. 
 
 
 ### List of simInterface commands:
