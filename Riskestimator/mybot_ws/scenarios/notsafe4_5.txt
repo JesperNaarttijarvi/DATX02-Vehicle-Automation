@@ -1,0 +1,2 @@
+spawn -0.74 4 0.1 0 0 1.5707 1.5707 left 0.3 True
+spawn 0.8 -15 0.1 0 0 -1.5707 1.5707 straight 8 True

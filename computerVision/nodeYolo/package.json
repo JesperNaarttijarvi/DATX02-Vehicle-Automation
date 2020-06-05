@@ -1,0 +1,27 @@
+{
+  "name": "nodeYOLO",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "axios": "^0.19.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.3",
+    "darknet": "^2.0.17",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.5.1",
+    "express-session": "^1.15.6",
+    "http-proxy": "^1.17.0",
+    "http-proxy-middleware": "^0.19.1",
+    "morgan": "^1.9.1",
+    "qs": "^6.9.4"
+  }
+}

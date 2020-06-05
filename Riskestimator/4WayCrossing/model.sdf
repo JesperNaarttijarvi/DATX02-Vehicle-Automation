@@ -1,0 +1,1813 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='4WayCrossing'>
+    <model name='road'>
+      <model name='roadmark'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-0.42038 -0.838671 -0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_0'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>4.58056 -0.838753 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_1'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-0.442951 2.05888 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_2'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>4.55587 2.0583 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>6.50343 0.603813 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_0'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>4.38554 0.604394 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_1'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>2.09333 0.603718 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_2'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-0.057715 0.605008 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_3'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-2.34224 0.605175 0 0 -0 0</pose>
+      </model>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>5.21893 -1.07531 -0.000134 0 -0 0</pose>
+    </model>
+    <model name='road_0'>
+      <model name='roadmark'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-0.42038 -0.838671 -0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_0'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>4.58056 -0.838753 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_1'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-0.442951 2.05888 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_2'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>4.55587 2.0583 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>6.50343 0.603813 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_0'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>4.38554 0.604394 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_1'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>2.09333 0.603718 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_2'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-0.057715 0.605008 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_3'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-2.34224 0.605175 0 0 -0 0</pose>
+      </model>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-7.57779 -1.09794 -0.000134 0 -0 0</pose>
+    </model>
+    <model name='road_1'>
+      <model name='roadmark'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-0.42038 -0.838671 -0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_0'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>4.58056 -0.838753 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_1'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-0.442951 2.05888 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_2'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>4.55587 2.0583 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>6.50343 0.603813 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_0'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>4.38554 0.604394 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_1'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>2.09333 0.603718 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_2'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-0.057715 0.605008 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_3'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-2.34224 0.605175 0 0 -0 0</pose>
+      </model>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>0.302531 -4.82421 -0.000134 0 0 -1.56974</pose>
+    </model>
+    <model name='road_1_clone'>
+      <model name='roadmark'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-0.42038 -0.838671 -0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_0'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>4.58056 -0.838753 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_1'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-0.442951 2.05888 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_2'>
+        <link name='link'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <inertial>
+            <mass>0.362604</mass>
+            <inertia>
+              <ixx>0.00016034</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.757889</iyy>
+              <iyz>0</iyz>
+              <izz>0.758045</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>5 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 0</ambient>
+              <diffuse>1 1 1 0</diffuse>
+              <specular>1 1 1 0</specular>
+              <emissive>1 1 1 1</emissive>
+              <lighting>1</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>4.55587 2.0583 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>6.50343 0.603813 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_0'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>4.38554 0.604394 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_1'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>2.09333 0.603718 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_2'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-0.057715 0.605008 0 0 -0 0</pose>
+      </model>
+      <model name='roadmark_mid_3'>
+        <link name='link'>
+          <pose frame=''>0 0 0.0001 0 -0 0</pose>
+          <inertial>
+            <mass>0.0807885</mass>
+            <inertia>
+              <ixx>3.572e-05</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00838261</iyy>
+              <iyz>0</iyz>
+              <izz>0.00841742</izz>
+            </inertia>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+          </inertial>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>1.1 0.1 1e-06</size>
+              </box>
+            </geometry>
+            <material>
+              <script>
+                <name>Gazebo/White</name>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+              </script>
+              <shader type='pixel'>
+                <normal_map>__default__</normal_map>
+              </shader>
+              <ambient>1 1 1 1</ambient>
+              <diffuse>0.7 0.7 0.7 0</diffuse>
+              <specular>0.01 0.01 0.01 0</specular>
+              <emissive>0 0 0 1</emissive>
+              <lighting>0</lighting>
+            </material>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <transparency>0</transparency>
+            <cast_shadows>1</cast_shadows>
+          </visual>
+        </link>
+        <static>0</static>
+        <allow_auto_disable>1</allow_auto_disable>
+        <pose frame=''>-2.34224 0.605175 0 0 -0 0</pose>
+      </model>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>0.277041 7.9983 -0.000134 0 0 -1.56974</pose>
+    </model>
+    <model name='roadmark_mid'>
+      <link name='link'>
+        <pose frame=''>0 0 0.0001 0 -0 0</pose>
+        <inertial>
+          <mass>0.0807885</mass>
+          <inertia>
+            <ixx>3.572e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00838261</iyy>
+            <iyz>0</iyz>
+            <izz>0.00841742</izz>
+          </inertia>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+        </inertial>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>0</gravity>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1.1 0.1 1e-06</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+            <shader type='pixel'>
+              <normal_map>__default__</normal_map>
+            </shader>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>0.7 0.7 0.7 0</diffuse>
+            <specular>0.01 0.01 0.01 0</specular>
+            <emissive>0 0 0 1</emissive>
+            <lighting>0</lighting>
+          </material>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+      </link>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>2.33067 0.253169 -0.00013 0.025935 -0.000165 -1.56978</pose>
+    </model>
+    <model name='roadmark_mid_clone'>
+      <link name='link'>
+        <pose frame=''>0 0 0.0001 0 -0 0</pose>
+        <inertial>
+          <mass>0.0807885</mass>
+          <inertia>
+            <ixx>3.572e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00838261</iyy>
+            <iyz>0</iyz>
+            <izz>0.00841742</izz>
+          </inertia>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+        </inertial>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>0</gravity>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1.1 0.1 1e-06</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+            <shader type='pixel'>
+              <normal_map>__default__</normal_map>
+            </shader>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>0.7 0.7 0.7 0</diffuse>
+            <specular>0.01 0.01 0.01 0</specular>
+            <emissive>0 0 0 1</emissive>
+            <lighting>0</lighting>
+          </material>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+      </link>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>-0.551381 -1.25412 0.000665 0.025935 -0.000165 -1.56978</pose>
+    </model>
+    <static>0</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

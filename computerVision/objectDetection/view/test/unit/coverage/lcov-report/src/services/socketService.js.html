@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/services/socketService.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/services</a> socketService.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/89</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/80</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import io from 'socket.io-client'</span>
+<span class="cstat-no" title="statement not covered" >import devMode from '@/devMode'</span>
+&nbsp;
+const log = <span class="cstat-no" title="statement not covered" >require('@/components/script/log')('socket')</span>
+&nbsp;
+const socketService = <span class="cstat-no" title="statement not covered" >{</span>
+  ip: window.location.host,
+  port: '',
+  socket: '',
+  https: false,
+  timeout: 5000
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >if (devMode.dev &amp;&amp; devMode.localServer) {</span>
+<span class="cstat-no" title="statement not covered" >  socketService.ip = 'localhost:8080'</span>
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >socketService.connected = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>true</span></span>
+<span class="cstat-no" title="statement not covered" >socketService.testing = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>true</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >socketService.getAddress = <span class="fstat-no" title="function not covered" >(room = '') =&gt; <span class="cstat-no" title="statement not covered" ></span>{</span></span>
+  let slash = <span class="cstat-no" title="statement not covered" >''</span>
+<span class="cstat-no" title="statement not covered" >  if (room) <span class="cstat-no" title="statement not covered" >s</span>lash = '/'</span>
+<span class="cstat-no" title="statement not covered" >  return `${socketService.ip}${slash}${room}`</span>
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >socketService.setSocket = <span class="fstat-no" title="function not covered" >() =&gt; </span>{</span>
+<span class="cstat-no" title="statement not covered" >  if (devMode.dev &amp;&amp; !devMode.localServer) {</span>
+<span class="cstat-no" title="statement not covered" >    log.warning('No socket due to dev mode')</span>
+<span class="cstat-no" title="statement not covered" >    socketService.socket = {</span>
+      emit: <span class="fstat-no" title="function not covered" >(</span>name, args) =&gt; {
+<span class="cstat-no" title="statement not covered" >        log.debug(`Emit ${name}`)</span>
+      },
+      on: <span class="fstat-no" title="function not covered" >(</span>name, callback) =&gt; {
+<span class="cstat-no" title="statement not covered" >        log.debug(`On listened for ${name}`)</span>
+      }
+    }
+  } else {
+<span class="cstat-no" title="statement not covered" >    socketService.socket = io(socketService.getAddress())</span>
+  }
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >socketService.setRoom = <span class="fstat-no" title="function not covered" >(</span>room) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  socketService.socket = io(socketService.getAddress(room))</span>
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >socketService.getSocket = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>socketService.socket</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >socketService.get = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>args, data, _timeout) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  if (args === undefined) <span class="cstat-no" title="statement not covered" >r</span>eturn</span>
+  let received = <span class="cstat-no" title="statement not covered" >false</span>
+  let <span class="cstat-no" title="statement not covered" >timeout</span>
+  let <span class="cstat-no" title="statement not covered" >eventName</span>
+  let <span class="cstat-no" title="statement not covered" >eventData</span>
+  let <span class="cstat-no" title="statement not covered" >eventRespone</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (data !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >    timeout = _timeout || socketService.timeout</span>
+<span class="cstat-no" title="statement not covered" >    eventName = `get${args}`</span>
+<span class="cstat-no" title="statement not covered" >    eventData = data || ''</span>
+<span class="cstat-no" title="statement not covered" >    eventRespone = args</span>
+  } else {
+<span class="cstat-no" title="statement not covered" >    timeout = args.timeout || socketService.timeout</span>
+<span class="cstat-no" title="statement not covered" >    eventName = `get${args.event}`</span>
+<span class="cstat-no" title="statement not covered" >    eventData = args.data || ''</span>
+<span class="cstat-no" title="statement not covered" >    eventRespone = args.event</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  socketService.request(eventName, eventRespone, eventData)</span>
+    .then(<span class="fstat-no" title="function not covered" >(</span>data) =&gt; {
+<span class="cstat-no" title="statement not covered" >      if (data.error) {</span>
+<span class="cstat-no" title="statement not covered" >        reject(data.message)</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        received = true</span>
+<span class="cstat-no" title="statement not covered" >        resolve(data)</span>
+      }
+    })
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  setTimeout(<span class="fstat-no" title="function not covered" >() =&gt; </span>{</span>
+<span class="cstat-no" title="statement not covered" >    if (!received) {</span>
+<span class="cstat-no" title="statement not covered" >      reject(new Error('Timeout when requesting data'))</span>
+    }
+  }, timeout)
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >socketService.set = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>args, data, _timeout) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+  let received = <span class="cstat-no" title="statement not covered" >false</span>
+  let <span class="cstat-no" title="statement not covered" >timeout</span>
+  let <span class="cstat-no" title="statement not covered" >eventName</span>
+  let <span class="cstat-no" title="statement not covered" >eventData</span>
+  let <span class="cstat-no" title="statement not covered" >eventRespone</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (data !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >    timeout = _timeout || socketService.timeout</span>
+<span class="cstat-no" title="statement not covered" >    eventName = `get${args}`</span>
+<span class="cstat-no" title="statement not covered" >    eventData = data || ''</span>
+<span class="cstat-no" title="statement not covered" >    eventRespone = args</span>
+  } else {
+<span class="cstat-no" title="statement not covered" >    timeout = args.timeout || socketService.timeout</span>
+<span class="cstat-no" title="statement not covered" >    eventName = `get${args.event}`</span>
+<span class="cstat-no" title="statement not covered" >    eventData = args.data || ''</span>
+<span class="cstat-no" title="statement not covered" >    eventRespone = args.event</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  socketService.request(`get${eventName}`, eventRespone, eventData)</span>
+    .then(<span class="fstat-no" title="function not covered" >(</span>data) =&gt; {
+<span class="cstat-no" title="statement not covered" >      if (data.error) {</span>
+<span class="cstat-no" title="statement not covered" >        reject(data.message)</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        received = true</span>
+<span class="cstat-no" title="statement not covered" >        resolve(data)</span>
+      }
+    })
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  setTimeout(<span class="fstat-no" title="function not covered" >() =&gt; </span>{</span>
+<span class="cstat-no" title="statement not covered" >    if (!received) {</span>
+<span class="cstat-no" title="statement not covered" >      reject(new Error('Timeout when requesting data'))</span>
+    }
+  }, timeout)
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >socketService.request = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>eventName, eventRespone, eventArgs) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  socketService.socket.emit(eventName, eventArgs)</span>
+<span class="cstat-no" title="statement not covered" >  socketService.socket.on(eventRespone, <span class="fstat-no" title="function not covered" >(</span>data) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (data.error) {</span>
+<span class="cstat-no" title="statement not covered" >      reject(data.msg, data.error)</span>
+    }
+<span class="cstat-no" title="statement not covered" >    resolve(data)</span>
+  })
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >socketService.addListener = <span class="fstat-no" title="function not covered" >(</span>eventName, callback) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  socketService.socket.on(eventName, <span class="fstat-no" title="function not covered" >(</span>eventArgument) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    callback(eventArgument)</span>
+  })
+}
+&nbsp;
+socketService.setSocket()
+&nbsp;
+export default socketService
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Aug 26 2019 12:33:53 GMT+0200 (Central European Summer Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

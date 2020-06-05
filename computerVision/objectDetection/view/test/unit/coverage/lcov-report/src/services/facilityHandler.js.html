@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/services/facilityHandler.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/services</a> facilityHandler.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/71</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/62</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+// import socket from './socketService'
+<span class="cstat-no" title="statement not covered" >import httpService from '@/services/httpService'</span>
+&nbsp;
+const facility = <span class="cstat-no" title="statement not covered" >{</span>
+  baseUrl: 'facilities/'
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >facility.oljehallExternalWebsite = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  httpService.get(`${facility.baseUrl}oljehallExternalWebsite`)</span>
+    .then(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>response) =&gt;</span>
+      resolve(response)
+    ).catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >facility.getOljehallEvents = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  httpService.get(`${facility.baseUrl}getOljehallEvents`)</span>
+    .then(<span class="fstat-no" title="function not covered" >(</span>response) =&gt; {
+      const larms = <span class="cstat-no" title="statement not covered" >{</span>
+        A: {
+          day: 0,
+          week: 0,
+          month: 0,
+          quarter: 0,
+          year: 0
+        },
+        B: {
+          day: 0,
+          week: 0,
+          month: 0,
+          quarter: 0,
+          year: 0
+        },
+        C: {
+          day: 0,
+          week: 0,
+          month: 0,
+          quarter: 0,
+          year: 0
+        }
+      }
+&nbsp;
+      const <span class="fstat-no" title="function not covered" >addEvent = <span class="cstat-no" title="statement not covered" >(</span>type, str) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        larms[type][str] += 1</span>
+      }
+&nbsp;
+      const date = <span class="cstat-no" title="statement not covered" >new Date()</span>
+<span class="cstat-no" title="statement not covered" >      date.setDate(date.getDate() - 1)</span>
+      const day = <span class="cstat-no" title="statement not covered" >parseDate(date)</span>
+<span class="cstat-no" title="statement not covered" >      date.setDate(date.getDate() - 6)</span>
+      const week = <span class="cstat-no" title="statement not covered" >parseDate(date)</span>
+<span class="cstat-no" title="statement not covered" >      date.setDate(date.getDate() - 24)</span>
+      const month = <span class="cstat-no" title="statement not covered" >parseDate(date)</span>
+<span class="cstat-no" title="statement not covered" >      date.setDate(date.getDate() - 66)</span>
+      const quarter = <span class="cstat-no" title="statement not covered" >parseDate(date)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      response.data.forEach(<span class="fstat-no" title="function not covered" >event =&gt; </span>{</span>
+<span class="cstat-no" title="statement not covered" >        if (event.date &gt; day) {</span>
+<span class="cstat-no" title="statement not covered" >          addEvent(event.prio, 'day')</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (event.date &gt; week) {</span>
+<span class="cstat-no" title="statement not covered" >          addEvent(event.prio, 'week')</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (event.date &gt; month) {</span>
+<span class="cstat-no" title="statement not covered" >          addEvent(event.prio, 'month')</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (event.date &gt; quarter) {</span>
+<span class="cstat-no" title="statement not covered" >          addEvent(event.prio, 'quarter')</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        addEvent(event.prio, 'year')</span>
+      })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      resolve({events: response.data, larms})</span>
+    }).catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >facility.setOljehallFilters = <span class="fstat-no" title="function not covered" >(</span>userFilter) =&gt; {</span>
+  let facilities = <span class="cstat-no" title="statement not covered" >JSON.parse(localStorage.getItem('facilities'))</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (!(facilities instanceof Object)) {</span>
+<span class="cstat-no" title="statement not covered" >    facilities = {}</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (!facilities.oljehall) {</span>
+<span class="cstat-no" title="statement not covered" >    facilities.oljehall = {}</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  facilities.oljehall.filter = userFilter</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  localStorage.setItem('facilities', JSON.stringify(facilities))</span>
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >facility.getOljehallFilters = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+  const filters = <span class="cstat-no" title="statement not covered" >JSON.parse(localStorage.getItem('facilities'))</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (filters instanceof Object) {</span>
+<span class="cstat-no" title="statement not covered" >    if (filters.oljehall) {</span>
+<span class="cstat-no" title="statement not covered" >      if (filters.oljehall.filter instanceof Object) {</span>
+<span class="cstat-no" title="statement not covered" >        resolve(filters.oljehall.filter)</span>
+<span class="cstat-no" title="statement not covered" >        return</span>
+      }
+    }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  resolve({</span>
+    prioA: true,
+    prioB: true,
+    prioC: true,
+    activated: true,
+    switched: true,
+    other: true
+  })
+})
+&nbsp;
+const <span class="fstat-no" title="function not covered" >parseDate = <span class="cstat-no" title="statement not covered" >(</span>date) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  if (!(date instanceof Date)) <span class="cstat-no" title="statement not covered" >d</span>ate = new Date(date)</span>
+&nbsp;
+  let year = <span class="cstat-no" title="statement not covered" >date.getFullYear() + ''</span>
+  let month = <span class="cstat-no" title="statement not covered" >date.getMonth() + 1 + ''</span>
+  let day = <span class="cstat-no" title="statement not covered" >date.getDate() + ''</span>
+  let hours = <span class="cstat-no" title="statement not covered" >date.getHours() + ''</span>
+  let minutes = <span class="cstat-no" title="statement not covered" >date.getMinutes() + ''</span>
+  let seconds = <span class="cstat-no" title="statement not covered" >date.getSeconds() + ''</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (month.length === 1) <span class="cstat-no" title="statement not covered" >m</span>onth = '0' + month</span>
+<span class="cstat-no" title="statement not covered" >  if (day.length === 1) <span class="cstat-no" title="statement not covered" >d</span>ay = '0' + day</span>
+<span class="cstat-no" title="statement not covered" >  if (hours.length === 1) <span class="cstat-no" title="statement not covered" >h</span>ours = '0' + hours</span>
+<span class="cstat-no" title="statement not covered" >  if (minutes.length === 1) <span class="cstat-no" title="statement not covered" >m</span>inutes = '0' + minutes</span>
+<span class="cstat-no" title="statement not covered" >  if (seconds.length === 1) <span class="cstat-no" title="statement not covered" >s</span>econds = '0' + seconds</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`</span>
+}
+&nbsp;
+export default facility
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Aug 26 2019 12:33:53 GMT+0200 (Central European Summer Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

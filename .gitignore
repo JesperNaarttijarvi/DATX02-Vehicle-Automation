@@ -1,0 +1,11 @@
+
+privacyReporting/.idea/misc.xml
+privacyReporting/.idea/privacyReporting.iml
+privacyReporting/.idea/workspace.xml
+privacyReporting/__pycache__/report.cpython-38.pyc
+Riskestimator/mybot_ws/build/
+Riskestimator/mybot_ws/devel/
+Riskestimator/mybot_ws/src/risk_estimation/plotfolder/
+*.pyc
+*.csv
+*.csv#

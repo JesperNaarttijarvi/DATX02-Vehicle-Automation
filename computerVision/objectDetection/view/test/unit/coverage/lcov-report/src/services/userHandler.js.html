@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/services/userHandler.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/services</a> userHandler.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/156</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/84</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/135</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// import socket from './socketService'
+<span class="cstat-no" title="statement not covered" >import httpService from '@/services/httpService'</span>
+&nbsp;
+const user = <span class="cstat-no" title="statement not covered" >{</span>
+  baseUrl: 'userprofile/'
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.getCurrentUser = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  httpService.get(`${user.baseUrl}getUserprofile`)</span>
+    .then(<span class="fstat-no" title="function not covered" >userdata =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >      resolve(userdata.data[0])</span>
+    }).catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.alterUser = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>alteredUser) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+  const params = <span class="cstat-no" title="statement not covered" >{</span>
+    url: `${user.baseUrl}alterUser`,
+    data: { 'user': alteredUser }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  httpService.post(params)</span>
+    .then(<span class="fstat-no" title="function not covered" >response =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >      resolve(response.data)</span>
+    })
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.getAvailableAccessLevel = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  httpService.get(`${user.baseUrl}getAvailableAccessLevel`)</span>
+    .then(<span class="fstat-no" title="function not covered" >records =&gt; </span>{
+      const accessLevels = <span class="cstat-no" title="statement not covered" >[]</span>
+<span class="cstat-no" title="statement not covered" >      for (var i = 0; i &lt; records.data.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        accessLevels.push({value: Number(records.data[i].value), label: records.data[i].label})</span>
+      }
+<span class="cstat-no" title="statement not covered" >      resolve(accessLevels)</span>
+    }).catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.getAvailableStartPages = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  httpService.get(`${user.baseUrl}getAvailableStartPages`)</span>
+    .then(<span class="fstat-no" title="function not covered" >records =&gt; </span>{
+      const startPages = <span class="cstat-no" title="statement not covered" >[]</span>
+<span class="cstat-no" title="statement not covered" >      for (var i = 0; i &lt; records.data.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        startPages.push({value: Number(records.data[i].value), label: records.data[i].label})</span>
+      }
+<span class="cstat-no" title="statement not covered" >      resolve(startPages)</span>
+    }).catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.getAllUsers = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  httpService.get(`${user.baseUrl}getAllUsers`)</span>
+    .then(<span class="fstat-no" title="function not covered" >records =&gt; </span>{
+      const users = <span class="cstat-no" title="statement not covered" >[]</span>
+<span class="cstat-no" title="statement not covered" >      for (var i = 0; i &lt; records.data.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        users.push({</span>
+          id: Number(records.data[i].id),
+          name: records.data[i].name,
+          accessLabel: records.data[i].accessLabel,
+          accessValue: Number(records.data[i].accessValue)
+        })
+      }
+<span class="cstat-no" title="statement not covered" >      resolve(users)</span>
+    }).catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.getAllNotifications = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  httpService.get(`${user.baseUrl}getAllNotifications`)</span>
+    .then(<span class="fstat-no" title="function not covered" >records =&gt; </span>{
+      const notifications = <span class="cstat-no" title="statement not covered" >[]</span>
+<span class="cstat-no" title="statement not covered" >      records.data.forEach(<span class="fstat-no" title="function not covered" >not =&gt; </span>{</span>
+<span class="cstat-no" title="statement not covered" >        notifications.push({</span>
+          id: Number(not.id),
+          name: not.name,
+          description: not.description,
+          enable: not.enable === 'true',
+          subgroup: Number(not.subgroup),
+          subgroupName: (not.subgroupName),
+          type: Number(1)
+        })
+      })
+&nbsp;
+      const sortedNots = <span class="cstat-no" title="statement not covered" >{}</span>
+<span class="cstat-no" title="statement not covered" >      notifications.forEach(<span class="fstat-no" title="function not covered" >not =&gt; </span>{</span>
+        const groupName = <span class="cstat-no" title="statement not covered" >not.subgroupName</span>
+<span class="cstat-no" title="statement not covered" >        if (sortedNots[groupName]) {</span>
+<span class="cstat-no" title="statement not covered" >          sortedNots[groupName].push(not)</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          sortedNots[groupName] = [not]</span>
+        }
+      })
+<span class="cstat-no" title="statement not covered" >      resolve(sortedNots)</span>
+    }).catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.saveNotifications = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>groupedNots) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+  const keys = <span class="cstat-no" title="statement not covered" >Object.keys(groupedNots)</span>
+  const notifications = <span class="cstat-no" title="statement not covered" >[]</span>
+<span class="cstat-no" title="statement not covered" >  keys.forEach(<span class="fstat-no" title="function not covered" >key =&gt; </span>{</span>
+<span class="cstat-no" title="statement not covered" >    groupedNots[key].forEach(<span class="fstat-no" title="function not covered" >not =&gt; </span>{</span>
+<span class="cstat-no" title="statement not covered" >      notifications.push(not)</span>
+    })
+  })
+&nbsp;
+  const params = <span class="cstat-no" title="statement not covered" >{</span>
+    url: `${user.baseUrl}setUserNotifications`,
+    data: { 'notifications': notifications }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  httpService.post(params)</span>
+    .then(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>resolve())</span>
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.newUser = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>newUser) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+  const params = <span class="cstat-no" title="statement not covered" >{</span>
+    url: `${user.baseUrl}addNewUser`,
+    data: { 'newUser': newUser }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  httpService.post(params)</span>
+    .then(<span class="fstat-no" title="function not covered" >response =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >      resolve(response.data)</span>
+    })
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.removeUser = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>id) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+  const params = <span class="cstat-no" title="statement not covered" >{</span>
+    url: `${user.baseUrl}removeUser`,
+    data: { 'userId': id }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  httpService.post(params)</span>
+    .then(<span class="fstat-no" title="function not covered" >response =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >      resolve(response.data)</span>
+    })
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.changePassword = <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({ </span>oldPassword, newPassword }) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span></span>
+<span class="cstat-no" title="statement not covered" >  if (newPassword === '') {</span>
+<span class="cstat-no" title="statement not covered" >    reject(new Error('Empty password'))</span>
+<span class="cstat-no" title="statement not covered" >    return</span>
+  }
+&nbsp;
+  const params = <span class="cstat-no" title="statement not covered" >{</span>
+    url: `${user.baseUrl}changePassword`,
+    data: {
+      'oldPassword': oldPassword,
+      'newPassword': newPassword
+    },
+    retry: false
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  httpService.post(params)</span>
+    .then(<span class="fstat-no" title="function not covered" >records =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >      resolve(records)</span>
+    }).catch(<span class="fstat-no" title="function not covered" >err =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >      console.log(err)</span>
+<span class="cstat-no" title="statement not covered" >      reject(err)</span>
+    })
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.getAllSuppliers = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  httpService.get(`${user.baseUrl}getAllSuppliers`)</span>
+    .then(<span class="fstat-no" title="function not covered" >records =&gt; </span>{
+      const suppliers = <span class="cstat-no" title="statement not covered" >[]</span>
+<span class="cstat-no" title="statement not covered" >      for (var i = 0; i &lt; records.data.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        suppliers.push({</span>
+          id: Number(records.data[i].id),
+          name: records.data[i].name,
+          accessLabel: records.data[i].accessLabel,
+          accessValue: Number(records.data[i].accessValue)
+        })
+      }
+<span class="cstat-no" title="statement not covered" >      resolve(suppliers)</span>
+    }).catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.getAllAvailableSuppliers = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  httpService.get(`${user.baseUrl}getAllAvailableSuppliers`)</span>
+    .then(<span class="fstat-no" title="function not covered" >records =&gt; </span>{
+      const suppliers = <span class="cstat-no" title="statement not covered" >[]</span>
+<span class="cstat-no" title="statement not covered" >      for (var i = 0; i &lt; records.data.length; i++) {</span>
+        const id = <span class="cstat-no" title="statement not covered" >Number(records.data[i].id)</span>
+<span class="cstat-no" title="statement not covered" >        suppliers.push({</span>
+          value: id,
+          label: `${records.data[i].name} (nummer: ${id})`
+        })
+      }
+<span class="cstat-no" title="statement not covered" >      resolve(suppliers)</span>
+    }).catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.takenUsernameCheck = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>username) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+  const params = <span class="cstat-no" title="statement not covered" >{</span>
+    url: `${user.baseUrl}takenUsernameCheck`,
+    data: { 'username': username }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  httpService.post(params)</span>
+&nbsp;
+    .then(<span class="fstat-no" title="function not covered" >response =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >      resolve(response.data)</span>
+    })
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.mailTakenCheck = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>mail) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+  const params = <span class="cstat-no" title="statement not covered" >{</span>
+    url: `${user.baseUrl}takenMailCheck`,
+    data: { 'mail': mail }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  httpService.post(params)</span>
+&nbsp;
+    .then(<span class="fstat-no" title="function not covered" >response =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >      resolve(response.data)</span>
+    })
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.getSupplier = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>id) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+  const params = <span class="cstat-no" title="statement not covered" >{ supplierId: JSON.stringify(id) }</span>
+  const url = `${<span class="cstat-no" title="statement not covered" >user.baseUrl}getSupplier`</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  httpService.get({ url, params })</span>
+    .then(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >response =&gt; </span>resolve(response.data))</span>
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.addASupplier = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>supplier) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+  const params = <span class="cstat-no" title="statement not covered" >{</span>
+    url: `${user.baseUrl}addASupplier`,
+    data: { 'newSupplier': supplier }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  httpService.post(params)</span>
+    .then(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>resolve())</span>
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.getPendingDeviationFilters = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  httpService.get(`${user.baseUrl}getPendingDeviationFilters`)</span>
+    .then(<span class="fstat-no" title="function not covered" >response =&gt; </span>{
+      const filter = <span class="cstat-no" title="statement not covered" >{}</span>
+<span class="cstat-no" title="statement not covered" >      filter.filter = response.data.filter</span>
+<span class="cstat-no" title="statement not covered" >      filter.options = []</span>
+      const filterOptions = <span class="cstat-no" title="statement not covered" >response.data.options</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      for (let i = 0; i &lt; filterOptions.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        filter.options[i] =</span>
+          {
+            value: Number(filterOptions[i].value),
+            label: `${filterOptions[i].label} (${filterOptions[i].value})`
+          }
+      }
+<span class="cstat-no" title="statement not covered" >      resolve(filter)</span>
+    })
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+// Not used atm, we use local storage on each device
+<span class="cstat-no" title="statement not covered" >user.saveFilters = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >filter =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+  const params = <span class="cstat-no" title="statement not covered" >{</span>
+    url: `${user.baseUrl}saveFilters`,
+    data: { 'filter': filter.pendingDeviationFilter }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  httpService.post(params)</span>
+    .then(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>resolve())</span>
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+<span class="cstat-no" title="statement not covered" >user.getUserLogs = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; </span>new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >  httpService.get(`${user.baseUrl}getUserLogs`)</span>
+    .then(<span class="fstat-no" title="function not covered" >response =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >      resolve(response.data)</span>
+    })
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+user.getAllArticles = <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>article = -1) =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve, reject) =&gt; {</span></span>
+  const params = <span class="cstat-no" title="statement not covered" >{ article: (article) }</span>
+  const url = `${<span class="cstat-no" title="statement not covered" >user.baseUrl}getAllArticles`</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  httpService.get({ url, params })</span>
+    .then(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >response =&gt; </span>resolve(response.data))</span>
+    .catch(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >err =&gt; </span>reject(err))</span>
+})
+&nbsp;
+export default user
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Aug 26 2019 12:33:53 GMT+0200 (Central European Summer Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

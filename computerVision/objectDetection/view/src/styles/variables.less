@@ -1,0 +1,431 @@
+@import (css)
+  url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+@import (css) url('https://fonts.googleapis.com/css?family=Roboto');
+// NPC Config
+// Button
+@button-radius: @radius-small;
+@button-padding: 14px 28px;
+
+// Primary colors
+@color-primary-darkest: #12376f;
+@color-primary-dark: #204c8e;
+@color-primary: #0051ca;
+@color-primary-light: #5c89cd;
+@color-primary-lightest: #ecf4ff;
+
+@color-secondary-lightest: rgb(251, 122, 165);
+@color-secondary-light: rgb(255, 0, 98);
+@color-secondary: rgb(235, 38, 103);
+@color-secondary-dark: rgb(187, 29, 82);
+@color-secondary-darkest: rgb(146, 8, 54);
+
+@color-green: #2db364;
+@color-orange: #ca8a00;
+
+// Grey colors
+@color-grey-darkest: #1c1c1c;
+@color-grey-dark: #373737;
+@color-grey-medium: #b6b6b6;
+@color-grey-light: #e1e1e1;
+@color-grey-lightest: #f5f5f5;
+
+// Imported colors
+@color-facebook: #4267b2;
+
+// Typography
+@font-size-xs-small: 18px;
+@font-size-small: 20px;
+@font-size-medium: 24px;
+@font-size-large: 30px;
+@font-size-x-large: 44px;
+@font-size-xx-large: 72px;
+
+@font-family: 'Roboto', sans-serif;
+
+// Margins
+@margin-small: 10px;
+@margin-normal: 18px;
+@margin-large: 26px;
+@margin-x-large: 36px;
+
+// Input
+@input-background: white;
+@input-border: 1px solid @color-grey-light;
+@input-border-focus: 1px solid @color-grey-medium;
+@input-padding: 16px 14px;
+@input-radius: @radius-small;
+
+// Elements
+@navbar-height: 70px;
+
+// Util
+@radius-small: 1px;
+@radius-medium: 10px;
+@shadow: 2px 2px 2px rgba(0, 0, 0, 0.08);
+@shadow-light: 2px 2px 2px rgba(0, 0, 0, 0.03);
+
+// Screen-sizes
+@xs-max-width: 767px;
+@sm-min-width: 768px;
+@sm-max-width: 1023px;
+@md-min-width: 1024px;
+@md-max-width: 1199px;
+@lg-min-width: 1200px;
+
+@max-width: 1150px;
+
+
+// Accent colors
+@color-disabled: @color-grey-light;
+@color-confirm: #38c172;
+@color-confirm-light: #efe;
+@color-confirm-medium: #5a5;
+@color-confirm-dark: #2f8a55;
+@color-error-light: rgb(255, 244, 244);
+@color-error-medium: rgb(255, 0, 85);
+@color-error-dark: rgb(255, 0, 85);
+
+// Default style elements
+a {
+  color: @color-primary;
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+button {
+  font-size: 16px;
+}
+
+p,
+i {
+  font-size: @font-size-xs-small;
+}
+
+h1 {
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif !important;
+  font-size: @font-size-xx-large;
+  margin-bottom: @margin-normal;
+}
+
+h2 {
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+  font-size: @font-size-x-large;
+  margin-bottom: 0.3em;
+}
+
+h3 {
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+  font-size: @font-size-large;
+  margin-bottom: @margin-small;
+}
+
+h4 {
+  font-size: @font-size-medium;
+  margin-bottom: @margin-normal;
+}
+
+h5 {
+  font-size: @font-size-small;
+  font-weight: bold;
+  margin-bottom: 9px;
+}
+
+@media screen and (max-width: @xs-max-width) {
+  h1 {
+    font-size: @font-size-x-large;
+  }
+  h2 {
+    font-size: @font-size-large;
+  }
+  h3 {
+    font-size: @font-size-medium;
+  }
+  h4 {
+    font-size: @font-size-small;
+  }
+  h5 {
+    font-size: @font-size-xs-small;
+  }
+}
+
+// Global classes
+.noMargin {
+  margin: 0 !important;
+}
+
+.noPadding {
+  padding: 0 !important;
+}
+
+.paddingTop {
+  padding-top: @navbar-height;
+}
+
+.alignRight {
+  margin-left: auto;
+}
+
+.marginRight {
+  margin-right: @side-margin;
+}
+
+.marginTop {
+  margin-top: @margin-normal;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  list-style: none;
+}
+.row {
+  display: flex;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: @xs-max-width) {
+  .col {
+    width: 100% !important;
+  }
+}
+
+// Maybe should'nt be a class but rather applied to all anchors
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  button {
+    width: 100%;
+  }
+  h2 {
+    margin-bottom: @margin-small !important;
+  }
+}
+
+.errorMessage {
+  width: 100%;
+  border-color: @color-error-medium;
+  background: @color-error-light;
+  color: @color-error-dark;
+}
+.confirmMessage {
+  border-color: @color-confirm-medium;
+  background: @color-confirm-light;
+  color: @color-confirm-dark;
+}
+.loadingMessage {
+  background: @color-primary-lightest;
+  color: @color-primary;
+}
+.errorMessage,
+.confirmMessage,
+.loadingMessage {
+  border-left: 5px solid;
+  padding: 20px;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  svg {
+    margin-right: 20px;
+    font-size: 20px;
+  }
+}
+.info-box {
+  display: flex;
+  flex-direction: column;
+  background: @color-grey-lightest;
+  position: relative;
+  margin-bottom: 18px;
+  padding: 20px;
+  border-radius: 5px;
+  line-height: 1.3em;
+}
+.back-button-top {
+  border: none;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  color: @color-primary;
+  width: auto;
+  align-self: flex-start;
+  cursor: pointer;
+  svg {
+    margin-right: 10px;
+    font-size: 30px;
+  }
+}
+.back-button-top:hover {
+  text-decoration: underline;
+}
+
+label:not(.error) {
+  align-self: flex-start;
+  font-size: @font-size-xs-small;
+  margin-bottom: 5px;
+  display: flex;
+  width: 100%;
+}
+label.error {
+  color: @color-error-medium;
+  width: auto;
+}
+input,
+textarea {
+  font-family: @font-family;
+  box-shadow: inset @shadow;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: @radius-small;
+  padding: 13px 10px 11px;
+  font-size: @font-size-xs-small !important;
+  -webkit-appearance: none;
+  margin-bottom: @margin-small;
+  width: 100%;
+}
+input:last-of-type {
+  margin-bottom: @margin-normal;
+}
+input:focus {
+  outline: none;
+  border-radius: 3px;
+}
+.input-wrapper {
+  position: relative;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+// Has been touched. Will happen if no
+// errors i.e. synonymous with success
+.dirty:focus {
+  border-color: rgb(36, 194, 36);
+}
+.error:focus {
+  border-color: rgb(255, 0, 85);
+}
+.tooltiptext {
+  color: rgb(255, 0, 85);
+  text-align: left;
+}
+.two-buttons {
+  max-width: 360px;
+  margin: 0 auto 18px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  button {
+    width: 48%;
+    margin: 0;
+  }
+}
+@media screen and (min-width: @sm-min-width) {
+  .form-std {
+    width: 400px;
+  }
+}
+
+.white-box {
+  border-radius: @radius-small;
+  box-shadow: @shadow-light;
+  background: linear-gradient(white, rgba(255, 255, 255, 0.9));
+  padding: 30px 20px;
+}
+
+@media screen and (max-width: @xs-max-width) {
+  .white-box {
+    padding: 30px 10px;
+    width: calc(100% - 20px);
+  }
+}
+
+// Below is not yet integreated (from el-element)
+// Color
+@color-brand: #43b8a9;
+@color-accent: #5b9bd1;
+@color-backdrop: #576067;
+
+// State color
+@color-disable-light: @color-grey-light;
+@color-disable-dark: @color-grey-medium;
+@color-warning-light: #feecce;
+@color-warning-medium: #ffc872;
+@color-warning-dark: #805512;
+@color-success-light: #dff0d8;
+@color-success-medium: #43b8a9;
+@color-success-dark: #42a293;
+@color-info-light: #eff3f8;
+@color-info-medium: #5b9bd1;
+@color-info-dark: #3b434c;
+
+// Element colors
+@color-font-light: #ffffff;
+@color-font-dark: #222222;
+@color-button-primary: @color-accent;
+@color-button-primary-hover: #337ab7;
+@color-button-secondary: @color-accent;
+@color-button-secondary-hover: #337ab7;
+@color-button-danger: @color-error-medium;
+@color-button-danger-hover: @color-error-dark;
+@color-button-link: #337ab7;
+
+// Util
+@radius-large: 10px;
+@shadow-focus: 0 5px 7px rgba(0, 0, 0, 0.1);
+@shadow-wide: 0 15px 35px rgba(0, 0, 0, 0.2);
+@animation: all 0.2s ease-in-out;
+@slow-animation: all 0.5s ease-in-out;
+@fast-animation: all 0.1s ease-out;
+
+// Width
+@section-max-width: 700px;
+@section-content-max-width: 700px;
+@section-content-wide-max-width: 1000px;
+@is-wide-width: 1500px;
+@width-narrow: 900px;
+@element-min-width: 200px;
+@element-min-width-wide: 300px;
+
+// Highlights
+@highlight-background-color: #f9f9f9;
+@highlight-border: 1px solid @color-grey-light;
+@highlight-shadow: @shadow;
+
+// Design elements
+@top-margin-element: 10px;
+@top-margin-section: 10px;
+@bottom-margin-section: 15px;
+@top-margin-header: 15px;
+@top-margin-header-large: 48px;
+@side-margin: 10px;
+
+// Select
+@color-select: @color-button-primary;
+
+@dropdown-height: 10px;
+
+// Global classes
+.animation {
+  -webkit-transition: @animation;
+  -moz-transition: @animation;
+  -o-transition: @animation;
+  transition: @animation;
+}
+
+
+@input-height: 30px;
+@grey-middle: @color-grey-medium;
+@grey-super-light: @color-grey-lightest;
+@grey-light:  @color-grey-light;
+
+

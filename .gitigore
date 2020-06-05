@@ -1,0 +1,8 @@
+# OS Generated #
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+*.swp
+computerVision/getCustomDataset/OID/Dataset/
+computerVision/getCustomDataset/OID/Dataset/*
